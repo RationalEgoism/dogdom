@@ -24,7 +24,7 @@ jobs:
 
       - name: Decode Keystore
         env:
-          ENCODED_STRING: ${{ secrets.KEYSTORE }}
+          ENCODED_STRING: ${{ secrets.STORE_FILE }}
         run: |
           TMP_KEYSTORE_FILE_PATH=/home/runner/work/dogdom/dogdom/android/app/keystore
           mkdir "${TMP_KEYSTORE_FILE_PATH}"

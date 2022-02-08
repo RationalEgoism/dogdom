@@ -1,3 +1,4 @@
+import 'package:dogdom/screens/login/login_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -25,13 +26,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const Center(
-          child: Text(
-        'Text',
-        style: TextStyle(
-          color: Colors.red,
-        ),
-      )),
+      home: const LoginScreen(),
     );
   }
 }

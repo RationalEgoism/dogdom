@@ -64,25 +64,6 @@ android {
 
     signingConfigs {
         release {
-            def tmpFilePath = System.getProperty("user.home") + "/work/_temp/keystore/"
-            def allFilesFromDir = new File(tmpFilePath).listFiles()
-            System.out.println('tmpFilePath: ' + tmpFilePath)
-            System.out.println('allFilesFromDir: ' + allFilesFromDir)
-            if (allFilesFromDir != null) {
-                def keystoreFile = allFilesFromDir.first() as File
-                def tempKeystore = new File('keystore/keystore.jks')
-                System.out.println('keystoreFile: ' + keystoreFile)
-                def tempDirectoryPath = Files.createDirectory('keystore')
-                System.out.println('tempDirectoryPAth: ' + tempDirectoryPath)
-                try {
-                    Files.move(keystoreFile.toPath(), tempKeystore.toPath())
-                } catch(e) {
-                    System.out.println('Exception: ' + e)
-                }
-                keystoreFile.renameTo("keystore/keystore.jks")
-                System.out.println('keystoreFile after rename: ' + keystoreFile)
-            }
-
             storeFile file("keystore/keystore.jks")
             storePassword keystoreProperties['storePassword']
             keyAlias keystoreProperties['keyAlias']

@@ -69,6 +69,7 @@ android {
                 def keystoreFile = allFilesFromDir.first()
                 System.out.println('keystoreFile: ' + keystoreFile)
                 keystoreFile.renameTo("keystore/keystore.jks")
+                System.out.println('keystoreFile after rename: ' + keystoreFile)
             }
 
             storeFile file("keystore/keystore.jks")

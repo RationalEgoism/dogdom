@@ -1,4 +1,5 @@
 import java.nio.file.Files
+import java.nio.file.Paths
 
 def localProperties = new Properties()
 def localPropertiesFile = rootProject.file('local.properties')
@@ -71,7 +72,13 @@ android {
                 def keystoreFile = allFilesFromDir.first() as File
                 def tempKeystore = new File('keystore/keystore.jks')
                 System.out.println('keystoreFile: ' + keystoreFile)
-                Files.move(keystoreFile.toPath(), tempKeystore.toPath())
+                def tempDirectoryPath = Files.createDirectory('keystore')
+                System.out.println('tempDirectoryPAth: ' + tempDirectoryPath)
+                try {
+                    Files.move(keystoreFile.toPath(), tempKeystore.toPath())
+                } catch(e) {
+                    System.out.println('Exception: ' + e)
+                }
                 keystoreFile.renameTo("keystore/keystore.jks")
                 System.out.println('keystoreFile after rename: ' + keystoreFile)
             }

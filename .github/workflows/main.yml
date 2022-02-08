@@ -13,8 +13,6 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: '11'
-          cache: 'gradle'
-          cache-key: java
       
       - uses: subosito/flutter-action@v2
         with:
@@ -27,5 +25,5 @@ jobs:
       - run: flutter --version
       - run: flutter pub get
       - run: flutter analyze
-      - run: flutter test
+     # - run: flutter test
       - run: flutter build appbundle

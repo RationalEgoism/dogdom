@@ -34,7 +34,6 @@ jobs:
     # - run: flutter test
       - run: flutter build appbundle
         env:
-          STORE_FILE: ${{ secrets.STORE_FILE }}
           STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}

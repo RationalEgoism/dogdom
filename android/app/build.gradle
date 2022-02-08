@@ -62,6 +62,7 @@ android {
     signingConfigs {
         release {
             def tmpFilePath = System.getProperty("user.home") + "/work/_temp/keystore/"
+            echo tmpFilePath
             def allFilesFromDir = new File(tmpFilePath).listFiles()
 
             if (allFilesFromDir != null) {

@@ -7,17 +7,33 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        SvgPicture.asset(AppIcons.logo),
-        Center(
-          child: Text(
-            'TEST',
-            style: TextStyle(color: Colors.blue),
+    return Scaffold(
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            fit: BoxFit.fitHeight,
+            colorFilter: ColorFilter.mode(
+              Colors.black.withOpacity(0.8),
+              BlendMode.darken,
+            ),
+            image: AssetImage(AppIcons.bgLoginScreen),
           ),
         ),
-      ],
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SvgPicture.asset(AppIcons.logo),
+            const Center(
+              child: Text(
+                'TEST',
+                style: TextStyle(color: Colors.blue),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

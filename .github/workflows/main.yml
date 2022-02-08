@@ -38,12 +38,9 @@ jobs:
         run: flutter pub get
 
       - name: Decode Keystore
-        env:
-          ENCODED_STRING: ${{ secrets.STORE_FILE }}
         run: |
-          TMP_KEYSTORE_FILE_PATH=/home/runner/work/dogdom/dogdom/android/app/keystore
-          mkdir "${TMP_KEYSTORE_FILE_PATH}"
-          echo $ENCODED_STRING | base64 -di > "${TMP_KEYSTORE_FILE_PATH}"/keystore.jks
+          mkdir keystore
+          echo ${{ secrets.STORE_FILE }} | base64 -d > ./keystore/keystore.jks
 
       - name: Build appbundle
         run: flutter build appbundle
@@ -51,3 +48,4 @@ jobs:
           STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+          STORE_FILE: "../../keystore/keystore.jks"

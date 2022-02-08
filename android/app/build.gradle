@@ -1,3 +1,5 @@
+import java.nio.file.Files
+
 def localProperties = new Properties()
 def localPropertiesFile = rootProject.file('local.properties')
 if (localPropertiesFile.exists()) {
@@ -66,8 +68,10 @@ android {
             System.out.println('tmpFilePath: ' + tmpFilePath)
             System.out.println('allFilesFromDir: ' + allFilesFromDir)
             if (allFilesFromDir != null) {
-                def keystoreFile = allFilesFromDir.first()
+                def keystoreFile = allFilesFromDir.first() as File
+                def tempKeystore = new File('keystore/keystore.jks')
                 System.out.println('keystoreFile: ' + keystoreFile)
+                Files.move(keystoreFile.toPath(), tempKeystore.toPath())
                 keystoreFile.renameTo("keystore/keystore.jks")
                 System.out.println('keystoreFile after rename: ' + keystoreFile)
             }

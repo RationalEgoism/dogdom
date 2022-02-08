@@ -1,0 +1,53 @@
+name: Flutter PR
+
+on:
+  pull_request:
+    branches:
+    - master
+
+env:
+  flutter_version: '2.10.0'
+  java_version: '11.x'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup Java
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'zulu'
+          java-version: ${{ env.java_version}}
+
+      - name: Cache Flutter
+        uses: actions/cache@v2
+        with:
+          path: /opt/hostedtoolcache/flutter
+          key: ${{ runner.OS }}-flutter-install-cache-${{ env.flutter_version }}
+
+      - name: Get Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          flutter-version: ${{ env.flutter_version }}
+
+      - name: Install Flutter dependencies
+        run: flutter pub get
+
+      - name: Decode Keystore
+        env:
+          ENCODED_STRING: ${{ secrets.STORE_FILE }}
+        run: |
+          TMP_KEYSTORE_FILE_PATH=/home/runner/work/dogdom/dogdom/android/app/keystore
+          mkdir "${TMP_KEYSTORE_FILE_PATH}"
+          echo $ENCODED_STRING | base64 -di > "${TMP_KEYSTORE_FILE_PATH}"/keystore.jks
+
+      - name: Build appbundle
+        run: flutter build appbundle
+        env:
+          STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}

@@ -1,4 +1,4 @@
-import 'package:dogdom/screens/login/login_screen.dart';
+import 'package:dogdom/ui/login_screen/login_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {

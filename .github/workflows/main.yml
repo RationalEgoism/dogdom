@@ -50,3 +50,12 @@ jobs:
           STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+
+# TODO uncomment when application will be publish in Google play console
+#      - name: Upload artifact to Firebase App Distribution
+#        uses: wzieba/Firebase-Distribution-Github-Action@v1
+#        with:
+#          appId: ${{ secrets.FIREBASE_ANDROID_PROD_ID }}
+#          token: ${{ secrets.FIREBASE_TOKEN }}
+#          groups: owner
+#          file: build/app/outputs/bundle/release/app-release.aab

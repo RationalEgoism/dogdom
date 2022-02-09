@@ -8,6 +8,12 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var kTextStyle = TextStyle(
+      fontStyle: FontStyle.normal,
+      fontWeight: FontWeight.normal,
+      fontSize: 17.0,
+      color: Colors.white,
+    );
     return Container(
       width: double.infinity,
       height: double.infinity,
@@ -29,29 +35,56 @@ class LoginScreen extends StatelessWidget {
           children: [
             SvgPicture.asset(AppIcons.logo),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 28.0),
-              child: TextFormField(
-                cursorColor: Colors.white,
-                style: TextStyle(
-                  color: Colors.white,
-                ),
-                keyboardType: TextInputType.phone,
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: Colors.white24,
-                  border: OutlineInputBorder(
+              padding: EdgeInsets.only(
+                left: 28.0,
+                top: 16.0,
+                right: 28.0,
+                bottom: 0,
+              ),
+              child: SizedBox(
+                width: double.infinity,
+                height: 58.0,
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    color: Colors.white24,
+                    border: Border(),
                     borderRadius: BorderRadius.horizontal(
                       left: Radius.circular(60.0),
                       right: Radius.circular(60.0),
                     ),
-                    borderSide: BorderSide.none,
                   ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.horizontal(
-                      left: Radius.circular(60.0),
-                      right: Radius.circular(60.0),
+                  child: InternationalPhoneNumberInput(
+                    onInputChanged: (PhoneNumber value) {},
+                    spaceBetweenSelectorAndTextField: 0.0,
+                    cursorColor: Colors.white,
+                    autoFocusSearch: true,
+                    selectorTextStyle: kTextStyle,
+                    textStyle: kTextStyle,
+                    buttonPadding: EdgeInsets.only(left: 16.0),
+                    inputDecoration: InputDecoration(
+                      isDense: true,
+                      prefixIconConstraints: BoxConstraints(maxWidth: 36),
+                      prefixIcon: Padding(
+                        padding: const EdgeInsets.all(0.0),
+                        child: Icon(
+                          Icons.expand_more_sharp,
+                          color: Colors.white,
+                          size: 24.0,
+                        ),
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.horizontal(
+                          left: Radius.circular(60.0),
+                          right: Radius.circular(60.0),
+                        ),
+                        borderSide: BorderSide.none,
+                      ),
                     ),
-                    borderSide: BorderSide.none,
+                    selectorConfig: SelectorConfig(
+                      showFlags: false,
+                      selectorType: PhoneInputSelectorType.BOTTOM_SHEET,
+                      trailingSpace: false,
+                    ),
                   ),
                 ),
               ),
@@ -74,60 +107,6 @@ class LoginScreen extends StatelessWidget {
                     shadowColor: Color(0x00000040),
                     shape: StadiumBorder(side: BorderSide()),
                     primary: Color(0xfffa6650),
-                  ),
-                ),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(
-                left: 28.0,
-                top: 16.0,
-                right: 28.0,
-                bottom: 0,
-              ),
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  color: Colors.white24,
-                  border: Border(),
-                  borderRadius: BorderRadius.horizontal(
-                    left: Radius.circular(60.0),
-                    right: Radius.circular(60.0),
-                  ),
-                ),
-                child: InternationalPhoneNumberInput(
-                  onInputChanged: (PhoneNumber value) {},
-                  spaceBetweenSelectorAndTextField: 0.0,
-                  cursorColor: Colors.white,
-                  autoFocusSearch: true,
-                  selectorTextStyle: TextStyle(
-                    color: Colors.white,
-                  ),
-                  textStyle: TextStyle(
-                    color: Colors.white,
-                  ),
-                  buttonPadding: EdgeInsets.only(left: 16.0),
-                  inputDecoration: InputDecoration(
-                    prefixIconConstraints: BoxConstraints(maxWidth: 24),
-                    prefixIcon: Padding(
-                      padding: const EdgeInsets.all(0.0),
-                      child: Icon(
-                        Icons.expand_more,
-                        color: Colors.white,
-                      ),
-                    ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.horizontal(
-                        left: Radius.circular(60.0),
-                        right: Radius.circular(60.0),
-                      ),
-                      borderSide: BorderSide.none,
-                    ),
-                  ),
-                  selectorConfig: SelectorConfig(
-                    showFlags: false,
-                    selectorType: PhoneInputSelectorType.BOTTOM_SHEET,
-                    leadingPadding: 0.0,
-                    trailingSpace: false,
                   ),
                 ),
               ),

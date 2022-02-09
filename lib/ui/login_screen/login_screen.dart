@@ -14,7 +14,7 @@ class LoginScreen extends StatelessWidget {
         image: DecorationImage(
           fit: BoxFit.fill,
           colorFilter: ColorFilter.mode(
-            Colors.black.withOpacity(0.8),
+            Colors.black.withOpacity(0.6),
             BlendMode.darken,
           ),
           image: AssetImage(AppIcons.bgLoginScreen),
@@ -26,13 +26,32 @@ class LoginScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SvgPicture.asset(AppIcons.logo),
-            TextFormField(),
-            const Center(
-              child: Text(
-                'TEST',
-                style: TextStyle(color: Colors.blue),
-              ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 28.0),
+              child: TextFormField(),
             ),
+            Padding(
+              padding: EdgeInsets.only(
+                left: 28.0,
+                top: 16.0,
+                right: 28.0,
+                bottom: 0,
+              ),
+              child: SizedBox(
+                width: double.infinity,
+                height: 58.0,
+                child: ElevatedButton(
+                  onPressed: () {},
+                  child: Text('Get Captcha'),
+                  style: ElevatedButton.styleFrom(
+                    elevation: 4.0,
+                    shadowColor: Color(0x00000040),
+                    shape: StadiumBorder(side: BorderSide()),
+                    primary: Color(0xfffa6650),
+                  ),
+                ),
+              ),
+            )
           ],
         ),
       ),

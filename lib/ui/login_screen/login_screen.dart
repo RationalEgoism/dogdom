@@ -29,6 +29,7 @@ class LoginScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 28.0),
               child: TextFormField(
+                cursorColor: Colors.white,
                 style: TextStyle(
                   color: Colors.white,
                 ),

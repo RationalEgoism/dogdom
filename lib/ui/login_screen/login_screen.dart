@@ -111,6 +111,31 @@ class LoginScreen extends StatelessWidget {
                 ),
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                vertical: 10.0,
+                horizontal: 35.0,
+              ),
+              child: Row(
+                children: const [
+                  Text(
+                    'Password to Login',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 13,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Text(
+              'By signing in, you agree to the User\u{00A0}Agreement and\u{00A0}Privacy\u{00A0}Terms.',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 13,
+              ),
+            ),
           ],
         ),
       ),

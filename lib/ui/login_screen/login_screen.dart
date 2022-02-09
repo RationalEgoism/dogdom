@@ -23,7 +23,7 @@ class LoginScreen extends StatelessWidget {
         image: DecorationImage(
           fit: BoxFit.fill,
           colorFilter: ColorFilter.mode(
-            Colors.black.withOpacity(0.6),
+            Colors.black.withOpacity(0.7),
             BlendMode.darken,
           ),
           image: AssetImage(AppIcons.bgLoginScreen),

@@ -1,5 +1,6 @@
 {
   "@_COMMON": {},
+  "wip": "Работа в процессе",
 
   "@_LOGIN_SCREEN": {},
   "loginGetCaptcha": "Получить код",

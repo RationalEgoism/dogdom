@@ -105,7 +105,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: e057892428245a0bbc6bd1021aa12413e16cebf5
+      resolved-ref: a2b16ed5e587505eab56ce82fe485d1515ac0044
       url: "https://github.com/RationalEgoism/intl_phone_number_input"
     source: git
     version: "0.7.0+2"

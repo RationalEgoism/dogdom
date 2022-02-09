@@ -105,7 +105,7 @@ class LoginScreen extends StatelessWidget {
                   textStyle: TextStyle(
                     color: Colors.white,
                   ),
-                  buttonPadding: EdgeInsets.zero,
+                  buttonPadding: EdgeInsets.only(left: 16.0),
                   inputDecoration: InputDecoration(
                     prefixIconConstraints: BoxConstraints(maxWidth: 24),
                     prefixIcon: Padding(
@@ -126,8 +126,8 @@ class LoginScreen extends StatelessWidget {
                   selectorConfig: SelectorConfig(
                     showFlags: false,
                     selectorType: PhoneInputSelectorType.BOTTOM_SHEET,
-                    leadingPadding: 16.0,
-                    trailingSpace: true,
+                    leadingPadding: 0.0,
+                    trailingSpace: false,
                   ),
                 ),
               ),

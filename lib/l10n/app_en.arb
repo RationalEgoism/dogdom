@@ -1,6 +1,7 @@
 {
   "@_COMMON": {},
   "appTitle": "Dogdom",
+  "wip": "Work in progress",
 
   "@_LOGIN_SCREEN": {},
   "loginGetCaptcha": "Get Captcha",

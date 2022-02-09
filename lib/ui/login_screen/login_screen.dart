@@ -1,6 +1,7 @@
 import 'package:dogdom/theme/app_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -21,6 +22,7 @@ class LoginScreen extends StatelessWidget {
         ),
       ),
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: Colors.transparent,
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -75,7 +77,61 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
               ),
-            )
+            ),
+            Padding(
+              padding: EdgeInsets.only(
+                left: 28.0,
+                top: 16.0,
+                right: 28.0,
+                bottom: 0,
+              ),
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  color: Colors.white24,
+                  border: Border(),
+                  borderRadius: BorderRadius.horizontal(
+                    left: Radius.circular(60.0),
+                    right: Radius.circular(60.0),
+                  ),
+                ),
+                child: InternationalPhoneNumberInput(
+                  onInputChanged: (PhoneNumber value) {},
+                  spaceBetweenSelectorAndTextField: 0.0,
+                  cursorColor: Colors.white,
+                  autoFocusSearch: true,
+                  selectorTextStyle: TextStyle(
+                    color: Colors.white,
+                  ),
+                  textStyle: TextStyle(
+                    color: Colors.white,
+                  ),
+                  buttonPadding: EdgeInsets.zero,
+                  inputDecoration: InputDecoration(
+                    prefixIconConstraints: BoxConstraints(maxWidth: 24),
+                    prefixIcon: Padding(
+                      padding: const EdgeInsets.all(0.0),
+                      child: Icon(
+                        Icons.expand_more,
+                        color: Colors.white,
+                      ),
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.horizontal(
+                        left: Radius.circular(60.0),
+                        right: Radius.circular(60.0),
+                      ),
+                      borderSide: BorderSide.none,
+                    ),
+                  ),
+                  selectorConfig: SelectorConfig(
+                    showFlags: false,
+                    selectorType: PhoneInputSelectorType.BOTTOM_SHEET,
+                    leadingPadding: 16.0,
+                    trailingSpace: true,
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),

@@ -1,5 +1,6 @@
 import 'package:dogdom/theme/app_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
@@ -112,7 +113,7 @@ class LoginScreen extends StatelessWidget {
                 height: 58.0,
                 child: ElevatedButton(
                   onPressed: () {},
-                  child: Text('Get Captcha'),
+                  child: Text(AppLocalizations.of(context)!.loginGetCaptcha),
                   style: ElevatedButton.styleFrom(
                     elevation: 4.0,
                     shadowColor: Color(0x00000040),
@@ -128,9 +129,9 @@ class LoginScreen extends StatelessWidget {
                 horizontal: 35.0,
               ),
               child: Row(
-                children: const [
+                children: [
                   Text(
-                    'Password to Login',
+                    AppLocalizations.of(context)!.loginPassToLog,
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 13,
@@ -148,7 +149,7 @@ class LoginScreen extends StatelessWidget {
                 child: Align(
                   alignment: FractionalOffset.bottomCenter,
                   child: Text(
-                    'By signing in, you agree to the User\u{00A0}Agreement and\u{00A0}Privacy\u{00A0}Terms.',
+                    AppLocalizations.of(context)!.loginPrivacy,
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.white,

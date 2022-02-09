@@ -1,0 +1,9 @@
+{
+  "@_COMMON": {},
+  "appTitle": "Dogdom",
+
+  "@_LOGIN_SCREEN": {},
+  "loginGetCaptcha": "Get Captcha",
+  "loginPassToLog": "Password to Login",
+  "loginPrivacy": "By signing in, you agree to the User\u00A0Agreement and\u00A0Privacy\u00A0Terms."
+}

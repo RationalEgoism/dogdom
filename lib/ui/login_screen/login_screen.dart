@@ -33,7 +33,18 @@ class LoginScreen extends StatelessWidget {
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SvgPicture.asset(AppIcons.logo),
+            Expanded(
+              child: Container(
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: SvgPicture.asset(AppIcons.logo),
+                ),
+                alignment: FractionalOffset.bottomCenter,
+              ),
+            ),
+            SizedBox(
+              height: 40.0,
+            ),
             Padding(
               padding: EdgeInsets.only(
                 left: 28.0,
@@ -128,12 +139,23 @@ class LoginScreen extends StatelessWidget {
                 ],
               ),
             ),
-            Text(
-              'By signing in, you agree to the User\u{00A0}Agreement and\u{00A0}Privacy\u{00A0}Terms.',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 13,
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  vertical: 16.0,
+                  horizontal: 28.0,
+                ),
+                child: Align(
+                  alignment: FractionalOffset.bottomCenter,
+                  child: Text(
+                    'By signing in, you agree to the User\u{00A0}Agreement and\u{00A0}Privacy\u{00A0}Terms.',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 13,
+                    ),
+                  ),
+                ),
               ),
             ),
           ],

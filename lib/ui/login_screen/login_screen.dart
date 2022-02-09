@@ -28,7 +28,30 @@ class LoginScreen extends StatelessWidget {
             SvgPicture.asset(AppIcons.logo),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 28.0),
-              child: TextFormField(),
+              child: TextFormField(
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+                keyboardType: TextInputType.phone,
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: Colors.white24,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.horizontal(
+                      left: Radius.circular(60.0),
+                      right: Radius.circular(60.0),
+                    ),
+                    borderSide: BorderSide.none,
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.horizontal(
+                      left: Radius.circular(60.0),
+                      right: Radius.circular(60.0),
+                    ),
+                    borderSide: BorderSide.none,
+                  ),
+                ),
+              ),
             ),
             Padding(
               padding: EdgeInsets.only(

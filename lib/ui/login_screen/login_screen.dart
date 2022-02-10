@@ -1,4 +1,5 @@
 import 'package:dogdom/theme/app_icons.dart';
+import 'package:dogdom/ui/main_screen/main_screen.dart';
 import 'package:dogdom/utils/extension/context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -6,6 +7,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
 class LoginScreen extends StatelessWidget {
+  static String id = "LoginScreen";
+
   const LoginScreen({Key? key}) : super(key: key);
 
   @override
@@ -113,8 +116,13 @@ class LoginScreen extends StatelessWidget {
                 width: double.infinity,
                 height: 58.0,
                 child: ElevatedButton(
-                  onPressed: () => context.showWipToast(),
-                  child: Text(AppLocalizations.of(context)!.loginGetCaptcha),
+                  onPressed: () => Navigator.pushNamed(
+                    context,
+                    MainScreen.id,
+                  ),
+                  child: Text(
+                    AppLocalizations.of(context)!.loginGetCaptcha,
+                  ),
                   style: ElevatedButton.styleFrom(
                     elevation: 4.0,
                     shadowColor: Color(0x00000040),

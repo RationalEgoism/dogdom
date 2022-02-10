@@ -1,4 +1,5 @@
 import 'package:dogdom/ui/login_screen/login_screen.dart';
+import 'package:dogdom/ui/main_screen/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -16,7 +17,11 @@ class DogdomApp extends StatelessWidget {
       ),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      home: LoginScreen(),
+      initialRoute: MainScreen.id,
+      routes: {
+        LoginScreen.id: (context) => LoginScreen(),
+        MainScreen.id: (context) => MainScreen(),
+      },
     );
   }
 }

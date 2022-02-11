@@ -41,7 +41,9 @@ class LoadingButtonWidget extends StatelessWidget {
                 ),
                 shape: MaterialStateProperty.resolveWith(
                   (_) => StadiumBorder(
-                    side: BorderSide(),
+                    side: BorderSide(
+                      color: state.validated ? Colors.black : Colors.black38,
+                    ),
                   ),
                 ),
               ),

@@ -41,11 +41,8 @@ class PhoneInputWidget extends StatelessWidget {
                     SetValidationEvent(validated: validated),
                   );
             },
-            onFieldSubmitted: (text) {
-              print(text);
-            },
             onSubmit: () {
-              print('submited');
+              context.read<LoginBloc>().add(GetCaptchaEvent());
             },
             spaceBetweenSelectorAndTextField: 0.0,
             cursorColor: Colors.white,

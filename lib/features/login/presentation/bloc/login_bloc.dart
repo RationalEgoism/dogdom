@@ -15,6 +15,9 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     GetCaptchaEvent event,
     Emitter<LoginState> emit,
   ) async {
+    // TODO Must BLoC emit always emit new state?
+    if (!state.validated) return;
+
     emit(state.copyWith(status: LoginStatus.loading));
     try {
       var showError = Random().nextBool();

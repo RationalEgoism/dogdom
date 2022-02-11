@@ -25,15 +25,17 @@ class LoginScreen extends StatelessWidget {
         listener: (context, state) {
           if (state.status.isSuccess) {
             Navigator.pushNamed(context, MainScreen.id);
+            context.read<LoginBloc>().add(SetInitStateEvent());
           }
           if (state.status.isError) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
+                duration: Duration(seconds: 1),
                 backgroundColor: Color(AppColors.red),
                 content: Text(AppLocalizations.of(context)!.common_error),
               ),
             );
-            context.read<LoginBloc>().add(ErrorHandledEvent());
+            context.read<LoginBloc>().add(SetInitStateEvent());
           }
         },
         child: Container(

@@ -34,7 +34,9 @@ class PhoneInputWidget extends StatelessWidget {
           child: InternationalPhoneNumberInput(
             initialValue: PhoneNumber(isoCode: 'RU'),
             onInputChanged: (PhoneNumber value) {
-              print(value);
+              context.read<LoginBloc>().add(
+                    PhoneChangedEvent(phoneNumber: value.phoneNumber ?? ''),
+                  );
             },
             onInputValidated: (validated) {
               context.read<LoginBloc>().add(

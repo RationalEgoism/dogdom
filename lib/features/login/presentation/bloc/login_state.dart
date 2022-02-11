@@ -8,18 +8,25 @@ extension LoginStatusX on LoginStatus {
 }
 
 class LoginState {
-  final LoginStatus status;
-  final bool validated;
+  LoginStatus status;
+  bool validated;
+  String phoneNumber;
 
-  LoginState({this.status = LoginStatus.initial, this.validated = false});
+  LoginState({
+    this.status = LoginStatus.initial,
+    this.validated = false,
+    this.phoneNumber = "",
+  });
 
   LoginState copyWith({
     LoginStatus? status,
     bool? validated,
+    String? phoneNumber,
   }) {
     return LoginState(
       status: status ?? this.status,
       validated: validated ?? this.validated,
+      phoneNumber: phoneNumber ?? this.phoneNumber,
     );
   }
 }

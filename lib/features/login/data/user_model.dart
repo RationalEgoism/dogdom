@@ -6,7 +6,7 @@ part 'user_model.g.dart';
 @HiveType(typeId: 0)
 class User {
   @HiveField(0)
-  PhoneNumber phoneNumber;
+  String phoneNumber;
 
   User({required this.phoneNumber});
 }

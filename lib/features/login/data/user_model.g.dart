@@ -17,7 +17,7 @@ class UserAdapter extends TypeAdapter<User> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return User(
-      phoneNumber: fields[0] as PhoneNumber,
+      phoneNumber: fields[0] as String,
     );
   }
 

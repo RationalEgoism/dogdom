@@ -1,21 +1,24 @@
 import 'package:dogdom/features/login/data/user_model.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
 abstract class UserRepository {
-  void savePhone(PhoneNumber phoneNumber);
-  PhoneNumber getPhone();
+  void savePhone(String phoneNumber);
+  String getPhone();
 }
 
 class UserRepositoryImpl implements UserRepository {
   late final Box<User> _userBox;
 
-  UserRepositoryImpl() {
-    initUserBox();
+  UserRepositoryImpl._();
+
+  static Future<UserRepositoryImpl> create() async {
+    final repository = UserRepositoryImpl._();
+    await repository.initUserBox();
+    return repository;
   }
 
   @override
-  void savePhone(PhoneNumber phoneNumber) {
+  void savePhone(String phoneNumber) {
     if (_userBox.isEmpty) {
       _userBox.add(User(phoneNumber: phoneNumber));
     } else {
@@ -25,11 +28,10 @@ class UserRepositoryImpl implements UserRepository {
 
   Future<void> initUserBox() async {
     _userBox = await Hive.openBox('user');
-    Hive.registerAdapter(UserAdapter());
   }
 
   @override
-  PhoneNumber getPhone() {
+  String getPhone() {
     return _userBox.values.first.phoneNumber;
   }
 }

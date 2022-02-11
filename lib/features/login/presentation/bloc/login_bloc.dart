@@ -1,5 +1,4 @@
-import 'dart:math';
-
+import 'package:dogdom/core/repository/user_repository.dart';
 import 'package:dogdom/features/login/presentation/bloc/login_event.dart';
 import 'package:dogdom/features/login/presentation/bloc/login_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,6 +8,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     on<GetCaptchaEvent>(_mapGetCaptchaEventToState);
     on<SetInitStateEvent>(_mapSetInitStateEventToState);
     on<SetValidationEvent>(_mapValidationEventToState);
+    on<PhoneChangedEvent>(_mapPhoneChangedEventToState);
   }
 
   void _mapGetCaptchaEventToState(
@@ -20,14 +20,9 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
     emit(state.copyWith(status: LoginStatus.loading));
     try {
-      var showError = Random().nextBool();
-      await Future.delayed(Duration(seconds: 2));
-      // TODO remove this random
-      if (showError) {
-        throw Exception();
-      } else {
-        emit(state.copyWith(status: LoginStatus.success));
-      }
+      var repository = await UserRepositoryImpl.create();
+      repository.savePhone(state.phoneNumber);
+      emit(state.copyWith(status: LoginStatus.success));
     } catch (e) {
       emit(state.copyWith(status: LoginStatus.error));
     }
@@ -45,5 +40,12 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     Emitter<LoginState> emit,
   ) {
     emit(state.copyWith(validated: event.validated));
+  }
+
+  void _mapPhoneChangedEventToState(
+    PhoneChangedEvent event,
+    Emitter<LoginState> emit,
+  ) {
+    emit(state.copyWith(phoneNumber: event.phoneNumber));
   }
 }

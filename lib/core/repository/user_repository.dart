@@ -1,5 +1,6 @@
 import 'package:dogdom/features/login/domain/models/user_model.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:injectable/injectable.dart';
 
 // TODO have to work with DTO & map to business object
 // See: https://github.com/RationalEgoism/dogdom/issues/33
@@ -8,6 +9,7 @@ abstract class UserRepository {
   String getPhone();
 }
 
+@Singleton(as: UserRepository)
 class UserRepositoryImpl implements UserRepository {
   late final Box<User> _userBox;
 

@@ -1,5 +1,9 @@
 import 'package:dogdom/app/theme/app_icons.dart';
+import 'package:dogdom/features/main/presentation/bloc/main_bloc.dart';
+import 'package:dogdom/features/main/presentation/bloc/main_event.dart';
+import 'package:dogdom/features/main/presentation/bloc/main_state.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MainScreen extends StatelessWidget {
@@ -9,20 +13,30 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Image.asset(
-          AppIcons.wip,
-          height: 200,
-          width: 200,
-        ),
-        Text(
-          AppLocalizations.of(context)!.common_wip,
-          textAlign: TextAlign.center,
-        ),
-      ],
+    return BlocProvider<MainBloc>(
+      create: (context) => MainBloc()..add(GetFormattedPhoneEvent()),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Image.asset(
+            AppIcons.wip,
+            height: 200,
+            width: 200,
+          ),
+          BlocBuilder<MainBloc, MainState>(
+            builder: (context, state) {
+              return Text(
+                AppLocalizations.of(context)!.mainHello(state.phone),
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 24.0,
+                ),
+              );
+            },
+          ),
+        ],
+      ),
     );
   }
 }

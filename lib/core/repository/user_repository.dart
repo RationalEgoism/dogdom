@@ -1,6 +1,8 @@
-import 'package:dogdom/features/login/data/user_model.dart';
+import 'package:dogdom/features/login/domain/models/user_model.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
+// TODO have to work with DTO & map to business object
+// See: https://github.com/RationalEgoism/dogdom/issues/33
 abstract class UserRepository {
   void savePhone(String phoneNumber);
   String getPhone();

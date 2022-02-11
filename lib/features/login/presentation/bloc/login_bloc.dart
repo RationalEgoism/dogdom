@@ -11,7 +11,6 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     GetCaptchaEvent event,
     Emitter<LoginState> emit,
   ) async {
-    await Future.delayed(Duration(seconds: 5));
     emit(state.copyWith(status: LoginStatus.loading));
     try {
       await Future.delayed(Duration(seconds: 5));

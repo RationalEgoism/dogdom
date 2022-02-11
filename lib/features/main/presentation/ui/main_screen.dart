@@ -19,7 +19,7 @@ class MainScreen extends StatelessWidget {
           width: 200,
         ),
         Text(
-          AppLocalizations.of(context)!.wip,
+          AppLocalizations.of(context)!.common_wip,
           textAlign: TextAlign.center,
         ),
       ],

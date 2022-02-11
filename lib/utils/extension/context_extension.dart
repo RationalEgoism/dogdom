@@ -5,7 +5,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 extension WipToast on BuildContext {
   void showWipToast() {
     Fluttertoast.showToast(
-      msg: AppLocalizations.of(this)!.wip,
+      msg: AppLocalizations.of(this)!.common_wip,
     );
   }
 }

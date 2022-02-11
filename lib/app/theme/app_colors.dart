@@ -1,3 +1,3 @@
 class AppColors {
-  static const buttonColor = 0xfffa6650;
+  static const red = 0xfffa6650;
 }

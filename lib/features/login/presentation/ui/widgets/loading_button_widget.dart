@@ -37,7 +37,7 @@ class LoadingButtonWidget extends StatelessWidget {
                 elevation: 4.0,
                 shadowColor: Color(0x00000040),
                 shape: StadiumBorder(side: BorderSide()),
-                primary: Color(AppColors.buttonColor),
+                primary: Color(AppColors.red),
               ),
               child: state.status.isLoading
                   ? SizedBox(

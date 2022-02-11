@@ -1,5 +1,7 @@
+import 'package:dogdom/app/theme/app_colors.dart';
 import 'package:dogdom/app/theme/app_icons.dart';
 import 'package:dogdom/features/login/presentation/bloc/login_bloc.dart';
+import 'package:dogdom/features/login/presentation/bloc/login_event.dart';
 import 'package:dogdom/features/login/presentation/bloc/login_state.dart';
 import 'package:dogdom/features/login/presentation/ui/widgets/loading_button_widget.dart';
 import 'package:dogdom/features/login/presentation/ui/widgets/logo_widget.dart';
@@ -23,6 +25,15 @@ class LoginScreen extends StatelessWidget {
         listener: (context, state) {
           if (state.status.isSuccess) {
             Navigator.pushNamed(context, MainScreen.id);
+          }
+          if (state.status.isError) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                backgroundColor: Color(AppColors.red),
+                content: Text(AppLocalizations.of(context)!.common_error),
+              ),
+            );
+            context.read<LoginBloc>().add(ErrorHandledEvent());
           }
         },
         child: Container(

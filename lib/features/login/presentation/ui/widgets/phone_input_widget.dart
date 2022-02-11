@@ -1,5 +1,8 @@
 import 'package:dogdom/app/theme/app_text_styles.dart';
+import 'package:dogdom/features/login/presentation/bloc/login_bloc.dart';
+import 'package:dogdom/features/login/presentation/bloc/login_event.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
 class PhoneInputWidget extends StatelessWidget {
@@ -29,7 +32,18 @@ class PhoneInputWidget extends StatelessWidget {
             ),
           ),
           child: InternationalPhoneNumberInput(
-            onInputChanged: (PhoneNumber value) {},
+            initialValue: PhoneNumber(isoCode: 'RU'),
+            onInputChanged: (PhoneNumber value) {
+              print(value);
+            },
+            onInputValidated: (validated) {
+              context.read<LoginBloc>().add(
+                    SetValidationEvent(validated: validated),
+                  );
+            },
+            onSubmit: () {
+              context.read<LoginBloc>().add(GetCaptchaEvent());
+            },
             spaceBetweenSelectorAndTextField: 0.0,
             cursorColor: Colors.white,
             autoFocusSearch: true,
@@ -37,7 +51,6 @@ class PhoneInputWidget extends StatelessWidget {
             textStyle: AppTextStyles.kTextStyle,
             buttonPadding: EdgeInsets.only(left: 16.0),
             inputDecoration: InputDecoration(
-              isDense: true,
               prefixIconConstraints: BoxConstraints(maxWidth: 36),
               prefixIcon: Padding(
                 padding: const EdgeInsets.all(0.0),

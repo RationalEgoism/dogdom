@@ -7,7 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class LoadingButtonWidget extends StatelessWidget {
-  const LoadingButtonWidget({
+  LoadingButtonWidget({
     Key? key,
   }) : super(key: key);
 
@@ -25,19 +25,25 @@ class LoadingButtonWidget extends StatelessWidget {
         height: 58.0,
         child: BlocBuilder<LoginBloc, LoginState>(
           builder: (context, state) {
+            // TODO: https://github.com/RationalEgoism/dogdom/issues/29
             return ElevatedButton(
-              onPressed: () {
-                if (state.status.isInitial) {
-                  context.read<LoginBloc>().add(GetCaptchaEvent());
-                } else {
-                  null;
-                }
-              },
-              style: ElevatedButton.styleFrom(
-                elevation: 4.0,
-                shadowColor: Color(0x00000040),
-                shape: StadiumBorder(side: BorderSide()),
-                primary: Color(AppColors.red),
+              onPressed: state.validated
+                  ? () => _onPressedAction(state, context)
+                  : null,
+              style: ButtonStyle(
+                backgroundColor: _buttonBackgroundColor,
+                foregroundColor: _foregroundButtonColor,
+                elevation: MaterialStateProperty.resolveWith(
+                  (_) => 4.0,
+                ),
+                shadowColor: MaterialStateProperty.resolveWith(
+                  (_) => Color(0x00000040),
+                ),
+                shape: MaterialStateProperty.resolveWith(
+                  (_) => StadiumBorder(
+                    side: BorderSide(),
+                  ),
+                ),
               ),
               child: state.status.isLoading
                   ? SizedBox(
@@ -55,5 +61,31 @@ class LoadingButtonWidget extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  final _buttonBackgroundColor = MaterialStateProperty.resolveWith(
+    (states) {
+      if (states.contains(MaterialState.disabled)) {
+        return Color(AppColors.red).withOpacity(0.38);
+      }
+      return Color(AppColors.red);
+    },
+  );
+
+  final _foregroundButtonColor = MaterialStateProperty.resolveWith(
+    (states) {
+      if (states.contains(MaterialState.disabled)) {
+        return Colors.white.withOpacity(0.38);
+      }
+      return Colors.white;
+    },
+  );
+
+  void _onPressedAction(LoginState state, BuildContext context) {
+    if (state.status.isInitial && state.validated) {
+      context.read<LoginBloc>().add(GetCaptchaEvent());
+    } else {
+      null;
+    }
   }
 }

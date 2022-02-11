@@ -9,14 +9,17 @@ extension LoginStatusX on LoginStatus {
 
 class LoginState {
   final LoginStatus status;
+  final bool validated;
 
-  LoginState({this.status = LoginStatus.initial});
+  LoginState({this.status = LoginStatus.initial, this.validated = false});
 
   LoginState copyWith({
     LoginStatus? status,
+    bool? validated,
   }) {
     return LoginState(
       status: status ?? this.status,
+      validated: validated ?? this.validated,
     );
   }
 }

@@ -7,7 +7,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   LoginBloc() : super(LoginState()) {
     on<GetCaptchaEvent>(_mapGetCaptchaEventToState);
-    on<SetInitStateEvent>(_mapErrorHandledEventToState);
+    on<SetInitStateEvent>(_mapSetInitStateEventToState);
+    on<SetValidationEvent>(_mapValidationEventToState);
   }
 
   void _mapGetCaptchaEventToState(
@@ -29,10 +30,17 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     }
   }
 
-  void _mapErrorHandledEventToState(
+  void _mapSetInitStateEventToState(
     SetInitStateEvent event,
     Emitter<LoginState> emit,
   ) {
     emit(state.copyWith(status: LoginStatus.initial));
+  }
+
+  void _mapValidationEventToState(
+    SetValidationEvent event,
+    Emitter<LoginState> emit,
+  ) {
+    emit(state.copyWith(validated: event.validated));
   }
 }

@@ -27,7 +27,7 @@ class LoadingButtonWidget extends StatelessWidget {
           builder: (context, state) {
             return ElevatedButton(
               onPressed: () {
-                if (state.status.isInitial) {
+                if (state.status.isInitial && state.validated) {
                   context.read<LoginBloc>().add(GetCaptchaEvent());
                 } else {
                   null;

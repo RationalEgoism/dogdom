@@ -1,5 +1,8 @@
 import 'package:dogdom/app/theme/app_text_styles.dart';
+import 'package:dogdom/features/login/presentation/bloc/login_bloc.dart';
+import 'package:dogdom/features/login/presentation/bloc/login_event.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
 class PhoneInputWidget extends StatelessWidget {
@@ -34,7 +37,9 @@ class PhoneInputWidget extends StatelessWidget {
               print(value);
             },
             onInputValidated: (validated) {
-              print(validated);
+              context.read<LoginBloc>().add(
+                    SetValidationEvent(validated: validated),
+                  );
             },
             onFieldSubmitted: (text) {
               print(text);

@@ -1,4 +1,5 @@
-import 'package:dogdom/core/repository/user_repository.dart';
+import 'package:dogdom/features/login/data/repository/user_repository.dart';
+import 'package:dogdom/features/login/domain/interactors/login_interactor.dart';
 import 'package:dogdom/features/login/presentation/bloc/login_event.dart';
 import 'package:dogdom/features/login/presentation/bloc/login_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,6 +11,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     on<SetValidationEvent>(_mapValidationEventToState);
     on<PhoneChangedEvent>(_mapPhoneChangedEventToState);
   }
+  late LoginInteractor interactor;
 
   void _mapGetCaptchaEventToState(
     GetCaptchaEvent event,
@@ -21,7 +23,9 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     emit(state.copyWith(status: LoginStatus.loading));
     try {
       var repository = await UserRepositoryImpl.create();
-      repository.savePhone(state.phoneNumber);
+      interactor = LoginInteractorImpl(repository);
+      interactor.savePhone(state.phoneNumber);
+
       emit(state.copyWith(status: LoginStatus.success));
     } catch (e) {
       emit(state.copyWith(status: LoginStatus.error));

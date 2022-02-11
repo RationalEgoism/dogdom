@@ -51,7 +51,6 @@ class PhoneInputWidget extends StatelessWidget {
             textStyle: AppTextStyles.kTextStyle,
             buttonPadding: EdgeInsets.only(left: 16.0),
             inputDecoration: InputDecoration(
-              isDense: true,
               prefixIconConstraints: BoxConstraints(maxWidth: 36),
               prefixIcon: Padding(
                 padding: const EdgeInsets.all(0.0),

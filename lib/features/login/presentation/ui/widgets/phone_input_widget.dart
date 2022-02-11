@@ -29,7 +29,19 @@ class PhoneInputWidget extends StatelessWidget {
             ),
           ),
           child: InternationalPhoneNumberInput(
-            onInputChanged: (PhoneNumber value) {},
+            initialValue: PhoneNumber(isoCode: 'RU'),
+            onInputChanged: (PhoneNumber value) {
+              print(value);
+            },
+            onInputValidated: (validated) {
+              print(validated);
+            },
+            onFieldSubmitted: (text) {
+              print(text);
+            },
+            onSubmit: () {
+              print('submited');
+            },
             spaceBetweenSelectorAndTextField: 0.0,
             cursorColor: Colors.white,
             autoFocusSearch: true,

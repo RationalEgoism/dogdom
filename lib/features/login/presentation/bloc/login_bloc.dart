@@ -1,4 +1,4 @@
-import 'package:dogdom/features/login/data/repository/user_repository.dart';
+import 'package:dogdom/core/repository/user_repository.dart';
 import 'package:dogdom/features/login/domain/interactors/login_interactor.dart';
 import 'package:dogdom/features/login/presentation/bloc/login_event.dart';
 import 'package:dogdom/features/login/presentation/bloc/login_state.dart';

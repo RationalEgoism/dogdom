@@ -1,4 +1,4 @@
-import 'package:dogdom/features/login/data/repository/user_repository.dart';
+import 'package:dogdom/core/repository/user_repository.dart';
 
 abstract class LoginInteractor {
   void savePhone(String phoneNumber);

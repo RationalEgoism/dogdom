@@ -1,0 +1,10 @@
+import 'package:flutter/material.dart';
+
+class AppTextStyles {
+  static const kTextStyle = TextStyle(
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.normal,
+    fontSize: 17.0,
+    color: Colors.white,
+  );
+}

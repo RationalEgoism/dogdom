@@ -1,4 +1,5 @@
 import 'package:dogdom/core/repository/user_repository.dart';
+import 'package:injectable/injectable.dart';
 
 abstract class LoginInteractor {
   void savePhone(String phoneNumber);
@@ -6,6 +7,7 @@ abstract class LoginInteractor {
   String getUserPhone();
 }
 
+@Singleton(as: LoginInteractor)
 class LoginInteractorImpl implements LoginInteractor {
   final UserRepository _userRepository;
 

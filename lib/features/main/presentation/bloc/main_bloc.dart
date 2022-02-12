@@ -1,23 +1,22 @@
-import 'package:dogdom/core/repository/user_repository.dart';
 import 'package:dogdom/features/main/domain/interactors/main_interactor.dart';
 import 'package:dogdom/features/main/presentation/bloc/main_event.dart';
 import 'package:dogdom/features/main/presentation/bloc/main_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:injectable/injectable.dart';
 
+@injectable
 class MainBloc extends Bloc<MainEvent, MainState> {
-  MainBloc() : super(MainState()) {
+  final MainInteractor _interactor;
+
+  MainBloc(this._interactor) : super(MainState()) {
     on<GetFormattedPhoneEvent>(_mapGetFormattedPhoneEventToState);
   }
-  late MainInteractor interactor;
 
   Future<void> _mapGetFormattedPhoneEventToState(
     GetFormattedPhoneEvent event,
     Emitter<MainState> emit,
   ) async {
-    var repository = await UserRepositoryImpl.create();
-    interactor = MainInteractorImpl(repository);
-    var phone = await interactor.getFormattedPhone();
-
+    var phone = await _interactor.getFormattedPhone();
     emit(state.copyWith(phone: phone));
   }
 }

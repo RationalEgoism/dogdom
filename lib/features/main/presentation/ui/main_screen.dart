@@ -5,6 +5,7 @@ import 'package:dogdom/features/main/presentation/bloc/main_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:get_it/get_it.dart';
 
 class MainScreen extends StatelessWidget {
   static String id = "MainScreen";
@@ -14,7 +15,7 @@ class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<MainBloc>(
-      create: (context) => MainBloc()..add(GetFormattedPhoneEvent()),
+      create: (context) => GetIt.I.get()..add(GetFormattedPhoneEvent()),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,

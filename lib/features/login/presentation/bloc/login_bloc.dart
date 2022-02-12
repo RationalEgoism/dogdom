@@ -1,17 +1,21 @@
-import 'package:dogdom/core/repository/user_repository.dart';
 import 'package:dogdom/features/login/domain/interactors/login_interactor.dart';
 import 'package:dogdom/features/login/presentation/bloc/login_event.dart';
 import 'package:dogdom/features/login/presentation/bloc/login_state.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:injectable/injectable.dart';
 
+@injectable
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
-  LoginBloc() : super(LoginState()) {
+  @protected
+  final LoginInteractor interactor;
+
+  LoginBloc({required this.interactor}) : super(LoginState()) {
     on<GetCaptchaEvent>(_mapGetCaptchaEventToState);
     on<SetInitStateEvent>(_mapSetInitStateEventToState);
     on<SetValidationEvent>(_mapValidationEventToState);
     on<PhoneChangedEvent>(_mapPhoneChangedEventToState);
   }
-  late LoginInteractor interactor;
 
   void _mapGetCaptchaEventToState(
     GetCaptchaEvent event,
@@ -22,8 +26,6 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
     emit(state.copyWith(status: LoginStatus.loading));
     try {
-      var repository = await UserRepositoryImpl.create();
-      interactor = LoginInteractorImpl(repository);
       interactor.savePhone(state.phoneNumber);
 
       emit(state.copyWith(status: LoginStatus.success));

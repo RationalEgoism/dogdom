@@ -7,7 +7,7 @@
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
-import '../../core/repository/user_repository.dart' as _i3;
+import '../../core/data/repository/user_repository.dart' as _i3;
 import '../../features/login/domain/interactors/login_interactor.dart' as _i4;
 import '../../features/login/presentation/bloc/login_bloc.dart' as _i6;
 import '../../features/main/domain/interactors/main_interactor.dart' as _i5;

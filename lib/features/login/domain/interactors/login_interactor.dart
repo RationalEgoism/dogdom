@@ -1,5 +1,4 @@
 import 'package:dogdom/core/repository/user_repository.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:injectable/injectable.dart';
 
 abstract class LoginInteractor {
@@ -10,14 +9,13 @@ abstract class LoginInteractor {
 
 @Singleton(as: LoginInteractor)
 class LoginInteractorImpl implements LoginInteractor {
-  @protected
-  final UserRepository userRepository;
+  final UserRepository _userRepository;
 
-  LoginInteractorImpl(this.userRepository);
-
-  @override
-  String getUserPhone() => userRepository.getPhone();
+  LoginInteractorImpl(this._userRepository);
 
   @override
-  void savePhone(String phoneNumber) => userRepository.savePhone(phoneNumber);
+  String getUserPhone() => _userRepository.getPhone();
+
+  @override
+  void savePhone(String phoneNumber) => _userRepository.savePhone(phoneNumber);
 }

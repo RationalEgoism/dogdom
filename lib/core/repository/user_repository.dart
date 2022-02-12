@@ -5,6 +5,7 @@ import 'package:injectable/injectable.dart';
 // TODO have to work with DTO & map to business object
 // See: https://github.com/RationalEgoism/dogdom/issues/33
 abstract class UserRepository {
+  Future<void> init();
   void savePhone(String phoneNumber);
   String getPhone();
 }
@@ -22,12 +23,13 @@ class UserRepositoryImpl implements UserRepository {
     }
   }
 
-  Future<void> initUserBox() async {
-    _userBox = await Hive.openBox('user');
-  }
-
   @override
   String getPhone() {
     return _userBox.values.first.phoneNumber;
+  }
+
+  @override
+  Future<void> init() async {
+    _userBox = await Hive.openBox('user');
   }
 }

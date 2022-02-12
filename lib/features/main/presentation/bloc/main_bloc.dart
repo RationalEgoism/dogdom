@@ -1,4 +1,3 @@
-import 'package:dogdom/core/repository/user_repository.dart';
 import 'package:dogdom/features/main/domain/interactors/main_interactor.dart';
 import 'package:dogdom/features/main/presentation/bloc/main_event.dart';
 import 'package:dogdom/features/main/presentation/bloc/main_state.dart';
@@ -14,10 +13,10 @@ class MainBloc extends Bloc<MainEvent, MainState> {
     GetFormattedPhoneEvent event,
     Emitter<MainState> emit,
   ) async {
-    var repository = await UserRepositoryImpl.create();
-    interactor = MainInteractorImpl(repository);
-    var phone = await interactor.getFormattedPhone();
+    // var repository = await UserRepositoryImpl.create();
+    // interactor = MainInteractorImpl(repository);
+    // var phone = await interactor.getFormattedPhone();
 
-    emit(state.copyWith(phone: phone));
+    // emit(state.copyWith(phone: phone));
   }
 }

@@ -5,16 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
-void main() {
+Future<void> main() async {
+  await Hive.initFlutter();
+  Hive.registerAdapter(UserAdapter());
+  await configureDependencies();
   FlutterNativeSplash.removeAfter(initializeFunction);
   runApp(const DogdomApp());
 }
 
-void initializeFunction(BuildContext context) async {
-  await Hive.initFlutter();
-  Hive.registerAdapter(UserAdapter());
-
-  configureDependencies();
-
+Future<void> initializeFunction(BuildContext context) async {
   Future.delayed(Duration(seconds: 1));
 }

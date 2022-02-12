@@ -13,14 +13,6 @@ abstract class UserRepository {
 class UserRepositoryImpl implements UserRepository {
   late final Box<User> _userBox;
 
-  UserRepositoryImpl._();
-
-  static Future<UserRepositoryImpl> create() async {
-    final repository = UserRepositoryImpl._();
-    await repository.initUserBox();
-    return repository;
-  }
-
   @override
   void savePhone(String phoneNumber) {
     if (_userBox.isEmpty) {

@@ -11,6 +11,7 @@ import 'package:dogdom/utils/extension/context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:get_it/get_it.dart';
 
 class LoginScreen extends StatelessWidget {
   static String id = "LoginScreen";
@@ -20,7 +21,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<LoginBloc>(
-      create: (context) => LoginBloc(),
+      create: (context) => GetIt.I.get(),
       child: BlocListener<LoginBloc, LoginState>(
         listener: (context, state) {
           if (state.status.isSuccess) {

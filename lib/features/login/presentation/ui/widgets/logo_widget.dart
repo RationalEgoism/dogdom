@@ -1,4 +1,4 @@
-import 'package:dogdom/app/theme/app_icons.dart';
+import 'package:dogdom/generated/assets.gen.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -13,7 +13,7 @@ class LogoWidget extends StatelessWidget {
       child: Container(
         child: Padding(
           padding: const EdgeInsets.all(10.0),
-          child: SvgPicture.asset(AppIcons.logo),
+          child: SvgPicture.asset(Assets.image.logo.path),
         ),
         alignment: FractionalOffset.bottomCenter,
       ),

@@ -1,6 +1,6 @@
-import 'package:dogdom/app/theme/app_icons.dart';
 import 'package:dogdom/features/main/presentation/bloc/main_page_bloc.dart';
 import 'package:dogdom/features/main/presentation/bloc/main_page_bloc_models.dart';
+import 'package:dogdom/generated/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
@@ -21,7 +21,7 @@ class MainPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Image.asset(
-            AppIcons.wip,
+            Assets.image.wip.path,
             height: 200,
             width: 200,
           ),

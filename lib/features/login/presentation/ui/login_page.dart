@@ -1,11 +1,11 @@
-import 'package:dogdom/app/theme/app_colors.dart';
-import 'package:dogdom/app/theme/app_icons.dart';
 import 'package:dogdom/features/login/presentation/bloc/login_page_bloc.dart';
 import 'package:dogdom/features/login/presentation/bloc/login_page_bloc_models.dart';
 import 'package:dogdom/features/login/presentation/ui/widgets/loading_button_widget.dart';
 import 'package:dogdom/features/login/presentation/ui/widgets/logo_widget.dart';
 import 'package:dogdom/features/login/presentation/ui/widgets/phone_input_widget.dart';
 import 'package:dogdom/features/main/presentation/ui/main_page.dart';
+import 'package:dogdom/generated/assets.gen.dart';
+import 'package:dogdom/generated/colors.gen.dart';
 import 'package:dogdom/generated/locale_keys.g.dart';
 import 'package:dogdom/utils/extension/context_extension.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -32,7 +32,7 @@ class LoginPage extends StatelessWidget {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 duration: Duration(seconds: 1),
-                backgroundColor: Color(AppColors.red),
+                backgroundColor: ColorName.red,
                 content: Text(LocaleKeys.common_error.tr()),
               ),
             );
@@ -48,7 +48,7 @@ class LoginPage extends StatelessWidget {
                 Colors.black.withOpacity(0.7),
                 BlendMode.darken,
               ),
-              image: AssetImage(AppIcons.bgLoginScreen),
+              image: AssetImage(Assets.image.bgLoginScreen.path),
             ),
           ),
           child: Scaffold(

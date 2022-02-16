@@ -6,10 +6,11 @@ import 'package:dogdom/features/login/presentation/ui/widgets/loading_button_wid
 import 'package:dogdom/features/login/presentation/ui/widgets/logo_widget.dart';
 import 'package:dogdom/features/login/presentation/ui/widgets/phone_input_widget.dart';
 import 'package:dogdom/features/main/presentation/ui/main_page.dart';
+import 'package:dogdom/generated/locale_keys.g.dart';
 import 'package:dogdom/utils/extension/context_extension.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:get_it/get_it.dart';
 
 class LoginPage extends StatelessWidget {
@@ -32,7 +33,7 @@ class LoginPage extends StatelessWidget {
               SnackBar(
                 duration: Duration(seconds: 1),
                 backgroundColor: Color(AppColors.red),
-                content: Text(AppLocalizations.of(context)!.common_error),
+                content: Text(LocaleKeys.common_error.tr()),
               ),
             );
           }
@@ -72,7 +73,7 @@ class LoginPage extends StatelessWidget {
                       GestureDetector(
                         onTap: () => context.showWipToast(),
                         child: Text(
-                          AppLocalizations.of(context)!.loginPassToLog,
+                          LocaleKeys.loginPassToLog.tr(),
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 13,
@@ -91,7 +92,7 @@ class LoginPage extends StatelessWidget {
                     child: Align(
                       alignment: FractionalOffset.bottomCenter,
                       child: Text(
-                        AppLocalizations.of(context)!.loginPrivacy,
+                        LocaleKeys.loginPrivacy.tr(),
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           color: Colors.white,

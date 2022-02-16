@@ -1,21 +1,10 @@
 {
-  "@_COMMON": {},
   "common_wip": "Работа в процессе",
   "common_error": "Что-то пошло не так. Попробуйте еще раз.",
 
-  "@_LOGIN_SCREEN": {},
   "loginGetCaptcha": "Получить код",
   "loginPassToLog": "Пароль для входа",
   "loginPrivacy": "Выполняя вход, вы соглашаетесь с Пользовательским соглашением и Условиями конфиденциальности",
 
-  "@_Main_SCREEN": {},
-  "mainHello": "Привет, твой номер {phone}",
-  "@mainHello": {
-    "placeholders": {
-      "phone": {
-        "type": "String",
-        "example": "+79522035963"
-      }
-    }
-  }
+  "mainHello": "Привет, твой номер {phone}"
 }

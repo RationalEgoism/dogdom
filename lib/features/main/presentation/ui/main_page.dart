@@ -3,8 +3,9 @@ import 'package:dogdom/features/main/presentation/bloc/main_page_bloc.dart';
 import 'package:dogdom/features/main/presentation/bloc/main_page_bloc_models.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:get_it/get_it.dart';
+
+import '../../../../generated/locale_export.dart';
 
 class MainPage extends StatelessWidget {
   static String id = "MainPage";
@@ -60,7 +61,7 @@ class _MainPageContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      AppLocalizations.of(context)!.mainHello(state.phone),
+      LocaleKeys.mainHello.tr(namedArgs: {'phone': state.phone}),
       textAlign: TextAlign.center,
       style: TextStyle(
         fontSize: 24.0,

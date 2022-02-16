@@ -11,10 +11,9 @@ class LoginPageBloc extends Bloc<LoginPageEvent, LoginPageState> {
 
   LoginPageBloc({required this.interactor}) : super(LoginPageState.empty()) {
     on<LoginPageEventInit>(_init);
-    // on<GetCaptchaEvent>(_mapGetCaptchaEventToState);
-    // on<SetInitStateEvent>(_mapSetInitStateEventToState);
-    // on<SetValidationEvent>(_mapValidationEventToState);
-    // on<PhoneChangedEvent>(_mapPhoneChangedEventToState);
+    on<LoginPageEventPhoneChanged>(_phoneChanged);
+    on<LoginPageEventValidationChanged>(_validationChanged);
+    on<LoginPageEventGetCaptcha>(_getCaptcha);
   }
 
   void _init(
@@ -23,10 +22,40 @@ class LoginPageBloc extends Bloc<LoginPageEvent, LoginPageState> {
   ) {
     emit(
       LoginPageState.data(
-        validated: false,
         phone: '',
+        validated: false,
+        buttonStatus: ButtonStatus.normal,
       ),
     );
+  }
+
+  void _phoneChanged(
+    LoginPageEventPhoneChanged event,
+    Emitter<LoginPageState> emit,
+  ) {
+    emit(state.data.copyWith(phone: event.newPhone));
+  }
+
+  void _validationChanged(
+    LoginPageEventValidationChanged event,
+    Emitter<LoginPageState> emit,
+  ) {
+    emit(state.data.copyWith(validated: event.validated));
+  }
+
+  void _getCaptcha(
+    LoginPageEventGetCaptcha event,
+    Emitter<LoginPageState> emit,
+  ) {
+    if (!state.data.validated) return;
+
+    emit(state.data.copyWith(buttonStatus: ButtonStatus.loading));
+    try {
+      interactor.savePhone(state.data.phone);
+      emit(LoginPageState.success());
+    } catch (e) {
+      //
+    }
   }
 
   // void _mapGetCaptchaEventToState(

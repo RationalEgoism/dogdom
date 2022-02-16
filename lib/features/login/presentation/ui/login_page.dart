@@ -4,6 +4,7 @@ import 'package:dogdom/features/login/presentation/bloc/login_page_bloc_models.d
 import 'package:dogdom/features/login/presentation/ui/widgets/loading_button_widget.dart';
 import 'package:dogdom/features/login/presentation/ui/widgets/logo_widget.dart';
 import 'package:dogdom/features/login/presentation/ui/widgets/phone_input_widget.dart';
+import 'package:dogdom/features/main/presentation/ui/main_page.dart';
 import 'package:dogdom/utils/extension/context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -18,11 +19,13 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<LoginPageBloc>(
-      create: (context) => GetIt.I.get(),
+      create: (context) => GetIt.I.get()..add(LoginPageEvent.init()),
       child: BlocListener<LoginPageBloc, LoginPageState>(
         listener: (context, state) {
+          if (state is LoginPageStateSuccess) {
+            Navigator.pushNamed(context, MainPage.id);
+          }
           // if (state.status.isSuccess) {
-          //   Navigator.pushNamed(context, MainPage.id);
           //   context.read<LoginPageBloc>().add(SetInitStateEvent());
           // }
           // if (state.status.isError) {

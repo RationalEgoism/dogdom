@@ -16,6 +16,9 @@ dependencies:
     sdk: flutter
   intl: ^0.17.0
 
+  # Localization
+  easy_localization: ^3.0.0
+
   cupertino_icons: ^1.0.2
 
   flutter_native_splash: ^2.0.2
@@ -63,6 +66,7 @@ flutter:
 
   assets:
     - assets/image/
+    - assets/translations/
 
   fonts:
     - family: Gilroy

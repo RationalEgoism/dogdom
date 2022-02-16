@@ -6,7 +6,7 @@ import 'package:dogdom/features/login/presentation/bloc/login_state.dart';
 import 'package:dogdom/features/login/presentation/ui/widgets/loading_button_widget.dart';
 import 'package:dogdom/features/login/presentation/ui/widgets/logo_widget.dart';
 import 'package:dogdom/features/login/presentation/ui/widgets/phone_input_widget.dart';
-import 'package:dogdom/features/main/presentation/ui/main_screen.dart';
+import 'package:dogdom/features/main/presentation/ui/main_page.dart';
 import 'package:dogdom/utils/extension/context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,7 +25,7 @@ class LoginScreen extends StatelessWidget {
       child: BlocListener<LoginBloc, LoginState>(
         listener: (context, state) {
           if (state.status.isSuccess) {
-            Navigator.pushNamed(context, MainScreen.id);
+            Navigator.pushNamed(context, MainPage.id);
             context.read<LoginBloc>().add(SetInitStateEvent());
           }
           if (state.status.isError) {

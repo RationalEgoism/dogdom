@@ -11,7 +11,7 @@ import '../../core/data/repository/user_repository.dart' as _i3;
 import '../../features/login/domain/interactors/login_interactor.dart' as _i4;
 import '../../features/login/presentation/bloc/login_bloc.dart' as _i6;
 import '../../features/main/domain/interactors/main_interactor.dart' as _i5;
-import '../../features/main/presentation/bloc/main_bloc.dart'
+import '../../features/main/presentation/bloc/main_page_bloc.dart'
     as _i7; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
@@ -26,6 +26,7 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       _i5.MainInteractorImpl(get<_i3.UserRepository>()));
   gh.factory<_i6.LoginBloc>(
       () => _i6.LoginBloc(interactor: get<_i4.LoginInteractor>()));
-  gh.factory<_i7.MainBloc>(() => _i7.MainBloc(get<_i5.MainInteractor>()));
+  gh.factory<_i7.MainPageBloc>(
+      () => _i7.MainPageBloc(get<_i5.MainInteractor>()));
   return get;
 }

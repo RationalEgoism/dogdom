@@ -3,15 +3,15 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'main_page_bloc_models.freezed.dart';
 
 @freezed
-class MainState with _$MainState {
-  factory MainState.empty() = MainStateEmpty;
+class MainPageState with _$MainPageState {
+  factory MainPageState.empty() = MainPageStateEmpty;
 
-  factory MainState.data({
+  factory MainPageState.data({
     required String phone,
-  }) = MainStateData;
+  }) = MainPageStateData;
 }
 
 @freezed
-class MainEvent with _$MainEvent {
-  factory MainEvent.init() = MainEventInit;
+class MainPageEvent with _$MainPageEvent {
+  factory MainPageEvent.init() = MainPageEventInit;
 }

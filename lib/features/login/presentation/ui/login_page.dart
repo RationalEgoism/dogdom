@@ -1,7 +1,7 @@
 import 'package:dogdom/app/theme/app_colors.dart';
 import 'package:dogdom/app/theme/app_icons.dart';
-import 'package:dogdom/features/login/presentation/bloc/login_bloc.dart';
 import 'package:dogdom/features/login/presentation/bloc/login_event.dart';
+import 'package:dogdom/features/login/presentation/bloc/login_page_bloc.dart';
 import 'package:dogdom/features/login/presentation/bloc/login_state.dart';
 import 'package:dogdom/features/login/presentation/ui/widgets/loading_button_widget.dart';
 import 'package:dogdom/features/login/presentation/ui/widgets/logo_widget.dart';
@@ -13,20 +13,20 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:get_it/get_it.dart';
 
-class LoginScreen extends StatelessWidget {
-  static String id = "LoginScreen";
+class LoginPage extends StatelessWidget {
+  static String id = "LoginPage";
 
-  const LoginScreen({Key? key}) : super(key: key);
+  const LoginPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<LoginBloc>(
+    return BlocProvider<LoginPageBloc>(
       create: (context) => GetIt.I.get(),
-      child: BlocListener<LoginBloc, LoginState>(
+      child: BlocListener<LoginPageBloc, LoginState>(
         listener: (context, state) {
           if (state.status.isSuccess) {
             Navigator.pushNamed(context, MainPage.id);
-            context.read<LoginBloc>().add(SetInitStateEvent());
+            context.read<LoginPageBloc>().add(SetInitStateEvent());
           }
           if (state.status.isError) {
             ScaffoldMessenger.of(context).showSnackBar(
@@ -36,7 +36,7 @@ class LoginScreen extends StatelessWidget {
                 content: Text(AppLocalizations.of(context)!.common_error),
               ),
             );
-            context.read<LoginBloc>().add(SetInitStateEvent());
+            context.read<LoginPageBloc>().add(SetInitStateEvent());
           }
         },
         child: Container(

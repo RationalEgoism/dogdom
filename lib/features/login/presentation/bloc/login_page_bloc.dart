@@ -6,11 +6,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
 @injectable
-class LoginBloc extends Bloc<LoginEvent, LoginState> {
+class LoginPageBloc extends Bloc<LoginEvent, LoginState> {
   @protected
   final LoginInteractor interactor;
 
-  LoginBloc({required this.interactor}) : super(LoginState()) {
+  LoginPageBloc({required this.interactor}) : super(LoginState()) {
     on<GetCaptchaEvent>(_mapGetCaptchaEventToState);
     on<SetInitStateEvent>(_mapSetInitStateEventToState);
     on<SetValidationEvent>(_mapValidationEventToState);

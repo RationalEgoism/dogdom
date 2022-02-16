@@ -15,25 +15,25 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-class _$MainStateTearOff {
-  const _$MainStateTearOff();
+class _$MainPageStateTearOff {
+  const _$MainPageStateTearOff();
 
-  MainStateEmpty empty() {
-    return MainStateEmpty();
+  MainPageStateEmpty empty() {
+    return MainPageStateEmpty();
   }
 
-  MainStateData data({required String phone}) {
-    return MainStateData(
+  MainPageStateData data({required String phone}) {
+    return MainPageStateData(
       phone: phone,
     );
   }
 }
 
 /// @nodoc
-const $MainState = _$MainStateTearOff();
+const $MainPageState = _$MainPageStateTearOff();
 
 /// @nodoc
-mixin _$MainState {
+mixin _$MainPageState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() empty,
@@ -55,72 +55,75 @@ mixin _$MainState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(MainStateEmpty value) empty,
-    required TResult Function(MainStateData value) data,
+    required TResult Function(MainPageStateEmpty value) empty,
+    required TResult Function(MainPageStateData value) data,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(MainStateEmpty value)? empty,
-    TResult Function(MainStateData value)? data,
+    TResult Function(MainPageStateEmpty value)? empty,
+    TResult Function(MainPageStateData value)? data,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(MainStateEmpty value)? empty,
-    TResult Function(MainStateData value)? data,
+    TResult Function(MainPageStateEmpty value)? empty,
+    TResult Function(MainPageStateData value)? data,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $MainStateCopyWith<$Res> {
-  factory $MainStateCopyWith(MainState value, $Res Function(MainState) then) =
-      _$MainStateCopyWithImpl<$Res>;
+abstract class $MainPageStateCopyWith<$Res> {
+  factory $MainPageStateCopyWith(
+          MainPageState value, $Res Function(MainPageState) then) =
+      _$MainPageStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$MainStateCopyWithImpl<$Res> implements $MainStateCopyWith<$Res> {
-  _$MainStateCopyWithImpl(this._value, this._then);
+class _$MainPageStateCopyWithImpl<$Res>
+    implements $MainPageStateCopyWith<$Res> {
+  _$MainPageStateCopyWithImpl(this._value, this._then);
 
-  final MainState _value;
+  final MainPageState _value;
   // ignore: unused_field
-  final $Res Function(MainState) _then;
+  final $Res Function(MainPageState) _then;
 }
 
 /// @nodoc
-abstract class $MainStateEmptyCopyWith<$Res> {
-  factory $MainStateEmptyCopyWith(
-          MainStateEmpty value, $Res Function(MainStateEmpty) then) =
-      _$MainStateEmptyCopyWithImpl<$Res>;
+abstract class $MainPageStateEmptyCopyWith<$Res> {
+  factory $MainPageStateEmptyCopyWith(
+          MainPageStateEmpty value, $Res Function(MainPageStateEmpty) then) =
+      _$MainPageStateEmptyCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$MainStateEmptyCopyWithImpl<$Res> extends _$MainStateCopyWithImpl<$Res>
-    implements $MainStateEmptyCopyWith<$Res> {
-  _$MainStateEmptyCopyWithImpl(
-      MainStateEmpty _value, $Res Function(MainStateEmpty) _then)
-      : super(_value, (v) => _then(v as MainStateEmpty));
+class _$MainPageStateEmptyCopyWithImpl<$Res>
+    extends _$MainPageStateCopyWithImpl<$Res>
+    implements $MainPageStateEmptyCopyWith<$Res> {
+  _$MainPageStateEmptyCopyWithImpl(
+      MainPageStateEmpty _value, $Res Function(MainPageStateEmpty) _then)
+      : super(_value, (v) => _then(v as MainPageStateEmpty));
 
   @override
-  MainStateEmpty get _value => super._value as MainStateEmpty;
+  MainPageStateEmpty get _value => super._value as MainPageStateEmpty;
 }
 
 /// @nodoc
 
-class _$MainStateEmpty implements MainStateEmpty {
-  _$MainStateEmpty();
+class _$MainPageStateEmpty implements MainPageStateEmpty {
+  _$MainPageStateEmpty();
 
   @override
   String toString() {
-    return 'MainState.empty()';
+    return 'MainPageState.empty()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is MainStateEmpty);
+        (other.runtimeType == runtimeType && other is MainPageStateEmpty);
   }
 
   @override
@@ -160,8 +163,8 @@ class _$MainStateEmpty implements MainStateEmpty {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(MainStateEmpty value) empty,
-    required TResult Function(MainStateData value) data,
+    required TResult Function(MainPageStateEmpty value) empty,
+    required TResult Function(MainPageStateData value) data,
   }) {
     return empty(this);
   }
@@ -169,8 +172,8 @@ class _$MainStateEmpty implements MainStateEmpty {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(MainStateEmpty value)? empty,
-    TResult Function(MainStateData value)? data,
+    TResult Function(MainPageStateEmpty value)? empty,
+    TResult Function(MainPageStateData value)? data,
   }) {
     return empty?.call(this);
   }
@@ -178,8 +181,8 @@ class _$MainStateEmpty implements MainStateEmpty {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(MainStateEmpty value)? empty,
-    TResult Function(MainStateData value)? data,
+    TResult Function(MainPageStateEmpty value)? empty,
+    TResult Function(MainPageStateData value)? data,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -189,33 +192,34 @@ class _$MainStateEmpty implements MainStateEmpty {
   }
 }
 
-abstract class MainStateEmpty implements MainState {
-  factory MainStateEmpty() = _$MainStateEmpty;
+abstract class MainPageStateEmpty implements MainPageState {
+  factory MainPageStateEmpty() = _$MainPageStateEmpty;
 }
 
 /// @nodoc
-abstract class $MainStateDataCopyWith<$Res> {
-  factory $MainStateDataCopyWith(
-          MainStateData value, $Res Function(MainStateData) then) =
-      _$MainStateDataCopyWithImpl<$Res>;
+abstract class $MainPageStateDataCopyWith<$Res> {
+  factory $MainPageStateDataCopyWith(
+          MainPageStateData value, $Res Function(MainPageStateData) then) =
+      _$MainPageStateDataCopyWithImpl<$Res>;
   $Res call({String phone});
 }
 
 /// @nodoc
-class _$MainStateDataCopyWithImpl<$Res> extends _$MainStateCopyWithImpl<$Res>
-    implements $MainStateDataCopyWith<$Res> {
-  _$MainStateDataCopyWithImpl(
-      MainStateData _value, $Res Function(MainStateData) _then)
-      : super(_value, (v) => _then(v as MainStateData));
+class _$MainPageStateDataCopyWithImpl<$Res>
+    extends _$MainPageStateCopyWithImpl<$Res>
+    implements $MainPageStateDataCopyWith<$Res> {
+  _$MainPageStateDataCopyWithImpl(
+      MainPageStateData _value, $Res Function(MainPageStateData) _then)
+      : super(_value, (v) => _then(v as MainPageStateData));
 
   @override
-  MainStateData get _value => super._value as MainStateData;
+  MainPageStateData get _value => super._value as MainPageStateData;
 
   @override
   $Res call({
     Object? phone = freezed,
   }) {
-    return _then(MainStateData(
+    return _then(MainPageStateData(
       phone: phone == freezed
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
@@ -226,22 +230,22 @@ class _$MainStateDataCopyWithImpl<$Res> extends _$MainStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$MainStateData implements MainStateData {
-  _$MainStateData({required this.phone});
+class _$MainPageStateData implements MainPageStateData {
+  _$MainPageStateData({required this.phone});
 
   @override
   final String phone;
 
   @override
   String toString() {
-    return 'MainState.data(phone: $phone)';
+    return 'MainPageState.data(phone: $phone)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is MainStateData &&
+            other is MainPageStateData &&
             const DeepCollectionEquality().equals(other.phone, phone));
   }
 
@@ -251,8 +255,8 @@ class _$MainStateData implements MainStateData {
 
   @JsonKey(ignore: true)
   @override
-  $MainStateDataCopyWith<MainStateData> get copyWith =>
-      _$MainStateDataCopyWithImpl<MainStateData>(this, _$identity);
+  $MainPageStateDataCopyWith<MainPageStateData> get copyWith =>
+      _$MainPageStateDataCopyWithImpl<MainPageStateData>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -288,8 +292,8 @@ class _$MainStateData implements MainStateData {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(MainStateEmpty value) empty,
-    required TResult Function(MainStateData value) data,
+    required TResult Function(MainPageStateEmpty value) empty,
+    required TResult Function(MainPageStateData value) data,
   }) {
     return data(this);
   }
@@ -297,8 +301,8 @@ class _$MainStateData implements MainStateData {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(MainStateEmpty value)? empty,
-    TResult Function(MainStateData value)? data,
+    TResult Function(MainPageStateEmpty value)? empty,
+    TResult Function(MainPageStateData value)? data,
   }) {
     return data?.call(this);
   }
@@ -306,8 +310,8 @@ class _$MainStateData implements MainStateData {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(MainStateEmpty value)? empty,
-    TResult Function(MainStateData value)? data,
+    TResult Function(MainPageStateEmpty value)? empty,
+    TResult Function(MainPageStateData value)? data,
     required TResult orElse(),
   }) {
     if (data != null) {
@@ -317,29 +321,29 @@ class _$MainStateData implements MainStateData {
   }
 }
 
-abstract class MainStateData implements MainState {
-  factory MainStateData({required String phone}) = _$MainStateData;
+abstract class MainPageStateData implements MainPageState {
+  factory MainPageStateData({required String phone}) = _$MainPageStateData;
 
   String get phone;
   @JsonKey(ignore: true)
-  $MainStateDataCopyWith<MainStateData> get copyWith =>
+  $MainPageStateDataCopyWith<MainPageStateData> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-class _$MainEventTearOff {
-  const _$MainEventTearOff();
+class _$MainPageEventTearOff {
+  const _$MainPageEventTearOff();
 
-  MainEventInit init() {
-    return MainEventInit();
+  MainPageEventInit init() {
+    return MainPageEventInit();
   }
 }
 
 /// @nodoc
-const $MainEvent = _$MainEventTearOff();
+const $MainPageEvent = _$MainPageEventTearOff();
 
 /// @nodoc
-mixin _$MainEvent {
+mixin _$MainPageEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
@@ -358,69 +362,72 @@ mixin _$MainEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(MainEventInit value) init,
+    required TResult Function(MainPageEventInit value) init,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(MainEventInit value)? init,
+    TResult Function(MainPageEventInit value)? init,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(MainEventInit value)? init,
+    TResult Function(MainPageEventInit value)? init,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $MainEventCopyWith<$Res> {
-  factory $MainEventCopyWith(MainEvent value, $Res Function(MainEvent) then) =
-      _$MainEventCopyWithImpl<$Res>;
+abstract class $MainPageEventCopyWith<$Res> {
+  factory $MainPageEventCopyWith(
+          MainPageEvent value, $Res Function(MainPageEvent) then) =
+      _$MainPageEventCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$MainEventCopyWithImpl<$Res> implements $MainEventCopyWith<$Res> {
-  _$MainEventCopyWithImpl(this._value, this._then);
+class _$MainPageEventCopyWithImpl<$Res>
+    implements $MainPageEventCopyWith<$Res> {
+  _$MainPageEventCopyWithImpl(this._value, this._then);
 
-  final MainEvent _value;
+  final MainPageEvent _value;
   // ignore: unused_field
-  final $Res Function(MainEvent) _then;
+  final $Res Function(MainPageEvent) _then;
 }
 
 /// @nodoc
-abstract class $MainEventInitCopyWith<$Res> {
-  factory $MainEventInitCopyWith(
-          MainEventInit value, $Res Function(MainEventInit) then) =
-      _$MainEventInitCopyWithImpl<$Res>;
+abstract class $MainPageEventInitCopyWith<$Res> {
+  factory $MainPageEventInitCopyWith(
+          MainPageEventInit value, $Res Function(MainPageEventInit) then) =
+      _$MainPageEventInitCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$MainEventInitCopyWithImpl<$Res> extends _$MainEventCopyWithImpl<$Res>
-    implements $MainEventInitCopyWith<$Res> {
-  _$MainEventInitCopyWithImpl(
-      MainEventInit _value, $Res Function(MainEventInit) _then)
-      : super(_value, (v) => _then(v as MainEventInit));
+class _$MainPageEventInitCopyWithImpl<$Res>
+    extends _$MainPageEventCopyWithImpl<$Res>
+    implements $MainPageEventInitCopyWith<$Res> {
+  _$MainPageEventInitCopyWithImpl(
+      MainPageEventInit _value, $Res Function(MainPageEventInit) _then)
+      : super(_value, (v) => _then(v as MainPageEventInit));
 
   @override
-  MainEventInit get _value => super._value as MainEventInit;
+  MainPageEventInit get _value => super._value as MainPageEventInit;
 }
 
 /// @nodoc
 
-class _$MainEventInit implements MainEventInit {
-  _$MainEventInit();
+class _$MainPageEventInit implements MainPageEventInit {
+  _$MainPageEventInit();
 
   @override
   String toString() {
-    return 'MainEvent.init()';
+    return 'MainPageEvent.init()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is MainEventInit);
+        (other.runtimeType == runtimeType && other is MainPageEventInit);
   }
 
   @override
@@ -457,7 +464,7 @@ class _$MainEventInit implements MainEventInit {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(MainEventInit value) init,
+    required TResult Function(MainPageEventInit value) init,
   }) {
     return init(this);
   }
@@ -465,7 +472,7 @@ class _$MainEventInit implements MainEventInit {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(MainEventInit value)? init,
+    TResult Function(MainPageEventInit value)? init,
   }) {
     return init?.call(this);
   }
@@ -473,7 +480,7 @@ class _$MainEventInit implements MainEventInit {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(MainEventInit value)? init,
+    TResult Function(MainPageEventInit value)? init,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -483,6 +490,6 @@ class _$MainEventInit implements MainEventInit {
   }
 }
 
-abstract class MainEventInit implements MainEvent {
-  factory MainEventInit() = _$MainEventInit;
+abstract class MainPageEventInit implements MainPageEvent {
+  factory MainPageEventInit() = _$MainPageEventInit;
 }

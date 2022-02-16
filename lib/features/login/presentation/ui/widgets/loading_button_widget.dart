@@ -1,6 +1,6 @@
 import 'package:dogdom/app/theme/app_colors.dart';
-import 'package:dogdom/features/login/presentation/bloc/login_bloc.dart';
 import 'package:dogdom/features/login/presentation/bloc/login_event.dart';
+import 'package:dogdom/features/login/presentation/bloc/login_page_bloc.dart';
 import 'package:dogdom/features/login/presentation/bloc/login_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -23,7 +23,7 @@ class LoadingButtonWidget extends StatelessWidget {
       child: SizedBox(
         width: double.infinity,
         height: 58.0,
-        child: BlocBuilder<LoginBloc, LoginState>(
+        child: BlocBuilder<LoginPageBloc, LoginState>(
           builder: (context, state) {
             // TODO: https://github.com/RationalEgoism/dogdom/issues/29
             return ElevatedButton(
@@ -85,7 +85,7 @@ class LoadingButtonWidget extends StatelessWidget {
 
   void _onPressedAction(LoginState state, BuildContext context) {
     if (state.status.isInitial && state.validated) {
-      context.read<LoginBloc>().add(GetCaptchaEvent());
+      context.read<LoginPageBloc>().add(GetCaptchaEvent());
     } else {
       null;
     }

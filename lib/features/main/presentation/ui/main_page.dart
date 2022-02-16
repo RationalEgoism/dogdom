@@ -14,7 +14,7 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<MainPageBloc>(
-      create: (context) => GetIt.I.get()..add(MainEvent.init()),
+      create: (context) => GetIt.I.get()..add(MainPageEvent.init()),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -24,7 +24,7 @@ class MainPage extends StatelessWidget {
             height: 200,
             width: 200,
           ),
-          BlocBuilder<MainPageBloc, MainState>(
+          BlocBuilder<MainPageBloc, MainPageState>(
             builder: (context, state) {
               return state.map(
                 empty: (_) => _MainPageEmpty(),
@@ -50,7 +50,7 @@ class _MainPageEmpty extends StatelessWidget {
 }
 
 class _MainPageContent extends StatelessWidget {
-  final MainStateData state;
+  final MainPageStateData state;
 
   const _MainPageContent({
     required this.state,

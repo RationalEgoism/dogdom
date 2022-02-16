@@ -4,18 +4,18 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
 @injectable
-class MainPageBloc extends Bloc<MainEvent, MainState> {
+class MainPageBloc extends Bloc<MainPageEvent, MainPageState> {
   final MainInteractor _interactor;
 
-  MainPageBloc(this._interactor) : super(MainState.empty()) {
-    on<MainEventInit>(_init);
+  MainPageBloc(this._interactor) : super(MainPageState.empty()) {
+    on<MainPageEventInit>(_init);
   }
 
   Future<void> _init(
-    MainEventInit event,
-    Emitter<MainState> emit,
+    MainPageEventInit event,
+    Emitter<MainPageState> emit,
   ) async {
     var phone = await _interactor.getFormattedPhone();
-    emit(MainState.data(phone: phone));
+    emit(MainPageState.data(phone: phone));
   }
 }

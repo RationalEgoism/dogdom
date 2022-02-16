@@ -49,6 +49,8 @@ dev_dependencies:
 
   flutter_lints: ^1.0.0
 
+  flutter_gen_runner: ^4.1.5
+
   # Database
   hive_generator: ^1.1.2
 
@@ -68,3 +70,12 @@ flutter:
         - asset: fonts/Gilroy-Bold.ttf
         - asset: fonts/Gilroy-Medium.ttf
         - asset: fonts/Gilroy-Regular.ttf
+
+flutter_gen:
+  output: lib/generated/
+  integrations:
+    flutter_svg: true
+  colors:
+    inputs:
+      - assets/color/colors.xml
+    enabled: true

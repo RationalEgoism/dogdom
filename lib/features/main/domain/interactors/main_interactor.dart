@@ -1,4 +1,4 @@
-import 'package:dogdom/core/repository/user_repository.dart';
+import 'package:dogdom/core/data/repository/user_repository.dart';
 import 'package:injectable/injectable.dart';
 
 abstract class MainInteractor {

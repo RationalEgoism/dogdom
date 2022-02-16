@@ -8,7 +8,7 @@ import 'package:injectable/injectable.dart';
 class MainBloc extends Bloc<MainEvent, MainState> {
   final MainInteractor _interactor;
 
-  MainBloc(this._interactor) : super(MainState()) {
+  MainBloc(this._interactor) : super(MainState.empty()) {
     on<GetFormattedPhoneEvent>(_mapGetFormattedPhoneEventToState);
   }
 
@@ -17,6 +17,6 @@ class MainBloc extends Bloc<MainEvent, MainState> {
     Emitter<MainState> emit,
   ) async {
     var phone = await _interactor.getFormattedPhone();
-    emit(state.copyWith(phone: phone));
+    emit(state.data.copyWith(phone: phone));
   }
 }

@@ -1,23 +1,16 @@
-enum MainStatus {
-  initial,
-}
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-extension MainStatusX on MainStatus {
-  bool get isInitial => this == MainStatus.initial;
-}
+part 'main_state.freezed.dart';
 
-class MainState {
-  String phone;
+@freezed
+class MainState with _$MainState {
+  MainStateData get data => this as MainStateData;
 
-  MainState({
-    this.phone = "",
-  });
+  MainState._();
 
-  MainState copyWith({
-    String? phone,
-  }) {
-    return MainState(
-      phone: phone ?? this.phone,
-    );
-  }
+  factory MainState.empty() = MainStateEmpty;
+
+  factory MainState.data(
+    String phone,
+  ) = MainStateData;
 }

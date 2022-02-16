@@ -1,3 +1,8 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'login_state.freezed.dart';
+
+// TODO replace with freezed
 enum LoginStatus { initial, loading, success, error }
 
 extension LoginStatusX on LoginStatus {
@@ -7,26 +12,11 @@ extension LoginStatusX on LoginStatus {
   bool get isLoading => this == LoginStatus.loading;
 }
 
-class LoginState {
-  LoginStatus status;
-  bool validated;
-  String phoneNumber;
-
-  LoginState({
-    this.status = LoginStatus.initial,
-    this.validated = false,
-    this.phoneNumber = "",
-  });
-
-  LoginState copyWith({
-    LoginStatus? status,
-    bool? validated,
-    String? phoneNumber,
-  }) {
-    return LoginState(
-      status: status ?? this.status,
-      validated: validated ?? this.validated,
-      phoneNumber: phoneNumber ?? this.phoneNumber,
-    );
-  }
+@freezed
+class LoginState with _$LoginState {
+  factory LoginState([
+    @Default(LoginStatus.initial) LoginStatus status,
+    @Default(false) bool validated,
+    @Default("") String phoneNumber,
+  ]) = _LoginState;
 }

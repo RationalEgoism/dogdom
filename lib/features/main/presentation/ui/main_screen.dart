@@ -28,7 +28,7 @@ class MainScreen extends StatelessWidget {
           BlocBuilder<MainBloc, MainState>(
             builder: (context, state) {
               return Text(
-                AppLocalizations.of(context)!.mainHello(state.phone),
+                AppLocalizations.of(context)!.mainHello(state.data.phone),
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 24.0,

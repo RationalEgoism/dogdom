@@ -1,9 +1,10 @@
 import 'package:dogdom/app/theme/app_colors.dart';
 import 'package:dogdom/features/login/presentation/bloc/login_page_bloc.dart';
 import 'package:dogdom/features/login/presentation/bloc/login_page_bloc_models.dart';
+import 'package:dogdom/generated/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class LoadingButtonWidget extends StatelessWidget {
   const LoadingButtonWidget({
@@ -87,7 +88,7 @@ class _LoadingButtonContent extends StatelessWidget {
               ),
             )
           : Text(
-              AppLocalizations.of(context)!.loginGetCaptcha,
+              LocaleKeys.loginGetCaptcha.tr(),
             ),
     );
   }

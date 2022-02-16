@@ -56,9 +56,6 @@ dev_dependencies:
   # DI
   injectable_generator: ^1.5.3
 
-  # Data classes
-  freezed: ^1.1.1
-
 flutter:
   generate: true
 

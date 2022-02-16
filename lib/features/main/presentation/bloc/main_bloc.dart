@@ -9,14 +9,14 @@ class MainBloc extends Bloc<MainEvent, MainState> {
   final MainInteractor _interactor;
 
   MainBloc(this._interactor) : super(MainState.empty()) {
-    on<GetFormattedPhoneEvent>(_mapGetFormattedPhoneEventToState);
+    on<MainEventInit>(_init);
   }
 
-  Future<void> _mapGetFormattedPhoneEventToState(
-    GetFormattedPhoneEvent event,
+  Future<void> _init(
+    MainEventInit event,
     Emitter<MainState> emit,
   ) async {
     var phone = await _interactor.getFormattedPhone();
-    emit(state.data.copyWith(phone: phone));
+    emit(MainState.data(phone: phone));
   }
 }

@@ -22,9 +22,9 @@ class _$MainStateTearOff {
     return MainStateEmpty();
   }
 
-  MainStateData data(String phone) {
+  MainStateData data({required String phone}) {
     return MainStateData(
-      phone,
+      phone: phone,
     );
   }
 }
@@ -217,7 +217,7 @@ class _$MainStateDataCopyWithImpl<$Res> extends _$MainStateCopyWithImpl<$Res>
     Object? phone = freezed,
   }) {
     return _then(MainStateData(
-      phone == freezed
+      phone: phone == freezed
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String,
@@ -228,7 +228,7 @@ class _$MainStateDataCopyWithImpl<$Res> extends _$MainStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$MainStateData extends MainStateData {
-  _$MainStateData(this.phone) : super._();
+  _$MainStateData({required this.phone}) : super._();
 
   @override
   final String phone;
@@ -319,7 +319,7 @@ class _$MainStateData extends MainStateData {
 }
 
 abstract class MainStateData extends MainState {
-  factory MainStateData(String phone) = _$MainStateData;
+  factory MainStateData({required String phone}) = _$MainStateData;
   MainStateData._() : super._();
 
   String get phone;

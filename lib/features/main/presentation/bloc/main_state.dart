@@ -10,7 +10,7 @@ class MainState with _$MainState {
 
   factory MainState.empty() = MainStateEmpty;
 
-  factory MainState.data(
-    String phone,
-  ) = MainStateData;
+  factory MainState.data({
+    required String phone,
+  }) = MainStateData;
 }

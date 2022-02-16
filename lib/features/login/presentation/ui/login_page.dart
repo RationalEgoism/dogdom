@@ -1,3 +1,4 @@
+import 'package:dogdom/app/theme/app_colors.dart';
 import 'package:dogdom/app/theme/app_icons.dart';
 import 'package:dogdom/features/login/presentation/bloc/login_page_bloc.dart';
 import 'package:dogdom/features/login/presentation/bloc/login_page_bloc_models.dart';
@@ -25,19 +26,16 @@ class LoginPage extends StatelessWidget {
           if (state is LoginPageStateSuccess) {
             Navigator.pushNamed(context, MainPage.id);
           }
-          // if (state.status.isSuccess) {
-          //   context.read<LoginPageBloc>().add(SetInitStateEvent());
-          // }
-          // if (state.status.isError) {
-          //   ScaffoldMessenger.of(context).showSnackBar(
-          //     SnackBar(
-          //       duration: Duration(seconds: 1),
-          //       backgroundColor: Color(AppColors.red),
-          //       content: Text(AppLocalizations.of(context)!.common_error),
-          //     ),
-          //   );
-          //   context.read<LoginPageBloc>().add(SetInitStateEvent());
-          // }
+          if (state is LoginPageStateError) {
+            FocusManager.instance.primaryFocus?.unfocus();
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                duration: Duration(seconds: 1),
+                backgroundColor: Color(AppColors.red),
+                content: Text(AppLocalizations.of(context)!.common_error),
+              ),
+            );
+          }
         },
         child: Container(
           width: double.infinity,

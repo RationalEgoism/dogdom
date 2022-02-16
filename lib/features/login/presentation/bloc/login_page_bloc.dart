@@ -43,56 +43,23 @@ class LoginPageBloc extends Bloc<LoginPageEvent, LoginPageState> {
     emit(state.data.copyWith(validated: event.validated));
   }
 
-  void _getCaptcha(
+  Future<void> _getCaptcha(
     LoginPageEventGetCaptcha event,
     Emitter<LoginPageState> emit,
-  ) {
+  ) async {
     if (!state.data.validated) return;
+
+    final tempDataState = state.data;
 
     emit(state.data.copyWith(buttonStatus: ButtonStatus.loading));
     try {
+      await Future.delayed(Duration(seconds: 2));
       interactor.savePhone(state.data.phone);
       emit(LoginPageState.success());
+      emit(tempDataState);
     } catch (e) {
-      //
+      emit(LoginPageState.error());
+      emit(tempDataState);
     }
   }
-
-  // void _mapGetCaptchaEventToState(
-  //   GetCaptchaEvent event,
-  //   Emitter<LoginState> emit,
-  // ) async {
-  //   // TODO Must BLoC emit always emit new state?
-  //   if (!state.validated) return;
-  //
-  //   emit(state.copyWith(status: LoginStatus.loading));
-  //   try {
-  //     interactor.savePhone(state.phoneNumber);
-  //
-  //     emit(state.copyWith(status: LoginStatus.success));
-  //   } catch (e) {
-  //     emit(state.copyWith(status: LoginStatus.error));
-  //   }
-  // }
-  //
-  // void _mapSetInitStateEventToState(
-  //   SetInitStateEvent event,
-  //   Emitter<LoginState> emit,
-  // ) {
-  //   emit(state.copyWith(status: LoginStatus.initial));
-  // }
-  //
-  // void _mapValidationEventToState(
-  //   SetValidationEvent event,
-  //   Emitter<LoginState> emit,
-  // ) {
-  //   emit(state.copyWith(validated: event.validated));
-  // }
-  //
-  // void _mapPhoneChangedEventToState(
-  //   PhoneChangedEvent event,
-  //   Emitter<LoginState> emit,
-  // ) {
-  //   emit(state.copyWith(phoneNumber: event.phoneNumber));
-  // }
 }

@@ -36,6 +36,10 @@ class _$LoginPageStateTearOff {
   LoginPageStateSuccess success() {
     return LoginPageStateSuccess();
   }
+
+  LoginPageStateError error() {
+    return LoginPageStateError();
+  }
 }
 
 /// @nodoc
@@ -50,6 +54,7 @@ mixin _$LoginPageState {
             String phone, bool validated, ButtonStatus buttonStatus)
         data,
     required TResult Function() success,
+    required TResult Function() error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -58,6 +63,7 @@ mixin _$LoginPageState {
     TResult Function(String phone, bool validated, ButtonStatus buttonStatus)?
         data,
     TResult Function()? success,
+    TResult Function()? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -66,6 +72,7 @@ mixin _$LoginPageState {
     TResult Function(String phone, bool validated, ButtonStatus buttonStatus)?
         data,
     TResult Function()? success,
+    TResult Function()? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -74,6 +81,7 @@ mixin _$LoginPageState {
     required TResult Function(LoginPageStateEmpty value) empty,
     required TResult Function(LoginPageStateData value) data,
     required TResult Function(LoginPageStateSuccess value) success,
+    required TResult Function(LoginPageStateError value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -81,6 +89,7 @@ mixin _$LoginPageState {
     TResult Function(LoginPageStateEmpty value)? empty,
     TResult Function(LoginPageStateData value)? data,
     TResult Function(LoginPageStateSuccess value)? success,
+    TResult Function(LoginPageStateError value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -88,6 +97,7 @@ mixin _$LoginPageState {
     TResult Function(LoginPageStateEmpty value)? empty,
     TResult Function(LoginPageStateData value)? data,
     TResult Function(LoginPageStateSuccess value)? success,
+    TResult Function(LoginPageStateError value)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -156,6 +166,7 @@ class _$LoginPageStateEmpty extends LoginPageStateEmpty {
             String phone, bool validated, ButtonStatus buttonStatus)
         data,
     required TResult Function() success,
+    required TResult Function() error,
   }) {
     return empty();
   }
@@ -167,6 +178,7 @@ class _$LoginPageStateEmpty extends LoginPageStateEmpty {
     TResult Function(String phone, bool validated, ButtonStatus buttonStatus)?
         data,
     TResult Function()? success,
+    TResult Function()? error,
   }) {
     return empty?.call();
   }
@@ -178,6 +190,7 @@ class _$LoginPageStateEmpty extends LoginPageStateEmpty {
     TResult Function(String phone, bool validated, ButtonStatus buttonStatus)?
         data,
     TResult Function()? success,
+    TResult Function()? error,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -192,6 +205,7 @@ class _$LoginPageStateEmpty extends LoginPageStateEmpty {
     required TResult Function(LoginPageStateEmpty value) empty,
     required TResult Function(LoginPageStateData value) data,
     required TResult Function(LoginPageStateSuccess value) success,
+    required TResult Function(LoginPageStateError value) error,
   }) {
     return empty(this);
   }
@@ -202,6 +216,7 @@ class _$LoginPageStateEmpty extends LoginPageStateEmpty {
     TResult Function(LoginPageStateEmpty value)? empty,
     TResult Function(LoginPageStateData value)? data,
     TResult Function(LoginPageStateSuccess value)? success,
+    TResult Function(LoginPageStateError value)? error,
   }) {
     return empty?.call(this);
   }
@@ -212,6 +227,7 @@ class _$LoginPageStateEmpty extends LoginPageStateEmpty {
     TResult Function(LoginPageStateEmpty value)? empty,
     TResult Function(LoginPageStateData value)? data,
     TResult Function(LoginPageStateSuccess value)? success,
+    TResult Function(LoginPageStateError value)? error,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -320,6 +336,7 @@ class _$LoginPageStateData extends LoginPageStateData {
             String phone, bool validated, ButtonStatus buttonStatus)
         data,
     required TResult Function() success,
+    required TResult Function() error,
   }) {
     return data(phone, validated, buttonStatus);
   }
@@ -331,6 +348,7 @@ class _$LoginPageStateData extends LoginPageStateData {
     TResult Function(String phone, bool validated, ButtonStatus buttonStatus)?
         data,
     TResult Function()? success,
+    TResult Function()? error,
   }) {
     return data?.call(phone, validated, buttonStatus);
   }
@@ -342,6 +360,7 @@ class _$LoginPageStateData extends LoginPageStateData {
     TResult Function(String phone, bool validated, ButtonStatus buttonStatus)?
         data,
     TResult Function()? success,
+    TResult Function()? error,
     required TResult orElse(),
   }) {
     if (data != null) {
@@ -356,6 +375,7 @@ class _$LoginPageStateData extends LoginPageStateData {
     required TResult Function(LoginPageStateEmpty value) empty,
     required TResult Function(LoginPageStateData value) data,
     required TResult Function(LoginPageStateSuccess value) success,
+    required TResult Function(LoginPageStateError value) error,
   }) {
     return data(this);
   }
@@ -366,6 +386,7 @@ class _$LoginPageStateData extends LoginPageStateData {
     TResult Function(LoginPageStateEmpty value)? empty,
     TResult Function(LoginPageStateData value)? data,
     TResult Function(LoginPageStateSuccess value)? success,
+    TResult Function(LoginPageStateError value)? error,
   }) {
     return data?.call(this);
   }
@@ -376,6 +397,7 @@ class _$LoginPageStateData extends LoginPageStateData {
     TResult Function(LoginPageStateEmpty value)? empty,
     TResult Function(LoginPageStateData value)? data,
     TResult Function(LoginPageStateSuccess value)? success,
+    TResult Function(LoginPageStateError value)? error,
     required TResult orElse(),
   }) {
     if (data != null) {
@@ -446,6 +468,7 @@ class _$LoginPageStateSuccess extends LoginPageStateSuccess {
             String phone, bool validated, ButtonStatus buttonStatus)
         data,
     required TResult Function() success,
+    required TResult Function() error,
   }) {
     return success();
   }
@@ -457,6 +480,7 @@ class _$LoginPageStateSuccess extends LoginPageStateSuccess {
     TResult Function(String phone, bool validated, ButtonStatus buttonStatus)?
         data,
     TResult Function()? success,
+    TResult Function()? error,
   }) {
     return success?.call();
   }
@@ -468,6 +492,7 @@ class _$LoginPageStateSuccess extends LoginPageStateSuccess {
     TResult Function(String phone, bool validated, ButtonStatus buttonStatus)?
         data,
     TResult Function()? success,
+    TResult Function()? error,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -482,6 +507,7 @@ class _$LoginPageStateSuccess extends LoginPageStateSuccess {
     required TResult Function(LoginPageStateEmpty value) empty,
     required TResult Function(LoginPageStateData value) data,
     required TResult Function(LoginPageStateSuccess value) success,
+    required TResult Function(LoginPageStateError value) error,
   }) {
     return success(this);
   }
@@ -492,6 +518,7 @@ class _$LoginPageStateSuccess extends LoginPageStateSuccess {
     TResult Function(LoginPageStateEmpty value)? empty,
     TResult Function(LoginPageStateData value)? data,
     TResult Function(LoginPageStateSuccess value)? success,
+    TResult Function(LoginPageStateError value)? error,
   }) {
     return success?.call(this);
   }
@@ -502,6 +529,7 @@ class _$LoginPageStateSuccess extends LoginPageStateSuccess {
     TResult Function(LoginPageStateEmpty value)? empty,
     TResult Function(LoginPageStateData value)? data,
     TResult Function(LoginPageStateSuccess value)? success,
+    TResult Function(LoginPageStateError value)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -514,6 +542,128 @@ class _$LoginPageStateSuccess extends LoginPageStateSuccess {
 abstract class LoginPageStateSuccess extends LoginPageState {
   factory LoginPageStateSuccess() = _$LoginPageStateSuccess;
   LoginPageStateSuccess._() : super._();
+}
+
+/// @nodoc
+abstract class $LoginPageStateErrorCopyWith<$Res> {
+  factory $LoginPageStateErrorCopyWith(
+          LoginPageStateError value, $Res Function(LoginPageStateError) then) =
+      _$LoginPageStateErrorCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$LoginPageStateErrorCopyWithImpl<$Res>
+    extends _$LoginPageStateCopyWithImpl<$Res>
+    implements $LoginPageStateErrorCopyWith<$Res> {
+  _$LoginPageStateErrorCopyWithImpl(
+      LoginPageStateError _value, $Res Function(LoginPageStateError) _then)
+      : super(_value, (v) => _then(v as LoginPageStateError));
+
+  @override
+  LoginPageStateError get _value => super._value as LoginPageStateError;
+}
+
+/// @nodoc
+
+class _$LoginPageStateError extends LoginPageStateError {
+  _$LoginPageStateError() : super._();
+
+  @override
+  String toString() {
+    return 'LoginPageState.error()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is LoginPageStateError);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() empty,
+    required TResult Function(
+            String phone, bool validated, ButtonStatus buttonStatus)
+        data,
+    required TResult Function() success,
+    required TResult Function() error,
+  }) {
+    return error();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? empty,
+    TResult Function(String phone, bool validated, ButtonStatus buttonStatus)?
+        data,
+    TResult Function()? success,
+    TResult Function()? error,
+  }) {
+    return error?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? empty,
+    TResult Function(String phone, bool validated, ButtonStatus buttonStatus)?
+        data,
+    TResult Function()? success,
+    TResult Function()? error,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(LoginPageStateEmpty value) empty,
+    required TResult Function(LoginPageStateData value) data,
+    required TResult Function(LoginPageStateSuccess value) success,
+    required TResult Function(LoginPageStateError value) error,
+  }) {
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(LoginPageStateEmpty value)? empty,
+    TResult Function(LoginPageStateData value)? data,
+    TResult Function(LoginPageStateSuccess value)? success,
+    TResult Function(LoginPageStateError value)? error,
+  }) {
+    return error?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LoginPageStateEmpty value)? empty,
+    TResult Function(LoginPageStateData value)? data,
+    TResult Function(LoginPageStateSuccess value)? success,
+    TResult Function(LoginPageStateError value)? error,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class LoginPageStateError extends LoginPageState {
+  factory LoginPageStateError() = _$LoginPageStateError;
+  LoginPageStateError._() : super._();
 }
 
 /// @nodoc

@@ -25,6 +25,8 @@ class LoginPageState with _$LoginPageState {
 
   // TODO replace with single action
   factory LoginPageState.success() = LoginPageStateSuccess;
+
+  factory LoginPageState.error() = LoginPageStateError;
 }
 
 @freezed

@@ -24,10 +24,12 @@ class LoadingButtonWidget extends StatelessWidget {
         height: 58.0,
         child: BlocBuilder<LoginPageBloc, LoginPageState>(
           builder: (context, state) {
+            // TODO fix extra states
             return state.map(
-              empty: (_) => _LoadingButtonEmpty(),
               data: (state) => _LoadingButtonContent(state: state),
+              empty: (_) => _LoadingButtonEmpty(),
               success: (_) => _LoadingButtonEmpty(),
+              error: (_) => _LoadingButtonEmpty(),
             );
           },
         ),

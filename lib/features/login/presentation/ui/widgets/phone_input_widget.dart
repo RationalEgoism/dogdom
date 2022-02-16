@@ -1,6 +1,6 @@
 import 'package:dogdom/app/theme/app_text_styles.dart';
-import 'package:dogdom/features/login/presentation/bloc/login_event.dart';
 import 'package:dogdom/features/login/presentation/bloc/login_page_bloc.dart';
+import 'package:dogdom/features/login/presentation/bloc/login_page_bloc_models.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
@@ -12,6 +12,8 @@ class PhoneInputWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bloc = context.read<LoginPageBloc>();
+
     return Padding(
       padding: EdgeInsets.only(
         left: 28.0,
@@ -34,17 +36,17 @@ class PhoneInputWidget extends StatelessWidget {
           child: InternationalPhoneNumberInput(
             initialValue: PhoneNumber(isoCode: 'RU'),
             onInputChanged: (PhoneNumber value) {
-              context.read<LoginPageBloc>().add(
-                    PhoneChangedEvent(phoneNumber: value.phoneNumber ?? ''),
-                  );
+              bloc.add(
+                LoginPageEvent.phoneChanged(
+                  newPhone: value.phoneNumber ?? '',
+                ),
+              );
             },
             onInputValidated: (validated) {
-              context.read<LoginPageBloc>().add(
-                    SetValidationEvent(validated: validated),
-                  );
+              bloc.add(LoginPageEvent.validationChanged(validated: validated));
             },
             onSubmit: () {
-              context.read<LoginPageBloc>().add(GetCaptchaEvent());
+              bloc.add(LoginPageEvent.getCaptcha());
             },
             spaceBetweenSelectorAndTextField: 0.0,
             cursorColor: Colors.white,

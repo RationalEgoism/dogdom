@@ -1,12 +1,9 @@
-import 'package:dogdom/app/theme/app_colors.dart';
 import 'package:dogdom/app/theme/app_icons.dart';
-import 'package:dogdom/features/login/presentation/bloc/login_event.dart';
 import 'package:dogdom/features/login/presentation/bloc/login_page_bloc.dart';
-import 'package:dogdom/features/login/presentation/bloc/login_state.dart';
+import 'package:dogdom/features/login/presentation/bloc/login_page_bloc_models.dart';
 import 'package:dogdom/features/login/presentation/ui/widgets/loading_button_widget.dart';
 import 'package:dogdom/features/login/presentation/ui/widgets/logo_widget.dart';
 import 'package:dogdom/features/login/presentation/ui/widgets/phone_input_widget.dart';
-import 'package:dogdom/features/main/presentation/ui/main_page.dart';
 import 'package:dogdom/utils/extension/context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,22 +19,22 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider<LoginPageBloc>(
       create: (context) => GetIt.I.get(),
-      child: BlocListener<LoginPageBloc, LoginState>(
+      child: BlocListener<LoginPageBloc, LoginPageState>(
         listener: (context, state) {
-          if (state.status.isSuccess) {
-            Navigator.pushNamed(context, MainPage.id);
-            context.read<LoginPageBloc>().add(SetInitStateEvent());
-          }
-          if (state.status.isError) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                duration: Duration(seconds: 1),
-                backgroundColor: Color(AppColors.red),
-                content: Text(AppLocalizations.of(context)!.common_error),
-              ),
-            );
-            context.read<LoginPageBloc>().add(SetInitStateEvent());
-          }
+          // if (state.status.isSuccess) {
+          //   Navigator.pushNamed(context, MainPage.id);
+          //   context.read<LoginPageBloc>().add(SetInitStateEvent());
+          // }
+          // if (state.status.isError) {
+          //   ScaffoldMessenger.of(context).showSnackBar(
+          //     SnackBar(
+          //       duration: Duration(seconds: 1),
+          //       backgroundColor: Color(AppColors.red),
+          //       content: Text(AppLocalizations.of(context)!.common_error),
+          //     ),
+          //   );
+          //   context.read<LoginPageBloc>().add(SetInitStateEvent());
+          // }
         },
         child: Container(
           width: double.infinity,

@@ -21,6 +21,9 @@ class MainPage extends StatelessWidget {
       ],
       bottomNavigationBuilder: (_, tabsRouter) {
         return BottomNavigationBar(
+          elevation: 4.0,
+          selectedFontSize: 0.0,
+          unselectedFontSize: 0.0,
           type: BottomNavigationBarType.fixed,
           onTap: tabsRouter.setActiveIndex,
           currentIndex: tabsRouter.activeIndex,

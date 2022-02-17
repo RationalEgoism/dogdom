@@ -42,6 +42,7 @@ class DogdomApp extends StatelessWidget {
       locale: context.locale,
       routerDelegate: _appRouter.delegate(),
       routeInformationParser: _appRouter.defaultRouteParser(),
+      routeInformationProvider: _appRouter.routeInfoProvider(),
     );
   }
 }

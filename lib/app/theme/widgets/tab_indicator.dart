@@ -21,22 +21,20 @@ class _CirclePainter extends BoxPainter {
           ..color = color
           ..style = PaintingStyle.stroke
           ..strokeWidth = 4
-          ..strokeCap = StrokeCap.round
-          ..isAntiAlias = true;
+          ..strokeCap = StrokeCap.round;
 
   @override
   void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
     final size = configuration.size!;
     final Offset circleOffset = offset +
         Offset(
-          configuration.size!.width / 2,
-          configuration.size!.height - radius - 5,
+          size.width / 2,
+          size.height - radius - 5,
         );
     final rect = Rect.fromCircle(center: circleOffset, radius: radius);
     const startAngle = 1 / 8 * pi;
     const sweepAngle = 3 / 4 * pi;
     const useCenter = false;
     canvas.drawArc(rect, startAngle, sweepAngle, useCenter, _paint);
-    // canvas.drawCircle(circleOffset, radius, _paint);
   }
 }

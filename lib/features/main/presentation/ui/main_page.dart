@@ -1,6 +1,5 @@
 import 'package:dogdom/features/main/presentation/bloc/main_page_bloc.dart';
 import 'package:dogdom/features/main/presentation/bloc/main_page_bloc_models.dart';
-import 'package:dogdom/generated/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
@@ -20,34 +19,23 @@ class MainPage extends StatelessWidget {
         length: 2,
         child: Scaffold(
           appBar: AppBar(
+            toolbarHeight: 0.0,
             bottom: TabBar(
               tabs: [
                 Tab(
+                  text: LocaleKeys.mainTabSelect.tr(),
                   icon: Icon(Icons.image),
                 ),
                 Tab(
-                  icon: Icon(Icons.error),
+                  text: LocaleKeys.mainTabDiscover.tr(),
                 ),
               ],
             ),
           ),
-          body: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
+          body: TabBarView(
             children: [
-              Image.asset(
-                Assets.image.wip.path,
-                height: 200,
-                width: 200,
-              ),
-              BlocBuilder<MainPageBloc, MainPageState>(
-                builder: (context, state) {
-                  return state.map(
-                    empty: (_) => _MainPageEmpty(),
-                    data: (state) => _MainPageContent(state: state),
-                  );
-                },
-              ),
+              Icon(Icons.directions_car),
+              Icon(Icons.directions_transit),
             ],
           ),
         ),

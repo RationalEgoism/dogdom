@@ -8,5 +8,7 @@ abstract class  LocaleKeys {
   static const loginPassToLog = 'loginPassToLog';
   static const loginPrivacy = 'loginPrivacy';
   static const mainHello = 'mainHello';
+  static const mainTabSelect = 'mainTabSelect';
+  static const mainTabDiscover = 'mainTabDiscover';
 
 }

@@ -3,6 +3,7 @@ import 'package:dogdom/features/main/presentation/ui/main_page.dart';
 import 'package:dogdom/generated/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class DogdomApp extends StatelessWidget {
   const DogdomApp({Key? key}) : super(key: key);
@@ -15,6 +16,12 @@ class DogdomApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'Gilroy',
         primarySwatch: Colors.blue,
+        appBarTheme: AppBarTheme(
+          backgroundColor: Colors.white,
+          systemOverlayStyle: SystemUiOverlayStyle(
+            statusBarColor: Colors.transparent,
+          ),
+        ),
       ),
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,

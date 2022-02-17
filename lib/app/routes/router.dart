@@ -17,7 +17,6 @@ import 'package:dogdom/features/user/presentation/ui/user_page.dart';
         AutoRoute(
           path: 'home',
           name: 'HomeRouter',
-          initial: true,
           page: EmptyRouterPage,
           children: [
             AutoRoute(

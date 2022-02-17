@@ -19,7 +19,7 @@ class MainPage extends StatelessWidget {
         leading: AutoBackButton(),
       ),
       routes: const [
-        HomeRoute(),
+        HomeRouter(),
         CircleRouter(),
         ReleaseRouter(),
         MessageRouter(),
@@ -27,6 +27,7 @@ class MainPage extends StatelessWidget {
       ],
       bottomNavigationBuilder: (_, tabRouter) {
         return SalomonBottomBar(
+          onTap: tabRouter.setActiveIndex,
           currentIndex: tabRouter.activeIndex,
           items: [
             SalomonBottomBarItem(

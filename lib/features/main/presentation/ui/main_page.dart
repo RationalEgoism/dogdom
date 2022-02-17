@@ -1,7 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:dogdom/app/routes/router.gr.dart';
+import 'package:dogdom/generated/assets.gen.dart';
 import 'package:flutter/material.dart';
-import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -17,50 +18,31 @@ class MainPage extends StatelessWidget {
         MessageRouter(),
         UserRouter(),
       ],
-      bottomNavigationBuilder: (_, tabRouter) {
-        return SalomonBottomBar(
-          onTap: tabRouter.setActiveIndex,
-          currentIndex: tabRouter.activeIndex,
+      bottomNavigationBuilder: (_, tabsRouter) {
+        return BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          onTap: tabsRouter.setActiveIndex,
+          currentIndex: tabsRouter.activeIndex,
           items: [
-            SalomonBottomBarItem(
-              selectedColor: Colors.amberAccent,
-              icon: Icon(
-                Icons.post_add,
-                size: 30,
-              ),
-              title: Text('Home'),
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset(Assets.image.menuHome.path),
+              label: '',
             ),
-            SalomonBottomBarItem(
-              selectedColor: Colors.blue[200],
-              icon: Icon(
-                Icons.person,
-                size: 30,
-              ),
-              title: Text('Circle'),
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset(Assets.image.menuCircle.path),
+              label: '',
             ),
-            SalomonBottomBarItem(
-              selectedColor: Colors.pinkAccent,
-              icon: Icon(
-                Icons.settings,
-                size: 30,
-              ),
-              title: Text('Release'),
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset(Assets.image.menuRelease.path),
+              label: '',
             ),
-            SalomonBottomBarItem(
-              selectedColor: Colors.green,
-              icon: Icon(
-                Icons.error,
-                size: 30,
-              ),
-              title: Text('Message'),
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset(Assets.image.menuMessage.path),
+              label: '',
             ),
-            SalomonBottomBarItem(
-              selectedColor: Colors.red,
-              icon: Icon(
-                Icons.verified_user,
-                size: 30,
-              ),
-              title: Text('User'),
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset(Assets.image.menuUser.path),
+              label: '',
             ),
           ],
         );

@@ -18,6 +18,7 @@ class CodegenLoader extends AssetLoader{
   "appTitle": "Dogdom",
   "common_wip": "Work in progress",
   "common_error": "Something went wrong. Try again.",
+  "common_test": "Press to test!",
   "loginGetCaptcha": "Get Captcha",
   "loginPassToLog": "Password to Login",
   "loginPrivacy": "By signing in, you agree to the User Agreement and Privacy Terms",
@@ -28,6 +29,7 @@ class CodegenLoader extends AssetLoader{
 static const Map<String,dynamic> ru = {
   "common_wip": "Работа в процессе",
   "common_error": "Что-то пошло не так. Попробуйте еще раз.",
+  "common_test": "Нажми на кнопку - получишь в результат",
   "loginGetCaptcha": "Получить код",
   "loginPassToLog": "Пароль для входа",
   "loginPrivacy": "Выполняя вход, вы соглашаетесь с Пользовательским соглашением и Условиями конфиденциальности",

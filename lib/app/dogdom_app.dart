@@ -1,6 +1,5 @@
+import 'package:dogdom/app/routes/router.gr.dart';
 import 'package:dogdom/app/theme/widgets/tab_indicator.dart';
-import 'package:dogdom/features/login/presentation/ui/login_page.dart';
-import 'package:dogdom/features/main/presentation/ui/main_page.dart';
 import 'package:dogdom/generated/colors.gen.dart';
 import 'package:dogdom/generated/fonts.gen.dart';
 import 'package:dogdom/generated/locale_keys.g.dart';
@@ -9,11 +8,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class DogdomApp extends StatelessWidget {
-  const DogdomApp({Key? key}) : super(key: key);
+  final _appRouter = AppRouter();
+
+  DogdomApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       onGenerateTitle: (context) => LocaleKeys.appTitle.tr(),
       theme: ThemeData(
@@ -39,11 +40,9 @@ class DogdomApp extends StatelessWidget {
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
-      initialRoute: MainPage.id,
-      routes: {
-        LoginPage.id: (context) => LoginPage(),
-        MainPage.id: (context) => MainPage(),
-      },
+      routerDelegate: _appRouter.delegate(),
+      routeInformationParser: _appRouter.defaultRouteParser(),
+      routeInformationProvider: _appRouter.routeInfoProvider(),
     );
   }
 }

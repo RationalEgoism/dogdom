@@ -19,6 +19,24 @@ class $AssetsImageGen {
   /// File path: assets/image/logo.svg
   SvgGenImage get logo => const SvgGenImage('assets/image/logo.svg');
 
+  /// File path: assets/image/menu_circle.svg
+  SvgGenImage get menuCircle =>
+      const SvgGenImage('assets/image/menu_circle.svg');
+
+  /// File path: assets/image/menu_home.svg
+  SvgGenImage get menuHome => const SvgGenImage('assets/image/menu_home.svg');
+
+  /// File path: assets/image/menu_message.svg
+  SvgGenImage get menuMessage =>
+      const SvgGenImage('assets/image/menu_message.svg');
+
+  /// File path: assets/image/menu_release.svg
+  SvgGenImage get menuRelease =>
+      const SvgGenImage('assets/image/menu_release.svg');
+
+  /// File path: assets/image/menu_user.svg
+  SvgGenImage get menuUser => const SvgGenImage('assets/image/menu_user.svg');
+
   /// File path: assets/image/notification.svg
   SvgGenImage get notification =>
       const SvgGenImage('assets/image/notification.svg');

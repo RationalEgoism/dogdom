@@ -30,6 +30,7 @@ class DogdomApp extends StatelessWidget {
         appBarTheme: AppBarTheme(
           backgroundColor: Colors.white,
           systemOverlayStyle: SystemUiOverlayStyle(
+            statusBarIconBrightness: Brightness.dark,
             statusBarColor: Colors.transparent,
           ),
         ),

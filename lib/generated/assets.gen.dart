@@ -19,6 +19,10 @@ class $AssetsImageGen {
   /// File path: assets/image/logo.svg
   SvgGenImage get logo => const SvgGenImage('assets/image/logo.svg');
 
+  /// File path: assets/image/notification.svg
+  SvgGenImage get notification =>
+      const SvgGenImage('assets/image/notification.svg');
+
   /// File path: assets/image/splash_logo.png
   AssetGenImage get splashLogo =>
       const AssetGenImage('assets/image/splash_logo.png');

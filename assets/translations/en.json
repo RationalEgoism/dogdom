@@ -7,5 +7,7 @@
   "loginPassToLog": "Password to Login",
   "loginPrivacy": "By signing in, you agree to the User Agreement and Privacy Terms",
 
-  "mainHello": "Hello, your phone is {phone}"
+  "mainHello": "Hello, your phone is {phone}",
+  "mainTabSelect": "Select",
+  "mainTabDiscover": "Discover"
 }

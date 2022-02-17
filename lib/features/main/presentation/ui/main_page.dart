@@ -1,8 +1,10 @@
 import 'package:dogdom/features/main/presentation/bloc/main_page_bloc.dart';
 import 'package:dogdom/features/main/presentation/bloc/main_page_bloc_models.dart';
 import 'package:dogdom/generated/assets.gen.dart';
+import 'package:dogdom/utils/extension/context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get_it/get_it.dart';
 
 import '../../../../generated/locale_export.dart';
@@ -16,24 +18,43 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider<MainPageBloc>(
       create: (context) => GetIt.I.get()..add(MainPageEvent.init()),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Image.asset(
-            Assets.image.wip.path,
-            height: 200,
-            width: 200,
+      child: DefaultTabController(
+        length: 2,
+        child: Scaffold(
+          appBar: AppBar(
+            actions: [
+              IconButton(
+                padding: EdgeInsets.only(right: 18.0),
+                onPressed: () {
+                  context.showWipToast();
+                },
+                icon: SvgPicture.asset(Assets.image.notification.path),
+              )
+            ],
+            title: Container(
+              alignment: Alignment.center,
+              child: TabBar(
+                labelPadding: EdgeInsets.symmetric(horizontal: 19.0),
+                padding: EdgeInsets.only(left: 42.0),
+                isScrollable: true,
+                tabs: [
+                  Tab(
+                    text: LocaleKeys.mainTabSelect.tr(),
+                  ),
+                  Tab(
+                    text: LocaleKeys.mainTabDiscover.tr(),
+                  ),
+                ],
+              ),
+            ),
           ),
-          BlocBuilder<MainPageBloc, MainPageState>(
-            builder: (context, state) {
-              return state.map(
-                empty: (_) => _MainPageEmpty(),
-                data: (state) => _MainPageContent(state: state),
-              );
-            },
+          body: TabBarView(
+            children: [
+              Icon(Icons.directions_car),
+              Icon(Icons.directions_transit),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

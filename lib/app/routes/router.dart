@@ -12,11 +12,11 @@ import 'package:dogdom/features/user/presentation/ui/user_page.dart';
   replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
     AutoRoute(
-      initial: true,
       path: '/login',
       page: LoginPage,
     ),
     AutoRoute(
+      initial: true,
       path: '/main',
       page: MainPage,
       children: [

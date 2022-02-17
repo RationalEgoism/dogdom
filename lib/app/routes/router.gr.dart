@@ -75,7 +75,7 @@ class AppRouter extends _i4.RootStackRouter {
   @override
   List<_i4.RouteConfig> get routes => [
         _i4.RouteConfig('/#redirect',
-            path: '/', redirectTo: '/login', fullMatch: true),
+            path: '/', redirectTo: '/main', fullMatch: true),
         _i4.RouteConfig(LoginRoute.name, path: '/login'),
         _i4.RouteConfig(MainRoute.name, path: '/main', children: [
           _i4.RouteConfig(HomeRouter.name,

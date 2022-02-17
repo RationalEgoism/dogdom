@@ -1,7 +1,10 @@
 import 'package:dogdom/features/main/presentation/bloc/main_page_bloc.dart';
 import 'package:dogdom/features/main/presentation/bloc/main_page_bloc_models.dart';
+import 'package:dogdom/generated/assets.gen.dart';
+import 'package:dogdom/utils/extension/context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get_it/get_it.dart';
 
 import '../../../../generated/locale_export.dart';
@@ -19,8 +22,16 @@ class MainPage extends StatelessWidget {
         length: 2,
         child: Scaffold(
           appBar: AppBar(
-            toolbarHeight: 0.0,
-            bottom: TabBar(
+            actions: [
+              IconButton(
+                padding: EdgeInsets.only(right: 18.0),
+                onPressed: () {
+                  context.showWipToast();
+                },
+                icon: SvgPicture.asset(Assets.image.notification.path),
+              )
+            ],
+            title: TabBar(
               tabs: [
                 Tab(
                   text: LocaleKeys.mainTabSelect.tr(),

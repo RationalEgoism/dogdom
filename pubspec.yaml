@@ -18,6 +18,8 @@ dependencies:
 
   flutter_svg: ^1.0.3
 
+  flutter_svg_provider: ^1.0.3
+
   fluttertoast: ^8.0.8
 
   flutter_bloc: ^8.0.1

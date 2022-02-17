@@ -1,6 +1,8 @@
+import 'package:dogdom/app/theme/widgets/tab_indicator.dart';
 import 'package:dogdom/features/login/presentation/ui/login_page.dart';
 import 'package:dogdom/features/main/presentation/ui/main_page.dart';
 import 'package:dogdom/generated/colors.gen.dart';
+import 'package:dogdom/generated/fonts.gen.dart';
 import 'package:dogdom/generated/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -18,8 +20,12 @@ class DogdomApp extends StatelessWidget {
         tabBarTheme: TabBarTheme(
           labelColor: Colors.black,
           unselectedLabelColor: ColorName.black40,
+          indicator: CircleTabIndicator(
+            radius: 7,
+            color: Colors.red,
+          ),
         ),
-        fontFamily: 'Gilroy',
+        fontFamily: FontFamily.gilroy,
         primarySwatch: Colors.blue,
         appBarTheme: AppBarTheme(
           backgroundColor: Colors.white,

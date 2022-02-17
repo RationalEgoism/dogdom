@@ -21,7 +21,9 @@ class CodegenLoader extends AssetLoader{
   "loginGetCaptcha": "Get Captcha",
   "loginPassToLog": "Password to Login",
   "loginPrivacy": "By signing in, you agree to the User Agreement and Privacy Terms",
-  "mainHello": "Hello, your phone is {phone}"
+  "mainHello": "Hello, your phone is {phone}",
+  "mainTabSelect": "Select",
+  "mainTabDiscover": "Discover"
 };
 static const Map<String,dynamic> ru = {
   "common_wip": "Работа в процессе",
@@ -29,7 +31,9 @@ static const Map<String,dynamic> ru = {
   "loginGetCaptcha": "Получить код",
   "loginPassToLog": "Пароль для входа",
   "loginPrivacy": "Выполняя вход, вы соглашаетесь с Пользовательским соглашением и Условиями конфиденциальности",
-  "mainHello": "Привет, твой номер {phone}"
+  "mainHello": "Привет, твой номер {phone}",
+  "mainTabSelect": "Избранное",
+  "mainTabDiscover": "Навигатор"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"en": en, "ru": ru};
 }

@@ -24,7 +24,6 @@ class MainPage extends StatelessWidget {
               tabs: [
                 Tab(
                   text: LocaleKeys.mainTabSelect.tr(),
-                  icon: Icon(Icons.image),
                 ),
                 Tab(
                   text: LocaleKeys.mainTabDiscover.tr(),

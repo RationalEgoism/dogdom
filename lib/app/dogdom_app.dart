@@ -28,6 +28,7 @@ class DogdomApp extends StatelessWidget {
         fontFamily: FontFamily.gilroy,
         primarySwatch: Colors.blue,
         appBarTheme: AppBarTheme(
+          elevation: 0.0,
           backgroundColor: Colors.white,
           systemOverlayStyle: SystemUiOverlayStyle(
             statusBarIconBrightness: Brightness.dark,

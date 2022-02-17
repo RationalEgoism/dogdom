@@ -1,3 +1,5 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:dogdom/app/routes/router.gr.dart';
 import 'package:flutter/material.dart';
 
 class ReleasePage extends StatelessWidget {
@@ -6,7 +8,14 @@ class ReleasePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text('Release'),
+      child: TextButton(
+        onPressed: () {
+          context.router.push(
+            NotificationRoute(postId: 121),
+          );
+        },
+        child: Text('Release'),
+      ),
     );
   }
 }

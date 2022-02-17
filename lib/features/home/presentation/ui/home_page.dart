@@ -1,3 +1,5 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:dogdom/app/routes/router.gr.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -6,7 +8,15 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text('Home'),
+      child: TextButton(
+        onPressed: () {
+          //
+          context.router.push(
+            NotificationRoute(postId: 121),
+          );
+        },
+        child: Text('Home'),
+      ),
     );
   }
 }

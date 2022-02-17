@@ -23,10 +23,6 @@ import 'package:dogdom/features/user/presentation/ui/user_page.dart';
               path: '',
               page: HomePage,
             ),
-            AutoRoute(
-              path: ':id',
-              page: NotificationPage,
-            ),
           ],
         ),
         AutoRoute(
@@ -50,7 +46,11 @@ import 'package:dogdom/features/user/presentation/ui/user_page.dart';
           page: UserPage,
         ),
       ],
-    )
+    ),
+    AutoRoute(
+      path: '/main/notification',
+      page: NotificationPage,
+    ),
   ],
 )
 class $AppRouter {}

@@ -1,9 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:dogdom/app/routes/router.gr.dart';
+import 'package:dogdom/features/main/presentation/ui/widgets/DogdomNavigationItem.dart';
 import 'package:dogdom/generated/assets.gen.dart';
-import 'package:dogdom/generated/colors.gen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -28,55 +27,20 @@ class MainPage extends StatelessWidget {
           onTap: tabsRouter.setActiveIndex,
           currentIndex: tabsRouter.activeIndex,
           items: [
-            BottomNavigationBarItem(
-              activeIcon: SvgPicture.asset(
-                Assets.image.menuHome.path,
-                color: ColorName.red,
-              ),
-              icon: SvgPicture.asset(
-                Assets.image.menuHome.path,
-              ),
-              label: '',
+            DogdomNavigationItem(
+              svgImagePath: Assets.image.menuHome.path,
             ),
-            BottomNavigationBarItem(
-              activeIcon: SvgPicture.asset(
-                Assets.image.menuCircle.path,
-                color: ColorName.red,
-              ),
-              icon: SvgPicture.asset(
-                Assets.image.menuCircle.path,
-              ),
-              label: '',
+            DogdomNavigationItem(
+              svgImagePath: Assets.image.menuCircle.path,
             ),
-            BottomNavigationBarItem(
-              activeIcon: SvgPicture.asset(
-                Assets.image.menuRelease.path,
-                color: ColorName.red,
-              ),
-              icon: SvgPicture.asset(
-                Assets.image.menuRelease.path,
-              ),
-              label: '',
+            DogdomNavigationItem(
+              svgImagePath: Assets.image.menuRelease.path,
             ),
-            BottomNavigationBarItem(
-              activeIcon: SvgPicture.asset(
-                Assets.image.menuMessage.path,
-                color: ColorName.red,
-              ),
-              icon: SvgPicture.asset(
-                Assets.image.menuMessage.path,
-              ),
-              label: '',
+            DogdomNavigationItem(
+              svgImagePath: Assets.image.menuMessage.path,
             ),
-            BottomNavigationBarItem(
-              activeIcon: SvgPicture.asset(
-                Assets.image.menuUser.path,
-                color: ColorName.red,
-              ),
-              icon: SvgPicture.asset(
-                Assets.image.menuUser.path,
-              ),
-              label: '',
+            DogdomNavigationItem(
+              svgImagePath: Assets.image.menuUser.path,
             ),
           ],
         );

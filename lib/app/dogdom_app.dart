@@ -19,7 +19,7 @@ class DogdomApp extends StatelessWidget {
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
-      initialRoute: LoginPage.id,
+      initialRoute: MainPage.id,
       routes: {
         LoginPage.id: (context) => LoginPage(),
         MainPage.id: (context) => MainPage(),

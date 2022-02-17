@@ -16,24 +16,41 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider<MainPageBloc>(
       create: (context) => GetIt.I.get()..add(MainPageEvent.init()),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Image.asset(
-            Assets.image.wip.path,
-            height: 200,
-            width: 200,
+      child: DefaultTabController(
+        length: 2,
+        child: Scaffold(
+          appBar: AppBar(
+            bottom: TabBar(
+              tabs: [
+                Tab(
+                  icon: Icon(Icons.image),
+                ),
+                Tab(
+                  icon: Icon(Icons.error),
+                ),
+              ],
+            ),
           ),
-          BlocBuilder<MainPageBloc, MainPageState>(
-            builder: (context, state) {
-              return state.map(
-                empty: (_) => _MainPageEmpty(),
-                data: (state) => _MainPageContent(state: state),
-              );
-            },
+          body: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Image.asset(
+                Assets.image.wip.path,
+                height: 200,
+                width: 200,
+              ),
+              BlocBuilder<MainPageBloc, MainPageState>(
+                builder: (context, state) {
+                  return state.map(
+                    empty: (_) => _MainPageEmpty(),
+                    data: (state) => _MainPageContent(state: state),
+                  );
+                },
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

@@ -1,5 +1,9 @@
+import 'dart:math';
+
+import 'package:auto_route/auto_route.dart';
+import 'package:dogdom/app/routes/router.gr.dart';
+import 'package:dogdom/app/theme/widgets/wip.dart';
 import 'package:dogdom/generated/assets.gen.dart';
-import 'package:dogdom/utils/extension/context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -18,7 +22,11 @@ class HomePage extends StatelessWidget {
             IconButton(
               padding: EdgeInsets.only(right: 18.0),
               onPressed: () {
-                context.showWipToast();
+                context.router.push(
+                  NotificationRoute(
+                    postId: Random().nextInt(10),
+                  ),
+                );
               },
               icon: SvgPicture.asset(Assets.image.notification.path),
             )
@@ -42,8 +50,8 @@ class HomePage extends StatelessWidget {
         ),
         body: TabBarView(
           children: [
-            Icon(Icons.directions_car),
-            Icon(Icons.directions_transit),
+            Wip(),
+            Wip(),
           ],
         ),
       ),

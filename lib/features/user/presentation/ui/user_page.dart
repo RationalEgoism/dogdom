@@ -1,3 +1,4 @@
+import 'package:dogdom/app/theme/widgets/wip.dart';
 import 'package:flutter/material.dart';
 
 class UserPage extends StatelessWidget {
@@ -6,7 +7,7 @@ class UserPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text('User'),
+      child: Wip(),
     );
   }
 }

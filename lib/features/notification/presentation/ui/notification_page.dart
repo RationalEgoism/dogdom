@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:dogdom/app/theme/widgets/wip.dart';
 import 'package:flutter/material.dart';
 
 class NotificationPage extends StatelessWidget {
@@ -11,8 +12,10 @@ class NotificationPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text('Notification #$postId'),
+    return Scaffold(
+      body: Center(
+        child: Wip(),
+      ),
     );
   }
 }

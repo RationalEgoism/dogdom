@@ -4,6 +4,7 @@ abstract class  LocaleKeys {
   static const appTitle = 'appTitle';
   static const common_wip = 'common_wip';
   static const common_error = 'common_error';
+  static const common_test = 'common_test';
   static const loginGetCaptcha = 'loginGetCaptcha';
   static const loginPassToLog = 'loginPassToLog';
   static const loginPrivacy = 'loginPrivacy';

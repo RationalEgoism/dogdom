@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:dogdom/features/circle/presentation/ui/circle_page.dart';
 import 'package:dogdom/features/home/presentation/ui/home_page.dart';
+import 'package:dogdom/features/login/presentation/ui/login_page.dart';
 import 'package:dogdom/features/main/presentation/ui/main_page.dart';
 import 'package:dogdom/features/message/presentation/ui/message_page.dart';
 import 'package:dogdom/features/notification/presentation/ui/notification_page.dart';
@@ -11,7 +12,12 @@ import 'package:dogdom/features/user/presentation/ui/user_page.dart';
   replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
     AutoRoute(
-      path: '/',
+      initial: true,
+      path: '/login',
+      page: LoginPage,
+    ),
+    AutoRoute(
+      path: '/main',
       page: MainPage,
       children: [
         AutoRoute(

@@ -1,9 +1,10 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:dogdom/app/routes/router.gr.dart';
 import 'package:dogdom/features/login/presentation/bloc/login_page_bloc.dart';
 import 'package:dogdom/features/login/presentation/bloc/login_page_bloc_models.dart';
 import 'package:dogdom/features/login/presentation/ui/widgets/loading_button_widget.dart';
 import 'package:dogdom/features/login/presentation/ui/widgets/logo_widget.dart';
 import 'package:dogdom/features/login/presentation/ui/widgets/phone_input_widget.dart';
-import 'package:dogdom/features/main/presentation/ui/main_page.dart';
 import 'package:dogdom/generated/assets.gen.dart';
 import 'package:dogdom/generated/colors.gen.dart';
 import 'package:dogdom/generated/locale_keys.g.dart';
@@ -25,7 +26,7 @@ class LoginPage extends StatelessWidget {
       child: BlocListener<LoginPageBloc, LoginPageState>(
         listener: (context, state) {
           if (state is LoginPageStateSuccess) {
-            Navigator.pushNamed(context, MainPage.id);
+            context.router.push(MainRoute());
           }
           if (state is LoginPageStateError) {
             FocusManager.instance.primaryFocus?.unfocus();

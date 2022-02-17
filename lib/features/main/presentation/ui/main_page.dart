@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 class MainPage extends StatelessWidget {
-  static String id = "MainPage";
-
   const MainPage({Key? key}) : super(key: key);
 
   @override

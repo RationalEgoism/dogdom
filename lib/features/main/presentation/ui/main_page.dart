@@ -31,15 +31,21 @@ class MainPage extends StatelessWidget {
                 icon: SvgPicture.asset(Assets.image.notification.path),
               )
             ],
-            title: TabBar(
-              tabs: [
-                Tab(
-                  text: LocaleKeys.mainTabSelect.tr(),
-                ),
-                Tab(
-                  text: LocaleKeys.mainTabDiscover.tr(),
-                ),
-              ],
+            title: Container(
+              alignment: Alignment.center,
+              child: TabBar(
+                labelPadding: EdgeInsets.symmetric(horizontal: 19.0),
+                padding: EdgeInsets.only(left: 42.0),
+                isScrollable: true,
+                tabs: [
+                  Tab(
+                    text: LocaleKeys.mainTabSelect.tr(),
+                  ),
+                  Tab(
+                    text: LocaleKeys.mainTabDiscover.tr(),
+                  ),
+                ],
+              ),
             ),
           ),
           body: TabBarView(

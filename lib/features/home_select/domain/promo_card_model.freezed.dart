@@ -35,10 +35,12 @@ class _$PromoCardModelTearOff {
 
   PromoCardModelDonate donate(
       {required String title,
+      required String description,
       required String imgPath,
       required VoidCallback onTap}) {
     return PromoCardModelDonate(
       title: title,
+      description: description,
       imgPath: imgPath,
       onTap: onTap,
     );
@@ -51,6 +53,7 @@ const $PromoCardModel = _$PromoCardModelTearOff();
 /// @nodoc
 mixin _$PromoCardModel {
   String get title => throw _privateConstructorUsedError;
+  String get description => throw _privateConstructorUsedError;
   String get imgPath => throw _privateConstructorUsedError;
   VoidCallback get onTap => throw _privateConstructorUsedError;
 
@@ -59,7 +62,8 @@ mixin _$PromoCardModel {
     required TResult Function(String title, String description,
             String buttonText, String imgPath, VoidCallback onTap)
         takeHome,
-    required TResult Function(String title, String imgPath, VoidCallback onTap)
+    required TResult Function(String title, String description, String imgPath,
+            VoidCallback onTap)
         donate,
   }) =>
       throw _privateConstructorUsedError;
@@ -68,7 +72,9 @@ mixin _$PromoCardModel {
     TResult Function(String title, String description, String buttonText,
             String imgPath, VoidCallback onTap)?
         takeHome,
-    TResult Function(String title, String imgPath, VoidCallback onTap)? donate,
+    TResult Function(String title, String description, String imgPath,
+            VoidCallback onTap)?
+        donate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -76,7 +82,9 @@ mixin _$PromoCardModel {
     TResult Function(String title, String description, String buttonText,
             String imgPath, VoidCallback onTap)?
         takeHome,
-    TResult Function(String title, String imgPath, VoidCallback onTap)? donate,
+    TResult Function(String title, String description, String imgPath,
+            VoidCallback onTap)?
+        donate,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -110,7 +118,8 @@ abstract class $PromoCardModelCopyWith<$Res> {
   factory $PromoCardModelCopyWith(
           PromoCardModel value, $Res Function(PromoCardModel) then) =
       _$PromoCardModelCopyWithImpl<$Res>;
-  $Res call({String title, String imgPath, VoidCallback onTap});
+  $Res call(
+      {String title, String description, String imgPath, VoidCallback onTap});
 }
 
 /// @nodoc
@@ -125,6 +134,7 @@ class _$PromoCardModelCopyWithImpl<$Res>
   @override
   $Res call({
     Object? title = freezed,
+    Object? description = freezed,
     Object? imgPath = freezed,
     Object? onTap = freezed,
   }) {
@@ -132,6 +142,10 @@ class _$PromoCardModelCopyWithImpl<$Res>
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String,
       imgPath: imgPath == freezed
           ? _value.imgPath
@@ -265,7 +279,8 @@ class _$PromoCardModelTakeHome implements PromoCardModelTakeHome {
     required TResult Function(String title, String description,
             String buttonText, String imgPath, VoidCallback onTap)
         takeHome,
-    required TResult Function(String title, String imgPath, VoidCallback onTap)
+    required TResult Function(String title, String description, String imgPath,
+            VoidCallback onTap)
         donate,
   }) {
     return takeHome(title, description, buttonText, imgPath, onTap);
@@ -277,7 +292,9 @@ class _$PromoCardModelTakeHome implements PromoCardModelTakeHome {
     TResult Function(String title, String description, String buttonText,
             String imgPath, VoidCallback onTap)?
         takeHome,
-    TResult Function(String title, String imgPath, VoidCallback onTap)? donate,
+    TResult Function(String title, String description, String imgPath,
+            VoidCallback onTap)?
+        donate,
   }) {
     return takeHome?.call(title, description, buttonText, imgPath, onTap);
   }
@@ -288,7 +305,9 @@ class _$PromoCardModelTakeHome implements PromoCardModelTakeHome {
     TResult Function(String title, String description, String buttonText,
             String imgPath, VoidCallback onTap)?
         takeHome,
-    TResult Function(String title, String imgPath, VoidCallback onTap)? donate,
+    TResult Function(String title, String description, String imgPath,
+            VoidCallback onTap)?
+        donate,
     required TResult orElse(),
   }) {
     if (takeHome != null) {
@@ -339,6 +358,7 @@ abstract class PromoCardModelTakeHome implements PromoCardModel {
 
   @override
   String get title;
+  @override
   String get description;
   String get buttonText;
   @override
@@ -358,7 +378,8 @@ abstract class $PromoCardModelDonateCopyWith<$Res>
           $Res Function(PromoCardModelDonate) then) =
       _$PromoCardModelDonateCopyWithImpl<$Res>;
   @override
-  $Res call({String title, String imgPath, VoidCallback onTap});
+  $Res call(
+      {String title, String description, String imgPath, VoidCallback onTap});
 }
 
 /// @nodoc
@@ -375,6 +396,7 @@ class _$PromoCardModelDonateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? title = freezed,
+    Object? description = freezed,
     Object? imgPath = freezed,
     Object? onTap = freezed,
   }) {
@@ -382,6 +404,10 @@ class _$PromoCardModelDonateCopyWithImpl<$Res>
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String,
       imgPath: imgPath == freezed
           ? _value.imgPath
@@ -399,10 +425,15 @@ class _$PromoCardModelDonateCopyWithImpl<$Res>
 
 class _$PromoCardModelDonate implements PromoCardModelDonate {
   _$PromoCardModelDonate(
-      {required this.title, required this.imgPath, required this.onTap});
+      {required this.title,
+      required this.description,
+      required this.imgPath,
+      required this.onTap});
 
   @override
   final String title;
+  @override
+  final String description;
   @override
   final String imgPath;
   @override
@@ -410,7 +441,7 @@ class _$PromoCardModelDonate implements PromoCardModelDonate {
 
   @override
   String toString() {
-    return 'PromoCardModel.donate(title: $title, imgPath: $imgPath, onTap: $onTap)';
+    return 'PromoCardModel.donate(title: $title, description: $description, imgPath: $imgPath, onTap: $onTap)';
   }
 
   @override
@@ -419,6 +450,8 @@ class _$PromoCardModelDonate implements PromoCardModelDonate {
         (other.runtimeType == runtimeType &&
             other is PromoCardModelDonate &&
             const DeepCollectionEquality().equals(other.title, title) &&
+            const DeepCollectionEquality()
+                .equals(other.description, description) &&
             const DeepCollectionEquality().equals(other.imgPath, imgPath) &&
             (identical(other.onTap, onTap) || other.onTap == onTap));
   }
@@ -427,6 +460,7 @@ class _$PromoCardModelDonate implements PromoCardModelDonate {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(title),
+      const DeepCollectionEquality().hash(description),
       const DeepCollectionEquality().hash(imgPath),
       onTap);
 
@@ -442,10 +476,11 @@ class _$PromoCardModelDonate implements PromoCardModelDonate {
     required TResult Function(String title, String description,
             String buttonText, String imgPath, VoidCallback onTap)
         takeHome,
-    required TResult Function(String title, String imgPath, VoidCallback onTap)
+    required TResult Function(String title, String description, String imgPath,
+            VoidCallback onTap)
         donate,
   }) {
-    return donate(title, imgPath, onTap);
+    return donate(title, description, imgPath, onTap);
   }
 
   @override
@@ -454,9 +489,11 @@ class _$PromoCardModelDonate implements PromoCardModelDonate {
     TResult Function(String title, String description, String buttonText,
             String imgPath, VoidCallback onTap)?
         takeHome,
-    TResult Function(String title, String imgPath, VoidCallback onTap)? donate,
+    TResult Function(String title, String description, String imgPath,
+            VoidCallback onTap)?
+        donate,
   }) {
-    return donate?.call(title, imgPath, onTap);
+    return donate?.call(title, description, imgPath, onTap);
   }
 
   @override
@@ -465,11 +502,13 @@ class _$PromoCardModelDonate implements PromoCardModelDonate {
     TResult Function(String title, String description, String buttonText,
             String imgPath, VoidCallback onTap)?
         takeHome,
-    TResult Function(String title, String imgPath, VoidCallback onTap)? donate,
+    TResult Function(String title, String description, String imgPath,
+            VoidCallback onTap)?
+        donate,
     required TResult orElse(),
   }) {
     if (donate != null) {
-      return donate(title, imgPath, onTap);
+      return donate(title, description, imgPath, onTap);
     }
     return orElse();
   }
@@ -509,11 +548,14 @@ class _$PromoCardModelDonate implements PromoCardModelDonate {
 abstract class PromoCardModelDonate implements PromoCardModel {
   factory PromoCardModelDonate(
       {required String title,
+      required String description,
       required String imgPath,
       required VoidCallback onTap}) = _$PromoCardModelDonate;
 
   @override
   String get title;
+  @override
+  String get description;
   @override
   String get imgPath;
   @override

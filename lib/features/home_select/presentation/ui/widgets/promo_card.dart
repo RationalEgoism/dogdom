@@ -1,5 +1,8 @@
 import 'package:dogdom/features/home_select/domain/promo_card_model.dart';
+import 'package:dogdom/features/home_select/presentation/ui/widgets/cards/promo_card_take_home.dart';
 import 'package:flutter/material.dart';
+
+import 'cards/promo_card_donate.dart';
 
 class PromoCard extends StatelessWidget {
   final PromoCardModel model;
@@ -12,97 +15,23 @@ class PromoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return model.map(
-      takeHome: (takeHomeModel) => _PromoCardTakeHome(model: takeHomeModel),
-      donate: (_) => Container(),
-    );
-  }
-}
-
-class _PromoCardTakeHome extends StatelessWidget {
-  final PromoCardModelTakeHome model;
-
-  const _PromoCardTakeHome({
-    Key? key,
-    required this.model,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        PromoImage(model: model),
-        Padding(
-          padding: const EdgeInsets.only(
-            left: 24.0,
-          ),
-          child: LayoutBuilder(
-            builder: (context, constraints) {
-              return Container(
-                width: constraints.maxWidth * 3 / 5,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      model.title,
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                        top: 4.0,
-                      ),
-                      child: Text(
-                        model.description,
-                        style: TextStyle(
-                          fontSize: 13,
-                          fontWeight: FontWeight.normal,
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(
-                        top: 16.0,
-                      ),
-                      child: TextButton(
-                        onPressed: model.onTap,
-                        child: Text(
-                          model.buttonText,
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 12,
-                          ),
-                        ),
-                        style: TextButton.styleFrom(
-                          backgroundColor: Colors.black,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(
-                              4,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              );
-            },
-          ),
-        ),
-      ],
+      takeHome: (takeHomeModel) => PromoCardTakeHome(
+        model: takeHomeModel,
+      ),
+      donate: (donateModel) => PromoCardDonate(
+        model: donateModel,
+      ),
     );
   }
 }
 
 class PromoImage extends StatelessWidget {
+  final String imgPath;
+
   const PromoImage({
     Key? key,
-    required this.model,
+    required this.imgPath,
   }) : super(key: key);
-
-  final PromoCardModelTakeHome model;
 
   @override
   Widget build(BuildContext context) {
@@ -130,7 +59,7 @@ class PromoImage extends StatelessWidget {
           );
         },
         child: Image.asset(
-          model.imgPath,
+          imgPath,
           fit: BoxFit.fill,
         ),
       ),

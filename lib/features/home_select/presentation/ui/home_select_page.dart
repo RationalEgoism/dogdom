@@ -75,18 +75,7 @@ class HomeSelectPage extends StatelessWidget {
                 scale: 0.9,
                 viewportFraction: 0.85,
                 itemBuilder: (context, index) {
-                  return PromoCard(
-                    model: PromoCardModelTakeHome(
-                      title: 'Take me Home',
-                      description:
-                          'Take care of stray dogs, please take them home.',
-                      buttonText: 'Let me',
-                      imgPath: Assets.imageMock.homeSelectCarousel2.path,
-                      onTap: () => context.router.push(
-                        HomeNestedRouter(name: 'Take me home'),
-                      ),
-                    ),
-                  );
+                  return _buildList(context)[index];
                 },
               ),
             ),
@@ -94,5 +83,43 @@ class HomeSelectPage extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  List<PromoCard> _buildList(BuildContext context) {
+    return [
+      PromoCard(
+        model: PromoCardModelTakeHome(
+          title: 'Take me Home',
+          description: 'Buy me a bowl of food.',
+          imgPath: Assets.imageMock.homeSelectCarousel2.path,
+          onTap: () => context.router.push(
+            HomeNestedRouter(name: 'Take me home'),
+          ),
+          buttonText: 'Let me',
+        ),
+      ),
+      PromoCard(
+        model: PromoCardModelDonate(
+          title: 'Feed me',
+          description: 'Buy me a bowl of food.',
+          // buttonText: 'Let me',
+          imgPath: Assets.imageMock.homeSelectCarousel1.path,
+          onTap: () => context.router.push(
+            HomeNestedRouter(name: 'Feed me'),
+          ),
+        ),
+      ),
+      PromoCard(
+        model: PromoCardModelTakeHome(
+          title: 'Take me Home',
+          description: 'Buy me a bowl of food.',
+          imgPath: Assets.imageMock.homeSelectCarousel2.path,
+          onTap: () => context.router.push(
+            HomeNestedRouter(name: 'Take me home'),
+          ),
+          buttonText: 'Let me',
+        ),
+      ),
+    ];
   }
 }

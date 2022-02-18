@@ -36,6 +36,11 @@ class DogdomApp extends StatelessWidget {
             statusBarColor: Colors.transparent,
           ),
         ),
+        textSelectionTheme: TextSelectionThemeData(
+          cursorColor: ColorName.red,
+          selectionColor: ColorName.red,
+          selectionHandleColor: ColorName.red,
+        ),
       ),
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,

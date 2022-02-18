@@ -6,6 +6,7 @@ import 'package:dogdom/features/main/presentation/ui/main_page.dart';
 import 'package:dogdom/features/message/presentation/ui/message_page.dart';
 import 'package:dogdom/features/notification/presentation/ui/notification_page.dart';
 import 'package:dogdom/features/release/presentation/ui/release_page.dart';
+import 'package:dogdom/features/search/presentation/ui/search_page.dart';
 import 'package:dogdom/features/user/presentation/ui/user_page.dart';
 
 @MaterialAutoRouter(
@@ -54,8 +55,12 @@ import 'package:dogdom/features/user/presentation/ui/user_page.dart';
       ],
     ),
     AutoRoute(
-      path: '/main/notification',
+      path: '/home/notification',
       page: NotificationPage,
+    ),
+    AutoRoute(
+      path: '/search',
+      page: SearchPage,
     ),
   ],
 )

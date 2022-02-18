@@ -3,7 +3,6 @@ import 'package:dogdom/app/routes/router.gr.dart';
 import 'package:dogdom/app/theme/widgets/search.dart';
 import 'package:dogdom/utils/extension/context_extension.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class HomeSelectPage extends StatelessWidget {
   const HomeSelectPage({Key? key}) : super(key: key);

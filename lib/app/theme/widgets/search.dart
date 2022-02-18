@@ -20,35 +20,49 @@ class Search extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
-      child: Container(
+      child: SizedBox(
         height: 36,
-        color: Colors.green,
-        child: TextField(
-          enabled: inputEnabled,
-          decoration: InputDecoration(
-            enabled: true,
-            contentPadding: EdgeInsets.all(0),
-            filled: true,
-            fillColor: ColorName.searchBackground,
-            border: OutlineInputBorder(
-              borderSide: BorderSide.none,
-              borderRadius: BorderRadius.circular(21),
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            color: ColorName.searchBackground,
+            border: Border.all(
+              style: BorderStyle.none,
             ),
-            prefixIcon: SvgPicture.asset(
-              Assets.image.search.path,
-              color: ColorName.black25,
-              fit: BoxFit.none,
-            ),
-            suffixIcon: IconButton(
-              icon: SvgPicture.asset(
-                Assets.image.voice.path,
-                color: ColorName.black25,
-                fit: BoxFit.none,
+            borderRadius: BorderRadius.circular(21),
+          ),
+          child: Row(
+            children: [
+              Flexible(
+                child: TextField(
+                  enabled: inputEnabled,
+                  decoration: InputDecoration(
+                    enabled: true,
+                    contentPadding: EdgeInsets.all(0),
+                    filled: true,
+                    fillColor: ColorName.searchBackground,
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide.none,
+                      borderRadius: BorderRadius.circular(21),
+                    ),
+                    prefixIcon: SvgPicture.asset(
+                      Assets.image.search.path,
+                      color: ColorName.black25,
+                      fit: BoxFit.none,
+                    ),
+                    hintText: LocaleKeys.common_search.tr(),
+                    hintStyle: TextStyle(color: ColorName.black25),
+                  ),
+                ),
               ),
-              onPressed: onSuffixTap,
-            ),
-            hintText: LocaleKeys.common_search.tr(),
-            hintStyle: TextStyle(color: ColorName.black25),
+              IconButton(
+                icon: SvgPicture.asset(
+                  Assets.image.voice.path,
+                  color: ColorName.black25,
+                  fit: BoxFit.none,
+                ),
+                onPressed: onSuffixTap,
+              ),
+            ],
           ),
         ),
       ),

@@ -10,5 +10,9 @@
 
   "mainHello": "Привет, твой номер {phone}",
   "mainTabSelect": "Избранное",
-  "mainTabDiscover": "Навигатор"
+  "mainTabDiscover": "Навигатор",
+
+  "homeSelectTabRanking": "Рейтинг",
+  "homeSelectTabDiscuss": "Обсуждение",
+  "homeSelectTabSurrounding": "Покупки"
 }

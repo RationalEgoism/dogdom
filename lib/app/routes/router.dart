@@ -8,6 +8,7 @@ import 'package:dogdom/features/notification/presentation/ui/notification_page.d
 import 'package:dogdom/features/release/presentation/ui/release_page.dart';
 import 'package:dogdom/features/search/presentation/ui/search_page.dart';
 import 'package:dogdom/features/user/presentation/ui/user_page.dart';
+import 'package:dogdom/features/wip/wip_page.dart';
 
 @MaterialAutoRouter(
   replaceInRouteName: 'Page,Route',
@@ -29,6 +30,11 @@ import 'package:dogdom/features/user/presentation/ui/user_page.dart';
             AutoRoute(
               path: '',
               page: HomePage,
+            ),
+            AutoRoute(
+              path: 'ranking/:name',
+              name: 'HomeNestedRouter',
+              page: WipPage,
             ),
           ],
         ),
@@ -61,6 +67,10 @@ import 'package:dogdom/features/user/presentation/ui/user_page.dart';
     AutoRoute(
       path: '/search',
       page: SearchPage,
+    ),
+    AutoRoute(
+      path: '/wip/:name',
+      page: WipPage,
     ),
   ],
 )

@@ -16,6 +16,9 @@ class $AssetsImageGen {
   AssetGenImage get bgLoginScreen =>
       const AssetGenImage('assets/image/bg_login_screen.png');
 
+  /// File path: assets/image/discuss.svg
+  SvgGenImage get discuss => const SvgGenImage('assets/image/discuss.svg');
+
   /// File path: assets/image/logo.svg
   SvgGenImage get logo => const SvgGenImage('assets/image/logo.svg');
 
@@ -41,12 +44,19 @@ class $AssetsImageGen {
   SvgGenImage get notification =>
       const SvgGenImage('assets/image/notification.svg');
 
+  /// File path: assets/image/ranking.svg
+  SvgGenImage get ranking => const SvgGenImage('assets/image/ranking.svg');
+
   /// File path: assets/image/search.svg
   SvgGenImage get search => const SvgGenImage('assets/image/search.svg');
 
   /// File path: assets/image/splash_logo.png
   AssetGenImage get splashLogo =>
       const AssetGenImage('assets/image/splash_logo.png');
+
+  /// File path: assets/image/surrounding.svg
+  SvgGenImage get surrounding =>
+      const SvgGenImage('assets/image/surrounding.svg');
 
   /// File path: assets/image/voice.svg
   SvgGenImage get voice => const SvgGenImage('assets/image/voice.svg');

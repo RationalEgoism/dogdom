@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:auto_route/auto_route.dart';
 import 'package:dogdom/app/routes/router.gr.dart';
 import 'package:dogdom/app/theme/widgets/wip.dart';
-import 'package:dogdom/features/home_select/presentation/ui/HomeSelectPage.dart';
+import 'package:dogdom/features/home_select/presentation/ui/home_select_page.dart';
 import 'package:dogdom/generated/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';

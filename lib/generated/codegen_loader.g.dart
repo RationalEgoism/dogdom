@@ -25,7 +25,10 @@ class CodegenLoader extends AssetLoader{
   "loginPrivacy": "By signing in, you agree to the User Agreement and Privacy Terms",
   "mainHello": "Hello, your phone is {phone}",
   "mainTabSelect": "Select",
-  "mainTabDiscover": "Discover"
+  "mainTabDiscover": "Discover",
+  "homeSelectTabRanking": "Ranking",
+  "homeSelectTabDiscuss": "Discuss",
+  "homeSelectTabSurrounding": "Surrounding"
 };
 static const Map<String,dynamic> ru = {
   "common_wip": "Работа в процессе",
@@ -37,7 +40,10 @@ static const Map<String,dynamic> ru = {
   "loginPrivacy": "Выполняя вход, вы соглашаетесь с Пользовательским соглашением и Условиями конфиденциальности",
   "mainHello": "Привет, твой номер {phone}",
   "mainTabSelect": "Избранное",
-  "mainTabDiscover": "Навигатор"
+  "mainTabDiscover": "Навигатор",
+  "homeSelectTabRanking": "Рейтинг",
+  "homeSelectTabDiscuss": "Обсуждение",
+  "homeSelectTabSurrounding": "Покупки"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"en": en, "ru": ru};
 }

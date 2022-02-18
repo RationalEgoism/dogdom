@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:card_swiper/card_swiper.dart';
 import 'package:dogdom/app/routes/router.gr.dart';
 import 'package:dogdom/app/theme/widgets/home_icon_button.dart';
 import 'package:dogdom/app/theme/widgets/search.dart';
@@ -59,7 +60,32 @@ class HomeSelectPage extends StatelessWidget {
               ),
             ],
           ),
-          Image.asset(Assets.imageMock.homeSelectCarousel1.path),
+          Padding(
+            padding: EdgeInsets.symmetric(
+              vertical: 16.0,
+            ),
+            child: SizedBox(
+              height: 190.0,
+              child: Swiper(
+                itemCount: 3,
+                loop: false,
+                scrollDirection: Axis.horizontal,
+                scale: 0.9,
+                viewportFraction: 0.85,
+                itemBuilder: (context, index) {
+                  return ClipRRect(
+                    borderRadius: BorderRadius.circular(
+                      18.0,
+                    ),
+                    child: Image.asset(
+                      Assets.imageMock.homeSelectCarousel2.path,
+                      fit: BoxFit.fill,
+                    ),
+                  );
+                },
+              ),
+            ),
+          ),
         ],
       ),
     );

@@ -77,9 +77,29 @@ class HomeSelectPage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(
                       18.0,
                     ),
-                    child: Image.asset(
-                      Assets.imageMock.homeSelectCarousel2.path,
-                      fit: BoxFit.fill,
+                    child: ShaderMask(
+                      blendMode: BlendMode.darken,
+                      shaderCallback: (Rect bounds) {
+                        return LinearGradient(
+                          colors: [
+                            Colors.transparent,
+                            Colors.black.withOpacity(0.5),
+                          ],
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                        ).createShader(
+                          Rect.fromLTRB(
+                            0,
+                            bounds.height * 0.6,
+                            bounds.width,
+                            bounds.height,
+                          ),
+                        );
+                      },
+                      child: Image.asset(
+                        Assets.imageMock.homeSelectCarousel2.path,
+                        fit: BoxFit.fill,
+                      ),
                     ),
                   );
                 },

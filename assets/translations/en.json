@@ -3,6 +3,7 @@
   "common_wip": "Work in progress",
   "common_error": "Something went wrong. Try again.",
   "common_test": "Press to test!",
+  "common_search": "Search",
 
   "loginGetCaptcha": "Get Captcha",
   "loginPassToLog": "Password to Login",

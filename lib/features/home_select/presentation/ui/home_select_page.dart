@@ -33,17 +33,29 @@ class HomeSelectPage extends StatelessWidget {
               HomeIconButton(
                 svgIconPath: Assets.image.ranking.path,
                 text: LocaleKeys.homeSelectTabRanking.tr(),
-                onTap: () => context.showWipToast(),
+                onTap: () => context.router.push(
+                  HomeNestedRouter(
+                    name: LocaleKeys.homeSelectTabRanking.tr(),
+                  ),
+                ),
               ),
               HomeIconButton(
                 svgIconPath: Assets.image.discuss.path,
                 text: LocaleKeys.homeSelectTabDiscuss.tr(),
-                onTap: () => context.showWipToast(),
+                onTap: () => context.router.push(
+                  HomeNestedRouter(
+                    name: LocaleKeys.homeSelectTabDiscuss.tr(),
+                  ),
+                ),
               ),
               HomeIconButton(
                 svgIconPath: Assets.image.surrounding.path,
                 text: LocaleKeys.homeSelectTabSurrounding.tr(),
-                onTap: () => context.showWipToast(),
+                onTap: () => context.router.push(
+                  HomeNestedRouter(
+                    name: LocaleKeys.homeSelectTabSurrounding.tr(),
+                  ),
+                ),
               ),
             ],
           ),

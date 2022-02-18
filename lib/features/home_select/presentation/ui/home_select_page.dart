@@ -73,34 +73,67 @@ class HomeSelectPage extends StatelessWidget {
                 scale: 0.9,
                 viewportFraction: 0.85,
                 itemBuilder: (context, index) {
-                  return ClipRRect(
-                    borderRadius: BorderRadius.circular(
-                      18.0,
-                    ),
-                    child: ShaderMask(
-                      blendMode: BlendMode.darken,
-                      shaderCallback: (Rect bounds) {
-                        return LinearGradient(
-                          colors: [
-                            Colors.transparent,
-                            Colors.black.withOpacity(0.5),
-                          ],
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                        ).createShader(
-                          Rect.fromLTRB(
-                            0,
-                            bounds.height * 0.6,
-                            bounds.width,
-                            bounds.height,
+                  return Stack(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(
+                          18.0,
+                        ),
+                        child: ShaderMask(
+                          blendMode: BlendMode.darken,
+                          shaderCallback: (Rect bounds) {
+                            return LinearGradient(
+                              colors: [
+                                Colors.transparent,
+                                Colors.black.withOpacity(0.5),
+                              ],
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                            ).createShader(
+                              Rect.fromLTRB(
+                                0,
+                                bounds.height * 0.6,
+                                bounds.width,
+                                bounds.height,
+                              ),
+                            );
+                          },
+                          child: Image.asset(
+                            Assets.imageMock.homeSelectCarousel2.path,
+                            fit: BoxFit.fill,
                           ),
-                        );
-                      },
-                      child: Image.asset(
-                        Assets.imageMock.homeSelectCarousel2.path,
-                        fit: BoxFit.fill,
+                        ),
                       ),
-                    ),
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          left: 24.0,
+                          top: 38.0,
+                        ),
+                        child: LayoutBuilder(
+                          builder: (context, constraints) {
+                            return Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: const [
+                                Text(
+                                  'Take me home',
+                                  style: TextStyle(
+                                    fontSize: 24,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                                Text(
+                                  'Take care of stray dogs, please take them home.',
+                                  style: TextStyle(
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                                ),
+                              ],
+                            );
+                          },
+                        ),
+                      ),
+                    ],
                   );
                 },
               ),

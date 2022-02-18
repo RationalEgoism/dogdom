@@ -11,5 +11,10 @@
 
   "mainHello": "Hello, your phone is {phone}",
   "mainTabSelect": "Select",
-  "mainTabDiscover": "Discover"
+  "mainTabDiscover": "Discover",
+
+  "homeSelectTabRanking": "Ranking",
+  "homeSelectTabDiscuss": "Discuss",
+  "homeSelectTabSurrounding": "Surrounding"
+
 }

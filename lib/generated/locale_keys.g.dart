@@ -12,5 +12,8 @@ abstract class  LocaleKeys {
   static const mainHello = 'mainHello';
   static const mainTabSelect = 'mainTabSelect';
   static const mainTabDiscover = 'mainTabDiscover';
+  static const homeSelectTabRanking = 'homeSelectTabRanking';
+  static const homeSelectTabDiscuss = 'homeSelectTabDiscuss';
+  static const homeSelectTabSurrounding = 'homeSelectTabSurrounding';
 
 }

@@ -65,6 +65,18 @@ class $AssetsImageGen {
   AssetGenImage get wip => const AssetGenImage('assets/image/wip.png');
 }
 
+class $AssetsImageMockGen {
+  const $AssetsImageMockGen();
+
+  /// File path: assets/image_mock/home_select_carousel_1.png
+  AssetGenImage get homeSelectCarousel1 =>
+      const AssetGenImage('assets/image_mock/home_select_carousel_1.png');
+
+  /// File path: assets/image_mock/home_select_carousel_2.png
+  AssetGenImage get homeSelectCarousel2 =>
+      const AssetGenImage('assets/image_mock/home_select_carousel_2.png');
+}
+
 class $AssetsTranslationsGen {
   const $AssetsTranslationsGen();
 
@@ -79,6 +91,7 @@ class Assets {
   Assets._();
 
   static const $AssetsImageGen image = $AssetsImageGen();
+  static const $AssetsImageMockGen imageMock = $AssetsImageMockGen();
   static const $AssetsTranslationsGen translations = $AssetsTranslationsGen();
 }
 

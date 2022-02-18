@@ -1,7 +1,10 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:card_swiper/card_swiper.dart';
 import 'package:dogdom/app/routes/router.gr.dart';
 import 'package:dogdom/app/theme/widgets/home_icon_button.dart';
 import 'package:dogdom/app/theme/widgets/search.dart';
+import 'package:dogdom/features/home_select/domain/promo_card_model.dart';
+import 'package:dogdom/features/home_select/presentation/ui/widgets/promo_card.dart';
 import 'package:dogdom/generated/assets.gen.dart';
 import 'package:dogdom/generated/locale_export.dart';
 import 'package:dogdom/utils/extension/context_extension.dart';
@@ -59,8 +62,64 @@ class HomeSelectPage extends StatelessWidget {
               ),
             ],
           ),
+          Padding(
+            padding: EdgeInsets.symmetric(
+              vertical: 16.0,
+            ),
+            child: SizedBox(
+              height: 190.0,
+              child: Swiper(
+                itemCount: 3,
+                loop: false,
+                scrollDirection: Axis.horizontal,
+                scale: 0.9,
+                viewportFraction: 0.85,
+                itemBuilder: (context, index) {
+                  return _buildList(context)[index];
+                },
+              ),
+            ),
+          ),
         ],
       ),
     );
+  }
+
+  List<PromoCard> _buildList(BuildContext context) {
+    return [
+      PromoCard(
+        model: PromoCardModelTakeHome(
+          title: 'Take me Home',
+          description: 'Buy me a bowl of food.',
+          imgPath: Assets.imageMock.homeSelectCarousel2.path,
+          onTap: () => context.router.push(
+            HomeNestedRouter(name: 'Take me home'),
+          ),
+          buttonText: 'Let me',
+        ),
+      ),
+      PromoCard(
+        model: PromoCardModelDonate(
+          title: 'Feed me',
+          description: 'Buy me a bowl of food.',
+          // buttonText: 'Let me',
+          imgPath: Assets.imageMock.homeSelectCarousel1.path,
+          onTap: () => context.router.push(
+            HomeNestedRouter(name: 'Feed me'),
+          ),
+        ),
+      ),
+      PromoCard(
+        model: PromoCardModelTakeHome(
+          title: 'Take me Home',
+          description: 'Buy me a bowl of food.',
+          imgPath: Assets.imageMock.homeSelectCarousel2.path,
+          onTap: () => context.router.push(
+            HomeNestedRouter(name: 'Take me home'),
+          ),
+          buttonText: 'Let me',
+        ),
+      ),
+    ];
   }
 }

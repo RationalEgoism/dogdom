@@ -59,6 +59,7 @@ class HomeSelectPage extends StatelessWidget {
               ),
             ],
           ),
+          Image.asset(Assets.imageMock.homeSelectCarousel1.path),
         ],
       ),
     );

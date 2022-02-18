@@ -55,6 +55,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/image/
+    - assets/image_mock/
     - assets/translations/
   fonts:
     - family: Gilroy

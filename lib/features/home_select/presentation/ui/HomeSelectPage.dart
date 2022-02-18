@@ -1,6 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:dogdom/app/routes/router.gr.dart';
+import 'package:dogdom/app/theme/widgets/home_icon_button.dart';
 import 'package:dogdom/app/theme/widgets/search.dart';
+import 'package:dogdom/generated/assets.gen.dart';
+import 'package:dogdom/generated/locale_export.dart';
 import 'package:dogdom/utils/extension/context_extension.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +13,7 @@ class HomeSelectPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.red,
+      color: Colors.white,
       child: Column(
         children: [
           Padding(
@@ -24,11 +27,25 @@ class HomeSelectPage extends StatelessWidget {
               onSuffixTap: () => context.showWipToast(),
             ),
           ),
-          TextButton(
-            onPressed: () {
-              context.router.push(HomeNestedRouter(name: 'Ranking'));
-            },
-            child: Text('Click me'),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              HomeIconButton(
+                svgIconPath: Assets.image.ranking.path,
+                text: LocaleKeys.homeSelectTabRanking.tr(),
+                onTap: () => context.showWipToast(),
+              ),
+              HomeIconButton(
+                svgIconPath: Assets.image.discuss.path,
+                text: LocaleKeys.homeSelectTabDiscuss.tr(),
+                onTap: () => context.showWipToast(),
+              ),
+              HomeIconButton(
+                svgIconPath: Assets.image.surrounding.path,
+                text: LocaleKeys.homeSelectTabSurrounding.tr(),
+                onTap: () => context.showWipToast(),
+              ),
+            ],
           ),
         ],
       ),

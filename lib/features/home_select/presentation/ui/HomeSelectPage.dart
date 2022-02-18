@@ -24,6 +24,12 @@ class HomeSelectPage extends StatelessWidget {
               onSuffixTap: () => context.showWipToast(),
             ),
           ),
+          TextButton(
+            onPressed: () {
+              context.router.push(HomeNestedRouter(name: 'Ranking'));
+            },
+            child: Text('Click me'),
+          ),
         ],
       ),
     );

@@ -107,28 +107,65 @@ class HomeSelectPage extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(
                           left: 24.0,
-                          top: 38.0,
                         ),
                         child: LayoutBuilder(
                           builder: (context, constraints) {
-                            return Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: const [
-                                Text(
-                                  'Take me home',
-                                  style: TextStyle(
-                                    fontSize: 24,
-                                    fontWeight: FontWeight.w600,
+                            return Container(
+                              width: constraints.maxWidth * 3 / 5,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Take me home',
+                                    style: TextStyle(
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.w600,
+                                    ),
                                   ),
-                                ),
-                                Text(
-                                  'Take care of stray dogs, please take them home.',
-                                  style: TextStyle(
-                                    fontSize: 13,
-                                    fontWeight: FontWeight.normal,
+                                  Padding(
+                                    padding: EdgeInsets.only(
+                                      top: 4.0,
+                                    ),
+                                    child: Text(
+                                      'Take care of stray dogs, please take them home.',
+                                      style: TextStyle(
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.normal,
+                                      ),
+                                    ),
                                   ),
-                                ),
-                              ],
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                      top: 16.0,
+                                    ),
+                                    child: TextButton(
+                                      onPressed: () {
+                                        context.router.push(
+                                          HomeNestedRouter(
+                                            name: 'Take me home',
+                                          ),
+                                        );
+                                      },
+                                      child: Text(
+                                        'Let me',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 12,
+                                        ),
+                                      ),
+                                      style: TextButton.styleFrom(
+                                        backgroundColor: Colors.black,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(
+                                            4,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             );
                           },
                         ),

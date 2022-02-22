@@ -6,6 +6,7 @@ import 'package:dogdom/app/theme/widgets/search.dart';
 import 'package:dogdom/features/home_select/domain/promo_card_model.dart';
 import 'package:dogdom/features/home_select/presentation/ui/widgets/promo_card.dart';
 import 'package:dogdom/generated/assets.gen.dart';
+import 'package:dogdom/generated/colors.gen.dart';
 import 'package:dogdom/generated/locale_export.dart';
 import 'package:dogdom/utils/extension/context_extension.dart';
 import 'package:flutter/material.dart';
@@ -79,6 +80,74 @@ class HomeSelectPage extends StatelessWidget {
                 },
               ),
             ),
+          ),
+          ListView(
+            scrollDirection: Axis.vertical,
+            shrinkWrap: true,
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  vertical: 5.0,
+                  horizontal: 24.0,
+                ),
+                child: Container(
+                  color: Colors.greenAccent,
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          CircleAvatar(
+                            radius: 15.0,
+                            backgroundImage: AssetImage(
+                              Assets.imageMock.homeSelectAvatar1.path,
+                            ),
+                          ),
+                          Expanded(
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 8.0,
+                                vertical: 4.5,
+                              ),
+                              child: Text(
+                                'Mirabelle Swift',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox.fromSize(
+                            size: Size(
+                              70.0,
+                              28.0,
+                            ),
+                            child: TextButton(
+                              onPressed: () {
+                                //
+                              },
+                              child: Text(
+                                'Follow',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 12.0,
+                                ),
+                              ),
+                              style: TextButton.styleFrom(
+                                padding: EdgeInsets.zero,
+                                backgroundColor: ColorName.red,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(4),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
           ),
         ],
       ),

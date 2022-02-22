@@ -68,6 +68,10 @@ class $AssetsImageGen {
 class $AssetsImageMockGen {
   const $AssetsImageMockGen();
 
+  /// File path: assets/image_mock/home_select_avatar_1.png
+  AssetGenImage get homeSelectAvatar1 =>
+      const AssetGenImage('assets/image_mock/home_select_avatar_1.png');
+
   /// File path: assets/image_mock/home_select_carousel_1.png
   AssetGenImage get homeSelectCarousel1 =>
       const AssetGenImage('assets/image_mock/home_select_carousel_1.png');

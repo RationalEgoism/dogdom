@@ -79,6 +79,10 @@ class $AssetsImageMockGen {
   /// File path: assets/image_mock/home_select_carousel_2.png
   AssetGenImage get homeSelectCarousel2 =>
       const AssetGenImage('assets/image_mock/home_select_carousel_2.png');
+
+  /// File path: assets/image_mock/home_select_post_1.png
+  AssetGenImage get homeSelectPost1 =>
+      const AssetGenImage('assets/image_mock/home_select_post_1.png');
 }
 
 class $AssetsTranslationsGen {

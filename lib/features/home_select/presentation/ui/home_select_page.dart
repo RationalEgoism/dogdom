@@ -162,7 +162,18 @@ class HomeSelectPage extends StatelessWidget {
                             ),
                           ),
                         ),
-                      )
+                      ),
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(
+                          8.0,
+                        ),
+                        child: FittedBox(
+                          fit: BoxFit.fill,
+                          child: Image.asset(
+                            Assets.imageMock.homeSelectPost1.path,
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),

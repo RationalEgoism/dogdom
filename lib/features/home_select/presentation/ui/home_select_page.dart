@@ -21,104 +21,116 @@ class HomeSelectPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      child: SingleChildScrollView(
-        physics: ScrollPhysics(),
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 16.0,
-                vertical: 10.0,
-              ),
-              child: Search(
-                inputEnabled: false,
-                onTap: () => context.router.push(SearchRoute()),
-                onSuffixTap: () => context.showWipToast(),
-              ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<NewsBloc>(
+          create: (_) => GetIt.I.get()..add(NewsEvent.init()),
+        ),
+        BlocProvider<HomeSelectPagePromoBloc>(
+          create: (_) => GetIt.I.get()..add(HomeSelectPagePromoEvent.init()),
+        ),
+      ],
+      child: MultiBlocListener(
+        listeners: [
+          BlocListener<NewsBloc, NewsState>(
+            listener: (context, state) {
+              if (state is NewsStateOnTap) {
+                context.showWipToast();
+              }
+            },
+          ),
+          BlocListener<HomeSelectPagePromoBloc, HomeSelectPagePromoState>(
+            listener: (context, state) {
+              if (state is HomeSelectPagePromoStateOnTap) {
+                context.router.push(
+                  HomeNestedRouter(
+                    name: state.onTap.promoName,
+                  ),
+                );
+              }
+            },
+          ),
+        ],
+        child: Container(
+          color: Colors.white,
+          child: SingleChildScrollView(
+            physics: ScrollPhysics(),
+            child: Column(
               children: [
-                HomeIconButton(
-                  svgIconPath: Assets.image.ranking.path,
-                  text: LocaleKeys.homeSelectTabRanking.tr(),
-                  onTap: () => context.router.push(
-                    HomeNestedRouter(
-                      name: LocaleKeys.homeSelectTabRanking.tr(),
-                    ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16.0,
+                    vertical: 10.0,
+                  ),
+                  child: Search(
+                    inputEnabled: false,
+                    onTap: () => context.router.push(SearchRoute()),
+                    onSuffixTap: () => context.showWipToast(),
                   ),
                 ),
-                HomeIconButton(
-                  svgIconPath: Assets.image.discuss.path,
-                  text: LocaleKeys.homeSelectTabDiscuss.tr(),
-                  onTap: () => context.router.push(
-                    HomeNestedRouter(
-                      name: LocaleKeys.homeSelectTabDiscuss.tr(),
-                    ),
-                  ),
-                ),
-                HomeIconButton(
-                  svgIconPath: Assets.image.surrounding.path,
-                  text: LocaleKeys.homeSelectTabSurrounding.tr(),
-                  onTap: () => context.router.push(
-                    HomeNestedRouter(
-                      name: LocaleKeys.homeSelectTabSurrounding.tr(),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                vertical: 16.0,
-              ),
-              child: BlocProvider<HomeSelectPagePromoBloc>(
-                create: (_) => GetIt.I.get()
-                  ..add(
-                    HomeSelectPagePromoEvent.init(),
-                  ),
-                child: BlocConsumer<HomeSelectPagePromoBloc,
-                    HomeSelectPagePromoState>(
-                  listener: (context, state) {
-                    if (state is HomeSelectPagePromoStateOnTap) {
-                      context.router.push(
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    HomeIconButton(
+                      svgIconPath: Assets.image.ranking.path,
+                      text: LocaleKeys.homeSelectTabRanking.tr(),
+                      onTap: () => context.router.push(
                         HomeNestedRouter(
-                          name: state.onTap.promoName,
-                        ),
-                      );
-                    }
-                  },
-                  builder: (context, state) {
-                    return state.maybeWhen(
-                      loading: () => CircularProgressIndicator(),
-                      data: (promoList) => SizedBox(
-                        height: 190.0,
-                        child: Swiper(
-                          itemCount: 3,
-                          loop: false,
-                          scrollDirection: Axis.horizontal,
-                          scale: 0.9,
-                          viewportFraction: 0.85,
-                          itemBuilder: (context, index) {
-                            return PromoCard(model: promoList[index]);
-                          },
+                          name: LocaleKeys.homeSelectTabRanking.tr(),
                         ),
                       ),
-                      orElse: () {
-                        // Invalid state here
-                        return Container();
-                      },
-                    );
-                  },
+                    ),
+                    HomeIconButton(
+                      svgIconPath: Assets.image.discuss.path,
+                      text: LocaleKeys.homeSelectTabDiscuss.tr(),
+                      onTap: () => context.router.push(
+                        HomeNestedRouter(
+                          name: LocaleKeys.homeSelectTabDiscuss.tr(),
+                        ),
+                      ),
+                    ),
+                    HomeIconButton(
+                      svgIconPath: Assets.image.surrounding.path,
+                      text: LocaleKeys.homeSelectTabSurrounding.tr(),
+                      onTap: () => context.router.push(
+                        HomeNestedRouter(
+                          name: LocaleKeys.homeSelectTabSurrounding.tr(),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-            ),
-            BlocProvider<NewsBloc>(
-              create: (context) => GetIt.I.get()..add(NewsEvent.init()),
-              child: BlocConsumer<NewsBloc, NewsState>(
-                  listener: (context, state) {},
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                    vertical: 16.0,
+                  ),
+                  child: BlocBuilder<HomeSelectPagePromoBloc,
+                      HomeSelectPagePromoState>(
+                    builder: (context, state) {
+                      return state.maybeWhen(
+                        loading: () => CircularProgressIndicator(),
+                        data: (promoList) => SizedBox(
+                          height: 190.0,
+                          child: Swiper(
+                            itemCount: 3,
+                            loop: false,
+                            scrollDirection: Axis.horizontal,
+                            scale: 0.9,
+                            viewportFraction: 0.85,
+                            itemBuilder: (context, index) {
+                              return PromoCard(model: promoList[index]);
+                            },
+                          ),
+                        ),
+                        orElse: () {
+                          // Invalid state here
+                          return Container();
+                        },
+                      );
+                    },
+                  ),
+                ),
+                BlocBuilder<NewsBloc, NewsState>(
                   builder: (context, state) {
                     return state.maybeWhen(
                       loading: () => Padding(
@@ -147,9 +159,11 @@ class HomeSelectPage extends StatelessWidget {
                         return Container();
                       },
                     );
-                  }),
+                  },
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );

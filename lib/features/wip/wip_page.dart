@@ -15,9 +15,6 @@ class WipPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        titleTextStyle: TextStyle(
-          color: Colors.red,
-        ),
         title: Text(name),
       ),
       body: Column(

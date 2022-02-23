@@ -3,7 +3,9 @@
     <color name="red">fffa6650</color>
     <color name="red38">61fa6650</color>
 
-    <color name="black40">66000000</color>
     <color name="black25">40000000</color>
+    <color name="black40">66000000</color>
+    <color name="black70">b3000000</color>
+    <color name="black70">b3000000</color>
     <color name="search_background">fffafafa</color>
 </resources>

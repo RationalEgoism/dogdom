@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:card_swiper/card_swiper.dart';
 import 'package:dogdom/app/routes/router.gr.dart';
 import 'package:dogdom/app/theme/widgets/home_icon_button.dart';
+import 'package:dogdom/app/theme/widgets/news_post.dart';
 import 'package:dogdom/app/theme/widgets/search.dart';
 import 'package:dogdom/features/home_select/domain/promo_card_model.dart';
 import 'package:dogdom/features/home_select/presentation/ui/widgets/promo_card.dart';
@@ -15,76 +16,88 @@ class HomeSelectPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 16.0,
-              vertical: 10.0,
-            ),
-            child: Search(
-              inputEnabled: false,
-              onTap: () => context.router.push(SearchRoute()),
-              onSuffixTap: () => context.showWipToast(),
-            ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    return SafeArea(
+      child: Container(
+        color: Colors.white,
+        child: SingleChildScrollView(
+          physics: ScrollPhysics(),
+          child: Column(
             children: [
-              HomeIconButton(
-                svgIconPath: Assets.image.ranking.path,
-                text: LocaleKeys.homeSelectTabRanking.tr(),
-                onTap: () => context.router.push(
-                  HomeNestedRouter(
-                    name: LocaleKeys.homeSelectTabRanking.tr(),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16.0,
+                  vertical: 10.0,
+                ),
+                child: Search(
+                  inputEnabled: false,
+                  onTap: () => context.router.push(SearchRoute()),
+                  onSuffixTap: () => context.showWipToast(),
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  HomeIconButton(
+                    svgIconPath: Assets.image.ranking.path,
+                    text: LocaleKeys.homeSelectTabRanking.tr(),
+                    onTap: () => context.router.push(
+                      HomeNestedRouter(
+                        name: LocaleKeys.homeSelectTabRanking.tr(),
+                      ),
+                    ),
+                  ),
+                  HomeIconButton(
+                    svgIconPath: Assets.image.discuss.path,
+                    text: LocaleKeys.homeSelectTabDiscuss.tr(),
+                    onTap: () => context.router.push(
+                      HomeNestedRouter(
+                        name: LocaleKeys.homeSelectTabDiscuss.tr(),
+                      ),
+                    ),
+                  ),
+                  HomeIconButton(
+                    svgIconPath: Assets.image.surrounding.path,
+                    text: LocaleKeys.homeSelectTabSurrounding.tr(),
+                    onTap: () => context.router.push(
+                      HomeNestedRouter(
+                        name: LocaleKeys.homeSelectTabSurrounding.tr(),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  vertical: 16.0,
+                ),
+                child: SizedBox(
+                  height: 190.0,
+                  child: Swiper(
+                    itemCount: 3,
+                    loop: false,
+                    scrollDirection: Axis.horizontal,
+                    scale: 0.9,
+                    viewportFraction: 0.85,
+                    itemBuilder: (context, index) {
+                      return _buildList(context)[index];
+                    },
                   ),
                 ),
               ),
-              HomeIconButton(
-                svgIconPath: Assets.image.discuss.path,
-                text: LocaleKeys.homeSelectTabDiscuss.tr(),
-                onTap: () => context.router.push(
-                  HomeNestedRouter(
-                    name: LocaleKeys.homeSelectTabDiscuss.tr(),
-                  ),
-                ),
-              ),
-              HomeIconButton(
-                svgIconPath: Assets.image.surrounding.path,
-                text: LocaleKeys.homeSelectTabSurrounding.tr(),
-                onTap: () => context.router.push(
-                  HomeNestedRouter(
-                    name: LocaleKeys.homeSelectTabSurrounding.tr(),
-                  ),
-                ),
+              ListView(
+                physics: NeverScrollableScrollPhysics(),
+                scrollDirection: Axis.vertical,
+                shrinkWrap: true,
+                children: _buildNewsList(context),
               ),
             ],
           ),
-          Padding(
-            padding: EdgeInsets.symmetric(
-              vertical: 16.0,
-            ),
-            child: SizedBox(
-              height: 190.0,
-              child: Swiper(
-                itemCount: 3,
-                loop: false,
-                scrollDirection: Axis.horizontal,
-                scale: 0.9,
-                viewportFraction: 0.85,
-                itemBuilder: (context, index) {
-                  return _buildList(context)[index];
-                },
-              ),
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }
 
+  // TODO get data from BLoC
   List<PromoCard> _buildList(BuildContext context) {
     return [
       PromoCard(
@@ -118,6 +131,73 @@ class HomeSelectPage extends StatelessWidget {
             HomeNestedRouter(name: 'Take me home'),
           ),
           buttonText: 'Let me',
+        ),
+      ),
+    ];
+  }
+
+  // TODO get data from BLoC
+  List<Widget> _buildNewsList(BuildContext context) {
+    return [
+      Padding(
+        padding: const EdgeInsets.symmetric(
+          vertical: 5.0,
+          horizontal: 24.0,
+        ),
+        child: NewsPost(
+          onMoreTap: () {
+            context.showWipToast();
+          },
+          postImgPath: Assets.imageMock.homeSelectPost1.path,
+          commentCount: 189,
+          likeCount: 5233,
+          shareCount: 238,
+          userName: 'Mirabelle Swift',
+          onLikeTap: () {
+            context.showWipToast();
+          },
+          onShareTap: () {
+            context.showWipToast();
+          },
+          title: 'Adwords Keyword Research For Beginners.',
+          onFollowTap: () {
+            context.showWipToast();
+          },
+          avatarImgPath: Assets.imageMock.homeSelectAvatar1.path,
+          onCommentTap: () {
+            context.showWipToast();
+          },
+        ),
+      ),
+      Padding(
+        padding: const EdgeInsets.symmetric(
+          vertical: 5.0,
+          horizontal: 24.0,
+        ),
+        child: NewsPost(
+          onMoreTap: () {
+            context.showWipToast();
+          },
+          postImgPath: Assets.imageMock.homeSelectPost2.path,
+          commentCount: 589,
+          likeCount: 9784,
+          shareCount: 168,
+          userName: 'Jorge Long',
+          onLikeTap: () {
+            context.showWipToast();
+          },
+          onShareTap: () {
+            context.showWipToast();
+          },
+          title:
+              'A dog is a beloved, intelligent, and very loyal animal. So I like dogs very much.',
+          onFollowTap: () {
+            context.showWipToast();
+          },
+          avatarImgPath: Assets.imageMock.homeSelectAvatar2.path,
+          onCommentTap: () {
+            context.showWipToast();
+          },
         ),
       ),
     ];

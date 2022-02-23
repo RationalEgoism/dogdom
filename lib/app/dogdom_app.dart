@@ -35,6 +35,11 @@ class DogdomApp extends StatelessWidget {
             statusBarIconBrightness: Brightness.dark,
             statusBarColor: Colors.transparent,
           ),
+          titleTextStyle: TextStyle(
+            color: Colors.black,
+            fontSize: 17.0,
+          ),
+          foregroundColor: Colors.black,
         ),
         textSelectionTheme: TextSelectionThemeData(
           cursorColor: ColorName.red,

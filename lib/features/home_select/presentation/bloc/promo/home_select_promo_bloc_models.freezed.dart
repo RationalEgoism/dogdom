@@ -22,9 +22,10 @@ class _$HomeSelectPagePromoStateTearOff {
     return HomeSelectPagePromoStateLoading();
   }
 
-  HomeSelectPagePromoStateData data({required List<PromoCard> promoCardList}) {
+  HomeSelectPagePromoStateData data(
+      {required List<PromoCardModel> promoCardModelList}) {
     return HomeSelectPagePromoStateData(
-      promoCardList: promoCardList,
+      promoCardModelList: promoCardModelList,
     );
   }
 
@@ -43,21 +44,21 @@ mixin _$HomeSelectPagePromoState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<PromoCard> promoCardList) data,
+    required TResult Function(List<PromoCardModel> promoCardModelList) data,
     required TResult Function(String promoName) onTap,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<PromoCard> promoCardList)? data,
+    TResult Function(List<PromoCardModel> promoCardModelList)? data,
     TResult Function(String promoName)? onTap,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<PromoCard> promoCardList)? data,
+    TResult Function(List<PromoCardModel> promoCardModelList)? data,
     TResult Function(String promoName)? onTap,
     required TResult orElse(),
   }) =>
@@ -150,7 +151,7 @@ class _$HomeSelectPagePromoStateLoading
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<PromoCard> promoCardList) data,
+    required TResult Function(List<PromoCardModel> promoCardModelList) data,
     required TResult Function(String promoName) onTap,
   }) {
     return loading();
@@ -160,7 +161,7 @@ class _$HomeSelectPagePromoStateLoading
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<PromoCard> promoCardList)? data,
+    TResult Function(List<PromoCardModel> promoCardModelList)? data,
     TResult Function(String promoName)? onTap,
   }) {
     return loading?.call();
@@ -170,7 +171,7 @@ class _$HomeSelectPagePromoStateLoading
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<PromoCard> promoCardList)? data,
+    TResult Function(List<PromoCardModel> promoCardModelList)? data,
     TResult Function(String promoName)? onTap,
     required TResult orElse(),
   }) {
@@ -227,7 +228,7 @@ abstract class $HomeSelectPagePromoStateDataCopyWith<$Res> {
           HomeSelectPagePromoStateData value,
           $Res Function(HomeSelectPagePromoStateData) then) =
       _$HomeSelectPagePromoStateDataCopyWithImpl<$Res>;
-  $Res call({List<PromoCard> promoCardList});
+  $Res call({List<PromoCardModel> promoCardModelList});
 }
 
 /// @nodoc
@@ -245,13 +246,13 @@ class _$HomeSelectPagePromoStateDataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? promoCardList = freezed,
+    Object? promoCardModelList = freezed,
   }) {
     return _then(HomeSelectPagePromoStateData(
-      promoCardList: promoCardList == freezed
-          ? _value.promoCardList
-          : promoCardList // ignore: cast_nullable_to_non_nullable
-              as List<PromoCard>,
+      promoCardModelList: promoCardModelList == freezed
+          ? _value.promoCardModelList
+          : promoCardModelList // ignore: cast_nullable_to_non_nullable
+              as List<PromoCardModel>,
     ));
   }
 }
@@ -259,14 +260,15 @@ class _$HomeSelectPagePromoStateDataCopyWithImpl<$Res>
 /// @nodoc
 
 class _$HomeSelectPagePromoStateData extends HomeSelectPagePromoStateData {
-  _$HomeSelectPagePromoStateData({required this.promoCardList}) : super._();
+  _$HomeSelectPagePromoStateData({required this.promoCardModelList})
+      : super._();
 
   @override
-  final List<PromoCard> promoCardList;
+  final List<PromoCardModel> promoCardModelList;
 
   @override
   String toString() {
-    return 'HomeSelectPagePromoState.data(promoCardList: $promoCardList)';
+    return 'HomeSelectPagePromoState.data(promoCardModelList: $promoCardModelList)';
   }
 
   @override
@@ -275,12 +277,12 @@ class _$HomeSelectPagePromoStateData extends HomeSelectPagePromoStateData {
         (other.runtimeType == runtimeType &&
             other is HomeSelectPagePromoStateData &&
             const DeepCollectionEquality()
-                .equals(other.promoCardList, promoCardList));
+                .equals(other.promoCardModelList, promoCardModelList));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(promoCardList));
+      runtimeType, const DeepCollectionEquality().hash(promoCardModelList));
 
   @JsonKey(ignore: true)
   @override
@@ -292,32 +294,32 @@ class _$HomeSelectPagePromoStateData extends HomeSelectPagePromoStateData {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<PromoCard> promoCardList) data,
+    required TResult Function(List<PromoCardModel> promoCardModelList) data,
     required TResult Function(String promoName) onTap,
   }) {
-    return data(promoCardList);
+    return data(promoCardModelList);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<PromoCard> promoCardList)? data,
+    TResult Function(List<PromoCardModel> promoCardModelList)? data,
     TResult Function(String promoName)? onTap,
   }) {
-    return data?.call(promoCardList);
+    return data?.call(promoCardModelList);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<PromoCard> promoCardList)? data,
+    TResult Function(List<PromoCardModel> promoCardModelList)? data,
     TResult Function(String promoName)? onTap,
     required TResult orElse(),
   }) {
     if (data != null) {
-      return data(promoCardList);
+      return data(promoCardModelList);
     }
     return orElse();
   }
@@ -359,11 +361,11 @@ class _$HomeSelectPagePromoStateData extends HomeSelectPagePromoStateData {
 
 abstract class HomeSelectPagePromoStateData extends HomeSelectPagePromoState {
   factory HomeSelectPagePromoStateData(
-          {required List<PromoCard> promoCardList}) =
+          {required List<PromoCardModel> promoCardModelList}) =
       _$HomeSelectPagePromoStateData;
   HomeSelectPagePromoStateData._() : super._();
 
-  List<PromoCard> get promoCardList;
+  List<PromoCardModel> get promoCardModelList;
   @JsonKey(ignore: true)
   $HomeSelectPagePromoStateDataCopyWith<HomeSelectPagePromoStateData>
       get copyWith => throw _privateConstructorUsedError;
@@ -439,7 +441,7 @@ class _$HomeSelectPagePromoStateOnTap extends HomeSelectPagePromoStateOnTap {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<PromoCard> promoCardList) data,
+    required TResult Function(List<PromoCardModel> promoCardModelList) data,
     required TResult Function(String promoName) onTap,
   }) {
     return onTap(promoName);
@@ -449,7 +451,7 @@ class _$HomeSelectPagePromoStateOnTap extends HomeSelectPagePromoStateOnTap {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<PromoCard> promoCardList)? data,
+    TResult Function(List<PromoCardModel> promoCardModelList)? data,
     TResult Function(String promoName)? onTap,
   }) {
     return onTap?.call(promoName);
@@ -459,7 +461,7 @@ class _$HomeSelectPagePromoStateOnTap extends HomeSelectPagePromoStateOnTap {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<PromoCard> promoCardList)? data,
+    TResult Function(List<PromoCardModel> promoCardModelList)? data,
     TResult Function(String promoName)? onTap,
     required TResult orElse(),
   }) {

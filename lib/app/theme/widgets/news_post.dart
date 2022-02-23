@@ -1,43 +1,26 @@
 import 'package:dogdom/app/theme/widgets/social_icon.dart';
+import 'package:dogdom/features/home_select/domain/news/models/news_post_model.dart';
+import 'package:dogdom/features/home_select/presentation/bloc/news/news_bloc.dart';
+import 'package:dogdom/features/home_select/presentation/bloc/news/news_bloc_models.dart';
 import 'package:dogdom/generated/assets.gen.dart';
 import 'package:dogdom/generated/colors.gen.dart';
 import 'package:dogdom/generated/locale_export.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class NewsPost extends StatelessWidget {
-  final String avatarImgPath;
-  final String userName;
-  final VoidCallback onFollowTap;
-  final String title;
-  final int likeCount;
-  final GestureTapCallback onLikeTap;
-  final int commentCount;
-  final GestureTapCallback onCommentTap;
-  final int shareCount;
-  final GestureTapCallback onShareTap;
-  final GestureTapCallback onMoreTap;
-
-  final List<String> postImgPathList;
+  final NewsPostModel model;
 
   const NewsPost({
     Key? key,
-    required this.avatarImgPath,
-    required this.userName,
-    required this.onFollowTap,
-    required this.title,
-    required this.likeCount,
-    required this.onLikeTap,
-    required this.commentCount,
-    required this.onCommentTap,
-    required this.shareCount,
-    required this.onShareTap,
-    required this.onMoreTap,
-    required this.postImgPathList,
+    required this.model,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final bloc = context.read<NewsBloc>();
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -46,7 +29,7 @@ class NewsPost extends StatelessWidget {
             CircleAvatar(
               radius: 15.0,
               backgroundImage: AssetImage(
-                avatarImgPath,
+                model.avatarImgPath,
               ),
             ),
             Expanded(
@@ -56,7 +39,7 @@ class NewsPost extends StatelessWidget {
                   vertical: 4.5,
                 ),
                 child: Text(
-                  userName,
+                  model.userName,
                   style: TextStyle(
                     color: Colors.black,
                   ),
@@ -69,7 +52,7 @@ class NewsPost extends StatelessWidget {
                 28.0,
               ),
               child: TextButton(
-                onPressed: onFollowTap,
+                onPressed: () => bloc.add(NewsEvent.onTap()),
                 child: Text(
                   LocaleKeys.common_follow.tr(),
                   style: TextStyle(
@@ -93,7 +76,7 @@ class NewsPost extends StatelessWidget {
             vertical: 10.0,
           ),
           child: Text(
-            title,
+            model.title,
             textAlign: TextAlign.start,
             style: TextStyle(
               color: ColorName.black70,
@@ -101,13 +84,13 @@ class NewsPost extends StatelessWidget {
             ),
           ),
         ),
-        if (postImgPathList.length == 1) ...[
+        if (model.postImgPathList.length == 1) ...[
           ClipRRect(
             borderRadius: BorderRadius.circular(
               8.0,
             ),
             child: Image.asset(
-              postImgPathList.first,
+              model.postImgPathList.first,
             ),
           )
         ] else ...[
@@ -126,11 +109,11 @@ class NewsPost extends StatelessWidget {
                     8.0,
                   ),
                   child: Image.asset(
-                    postImgPathList[index],
+                    model.postImgPathList[index],
                   ),
                 );
               },
-              itemCount: postImgPathList.length,
+              itemCount: model.postImgPathList.length,
             ),
           ),
         ],
@@ -146,8 +129,8 @@ class NewsPost extends StatelessWidget {
                 ),
                 child: SocialIcon(
                   imgPath: Assets.image.like.path,
-                  count: likeCount,
-                  onTap: onLikeTap,
+                  count: model.likeCount,
+                  onTap: () => bloc.add(NewsEvent.onTap()),
                 ),
               ),
               Padding(
@@ -156,8 +139,8 @@ class NewsPost extends StatelessWidget {
                 ),
                 child: SocialIcon(
                   imgPath: Assets.image.comments.path,
-                  count: commentCount,
-                  onTap: onCommentTap,
+                  count: model.commentCount,
+                  onTap: () => bloc.add(NewsEvent.onTap()),
                 ),
               ),
               Padding(
@@ -166,8 +149,8 @@ class NewsPost extends StatelessWidget {
                 ),
                 child: SocialIcon(
                   imgPath: Assets.image.share.path,
-                  count: shareCount,
-                  onTap: onShareTap,
+                  count: model.shareCount,
+                  onTap: () => bloc.add(NewsEvent.onTap()),
                 ),
               ),
               Spacer(),
@@ -175,7 +158,7 @@ class NewsPost extends StatelessWidget {
                 color: Colors.transparent,
                 child: InkWell(
                   splashColor: ColorName.red,
-                  onTap: onMoreTap,
+                  onTap: () => bloc.add(NewsEvent.onTap()),
                   child: SvgPicture.asset(
                     Assets.image.more.path,
                     color: ColorName.black40,

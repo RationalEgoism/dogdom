@@ -28,7 +28,7 @@ class HomeSelectPagePromoBloc
     emit(HomeSelectPagePromoState.loading());
     emit(
       HomeSelectPagePromoState.data(
-        promoCardList: await interactor.getData(),
+        promoCardModelList: await interactor.getData(),
       ),
     );
   }

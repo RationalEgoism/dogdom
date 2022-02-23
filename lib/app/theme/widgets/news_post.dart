@@ -146,7 +146,7 @@ class NewsPost extends StatelessWidget {
                 ),
                 child: SocialIcon(
                   imgPath: Assets.image.like.path,
-                  text: likeCount.toString(),
+                  count: likeCount,
                   onTap: onLikeTap,
                 ),
               ),
@@ -156,7 +156,7 @@ class NewsPost extends StatelessWidget {
                 ),
                 child: SocialIcon(
                   imgPath: Assets.image.comments.path,
-                  text: commentCount.toString(),
+                  count: commentCount,
                   onTap: onCommentTap,
                 ),
               ),
@@ -166,7 +166,7 @@ class NewsPost extends StatelessWidget {
                 ),
                 child: SocialIcon(
                   imgPath: Assets.image.share.path,
-                  text: shareCount.toString(),
+                  count: shareCount,
                   onTap: onShareTap,
                 ),
               ),

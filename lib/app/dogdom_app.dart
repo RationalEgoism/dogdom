@@ -27,7 +27,8 @@ class DogdomApp extends StatelessWidget {
           ),
         ),
         fontFamily: FontFamily.gilroy,
-        primarySwatch: Colors.blue,
+        // TODO replace with ColorName.red
+        primarySwatch: Colors.red,
         appBarTheme: AppBarTheme(
           elevation: 0.0,
           backgroundColor: Colors.white,

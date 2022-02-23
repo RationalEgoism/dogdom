@@ -6,6 +6,7 @@ import 'package:dogdom/app/theme/widgets/news_post.dart';
 import 'package:dogdom/app/theme/widgets/search.dart';
 import 'package:dogdom/features/home_select/presentation/bloc/promo/home_select_promo_bloc.dart';
 import 'package:dogdom/features/home_select/presentation/bloc/promo/home_select_promo_bloc_models.dart';
+import 'package:dogdom/features/home_select/presentation/ui/widgets/promo_card.dart';
 import 'package:dogdom/generated/assets.gen.dart';
 import 'package:dogdom/generated/locale_export.dart';
 import 'package:dogdom/utils/extension/context_extension.dart';
@@ -99,7 +100,7 @@ class HomeSelectPage extends StatelessWidget {
                           scale: 0.9,
                           viewportFraction: 0.85,
                           itemBuilder: (context, index) {
-                            return promoList[index];
+                            return PromoCard(model: promoList[index]);
                           },
                         ),
                       ),

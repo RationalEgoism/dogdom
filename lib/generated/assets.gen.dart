@@ -96,6 +96,22 @@ class $AssetsImageMockGen {
   AssetGenImage get homeSelectCarousel2 =>
       const AssetGenImage('assets/image_mock/home_select_carousel_2.png');
 
+  /// File path: assets/image_mock/home_select_grid_1.png
+  AssetGenImage get homeSelectGrid1 =>
+      const AssetGenImage('assets/image_mock/home_select_grid_1.png');
+
+  /// File path: assets/image_mock/home_select_grid_2.png
+  AssetGenImage get homeSelectGrid2 =>
+      const AssetGenImage('assets/image_mock/home_select_grid_2.png');
+
+  /// File path: assets/image_mock/home_select_grid_3.png
+  AssetGenImage get homeSelectGrid3 =>
+      const AssetGenImage('assets/image_mock/home_select_grid_3.png');
+
+  /// File path: assets/image_mock/home_select_grid_4.png
+  AssetGenImage get homeSelectGrid4 =>
+      const AssetGenImage('assets/image_mock/home_select_grid_4.png');
+
   /// File path: assets/image_mock/home_select_post_1.png
   AssetGenImage get homeSelectPost1 =>
       const AssetGenImage('assets/image_mock/home_select_post_1.png');

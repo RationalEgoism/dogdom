@@ -5,7 +5,6 @@ part 'promo_card_model.freezed.dart';
 
 @freezed
 class PromoCardModel with _$PromoCardModel {
-  //
   factory PromoCardModel.takeHome({
     required String title,
     required String description,

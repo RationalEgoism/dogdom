@@ -16,82 +16,80 @@ class HomeSelectPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Container(
-        color: Colors.white,
-        child: SingleChildScrollView(
-          physics: ScrollPhysics(),
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16.0,
-                  vertical: 10.0,
-                ),
-                child: Search(
-                  inputEnabled: false,
-                  onTap: () => context.router.push(SearchRoute()),
-                  onSuffixTap: () => context.showWipToast(),
-                ),
+    return Container(
+      color: Colors.white,
+      child: SingleChildScrollView(
+        physics: ScrollPhysics(),
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 16.0,
+                vertical: 10.0,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  HomeIconButton(
-                    svgIconPath: Assets.image.ranking.path,
-                    text: LocaleKeys.homeSelectTabRanking.tr(),
-                    onTap: () => context.router.push(
-                      HomeNestedRouter(
-                        name: LocaleKeys.homeSelectTabRanking.tr(),
-                      ),
+              child: Search(
+                inputEnabled: false,
+                onTap: () => context.router.push(SearchRoute()),
+                onSuffixTap: () => context.showWipToast(),
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                HomeIconButton(
+                  svgIconPath: Assets.image.ranking.path,
+                  text: LocaleKeys.homeSelectTabRanking.tr(),
+                  onTap: () => context.router.push(
+                    HomeNestedRouter(
+                      name: LocaleKeys.homeSelectTabRanking.tr(),
                     ),
                   ),
-                  HomeIconButton(
-                    svgIconPath: Assets.image.discuss.path,
-                    text: LocaleKeys.homeSelectTabDiscuss.tr(),
-                    onTap: () => context.router.push(
-                      HomeNestedRouter(
-                        name: LocaleKeys.homeSelectTabDiscuss.tr(),
-                      ),
+                ),
+                HomeIconButton(
+                  svgIconPath: Assets.image.discuss.path,
+                  text: LocaleKeys.homeSelectTabDiscuss.tr(),
+                  onTap: () => context.router.push(
+                    HomeNestedRouter(
+                      name: LocaleKeys.homeSelectTabDiscuss.tr(),
                     ),
                   ),
-                  HomeIconButton(
-                    svgIconPath: Assets.image.surrounding.path,
-                    text: LocaleKeys.homeSelectTabSurrounding.tr(),
-                    onTap: () => context.router.push(
-                      HomeNestedRouter(
-                        name: LocaleKeys.homeSelectTabSurrounding.tr(),
-                      ),
+                ),
+                HomeIconButton(
+                  svgIconPath: Assets.image.surrounding.path,
+                  text: LocaleKeys.homeSelectTabSurrounding.tr(),
+                  onTap: () => context.router.push(
+                    HomeNestedRouter(
+                      name: LocaleKeys.homeSelectTabSurrounding.tr(),
                     ),
                   ),
-                ],
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(
-                  vertical: 16.0,
                 ),
-                child: SizedBox(
-                  height: 190.0,
-                  child: Swiper(
-                    itemCount: 3,
-                    loop: false,
-                    scrollDirection: Axis.horizontal,
-                    scale: 0.9,
-                    viewportFraction: 0.85,
-                    itemBuilder: (context, index) {
-                      return _buildList(context)[index];
-                    },
-                  ),
+              ],
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(
+                vertical: 16.0,
+              ),
+              child: SizedBox(
+                height: 190.0,
+                child: Swiper(
+                  itemCount: 3,
+                  loop: false,
+                  scrollDirection: Axis.horizontal,
+                  scale: 0.9,
+                  viewportFraction: 0.85,
+                  itemBuilder: (context, index) {
+                    return _buildList(context)[index];
+                  },
                 ),
               ),
-              ListView(
-                physics: NeverScrollableScrollPhysics(),
-                scrollDirection: Axis.vertical,
-                shrinkWrap: true,
-                children: _buildNewsList(context),
-              ),
-            ],
-          ),
+            ),
+            ListView(
+              physics: NeverScrollableScrollPhysics(),
+              scrollDirection: Axis.vertical,
+              shrinkWrap: true,
+              children: _buildNewsList(context),
+            ),
+          ],
         ),
       ),
     );

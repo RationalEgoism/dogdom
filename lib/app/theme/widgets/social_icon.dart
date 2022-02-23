@@ -4,13 +4,13 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class SocialIcon extends StatelessWidget {
   final String imgPath;
-  final String text;
+  final int count;
   final GestureTapCallback onTap;
 
   const SocialIcon({
     Key? key,
     required this.imgPath,
-    required this.text,
+    required this.count,
     required this.onTap,
   }) : super(key: key);
 
@@ -41,7 +41,7 @@ class SocialIcon extends StatelessWidget {
                 bottom: 2.0,
               ),
               child: Text(
-                text,
+                DefaultMaterialLocalizations().formatDecimal(count),
                 style: TextStyle(
                   color: ColorName.black40,
                   fontSize: 15.0,

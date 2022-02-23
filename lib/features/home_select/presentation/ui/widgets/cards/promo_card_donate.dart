@@ -1,5 +1,8 @@
 import 'package:dogdom/features/home_select/domain/promo_card_model.dart';
+import 'package:dogdom/features/home_select/presentation/bloc/promo/home_select_promo_bloc.dart';
+import 'package:dogdom/features/home_select/presentation/bloc/promo/home_select_promo_bloc_models.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../promo_card.dart';
 
@@ -14,7 +17,11 @@ class PromoCardDonate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: model.onTap,
+      onTap: () {
+        context.read<HomeSelectPagePromoBloc>().add(
+              HomeSelectPagePromoEvent.onTap('Donate'),
+            );
+      },
       child: Stack(
         children: [
           PromoImage(

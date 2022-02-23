@@ -5,19 +5,16 @@ part 'promo_card_model.freezed.dart';
 
 @freezed
 class PromoCardModel with _$PromoCardModel {
-  //
   factory PromoCardModel.takeHome({
     required String title,
     required String description,
     required String buttonText,
     required String imgPath,
-    required VoidCallback onTap,
   }) = PromoCardModelTakeHome;
 
   factory PromoCardModel.donate({
     required String title,
     required String description,
     required String imgPath,
-    required VoidCallback onTap,
   }) = PromoCardModelDonate;
 }

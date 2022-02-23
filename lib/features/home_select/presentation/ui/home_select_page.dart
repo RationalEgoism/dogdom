@@ -4,6 +4,8 @@ import 'package:dogdom/app/routes/router.gr.dart';
 import 'package:dogdom/app/theme/widgets/home_icon_button.dart';
 import 'package:dogdom/app/theme/widgets/news_post.dart';
 import 'package:dogdom/app/theme/widgets/search.dart';
+import 'package:dogdom/features/home_select/presentation/bloc/news/news_bloc.dart';
+import 'package:dogdom/features/home_select/presentation/bloc/news/news_bloc_models.dart';
 import 'package:dogdom/features/home_select/presentation/bloc/promo/home_select_promo_bloc.dart';
 import 'package:dogdom/features/home_select/presentation/bloc/promo/home_select_promo_bloc_models.dart';
 import 'package:dogdom/features/home_select/presentation/ui/widgets/promo_card.dart';
@@ -73,7 +75,7 @@ class HomeSelectPage extends StatelessWidget {
                 vertical: 16.0,
               ),
               child: BlocProvider<HomeSelectPagePromoBloc>(
-                create: (context) => GetIt.I.get()
+                create: (_) => GetIt.I.get()
                   ..add(
                     HomeSelectPagePromoEvent.init(),
                   ),
@@ -113,122 +115,43 @@ class HomeSelectPage extends StatelessWidget {
                 ),
               ),
             ),
-            ListView(
-              physics: NeverScrollableScrollPhysics(),
-              scrollDirection: Axis.vertical,
-              shrinkWrap: true,
-              children: _buildNewsList(context),
+            BlocProvider<NewsBloc>(
+              create: (context) => GetIt.I.get()..add(NewsEvent.init()),
+              child: BlocConsumer<NewsBloc, NewsState>(
+                  listener: (context, state) {},
+                  builder: (context, state) {
+                    return state.maybeWhen(
+                      loading: () => Padding(
+                        padding: const EdgeInsets.only(top: 40.0),
+                        child: CircularProgressIndicator(),
+                      ),
+                      data: (newsPostModelList) => ListView.builder(
+                        physics: NeverScrollableScrollPhysics(),
+                        scrollDirection: Axis.vertical,
+                        shrinkWrap: true,
+                        itemBuilder: (BuildContext context, int index) {
+                          return Padding(
+                            padding: EdgeInsets.symmetric(
+                              vertical: 5.0,
+                              horizontal: 24.0,
+                            ),
+                            child: NewsPost(
+                              model: newsPostModelList[index],
+                            ),
+                          );
+                        },
+                        itemCount: newsPostModelList.length,
+                      ),
+                      orElse: () {
+                        // Invalid state here
+                        return Container();
+                      },
+                    );
+                  }),
             ),
           ],
         ),
       ),
     );
-  }
-
-  // TODO get data from BLoC
-  List<Widget> _buildNewsList(BuildContext context) {
-    return [
-      Padding(
-        padding: const EdgeInsets.symmetric(
-          vertical: 5.0,
-          horizontal: 24.0,
-        ),
-        child: NewsPost(
-          onMoreTap: () {
-            context.showWipToast();
-          },
-          postImgPathList: [
-            Assets.imageMock.homeSelectPost1.path,
-          ],
-          commentCount: 189,
-          likeCount: 5233,
-          shareCount: 238,
-          userName: 'Mirabelle Swift',
-          onLikeTap: () {
-            context.showWipToast();
-          },
-          onShareTap: () {
-            context.showWipToast();
-          },
-          title: 'Adwords Keyword Research For Beginners.',
-          onFollowTap: () {
-            context.showWipToast();
-          },
-          avatarImgPath: Assets.imageMock.homeSelectAvatar1.path,
-          onCommentTap: () {
-            context.showWipToast();
-          },
-        ),
-      ),
-      Padding(
-        padding: const EdgeInsets.symmetric(
-          vertical: 5.0,
-          horizontal: 24.0,
-        ),
-        child: NewsPost(
-          onMoreTap: () {
-            context.showWipToast();
-          },
-          commentCount: 639,
-          likeCount: 9236,
-          shareCount: 173,
-          userName: 'Jorge Long',
-          onLikeTap: () {
-            context.showWipToast();
-          },
-          onShareTap: () {
-            context.showWipToast();
-          },
-          title:
-              'A dog is a beloved, intelligent, and very loyal animal. So I like dogs very much.',
-          onFollowTap: () {
-            context.showWipToast();
-          },
-          avatarImgPath: Assets.imageMock.homeSelectAvatar2.path,
-          onCommentTap: () {
-            context.showWipToast();
-          },
-          postImgPathList: [
-            Assets.imageMock.homeSelectGrid1.path,
-            Assets.imageMock.homeSelectGrid2.path,
-            Assets.imageMock.homeSelectGrid3.path,
-            Assets.imageMock.homeSelectGrid4.path,
-          ],
-        ),
-      ),
-      Padding(
-        padding: const EdgeInsets.symmetric(
-          vertical: 5.0,
-          horizontal: 24.0,
-        ),
-        child: NewsPost(
-          onMoreTap: () {
-            context.showWipToast();
-          },
-          postImgPathList: [
-            Assets.imageMock.homeSelectPost2.path,
-          ],
-          commentCount: 589,
-          likeCount: 9784,
-          shareCount: 168,
-          userName: 'Jorge Long',
-          onLikeTap: () {
-            context.showWipToast();
-          },
-          onShareTap: () {
-            context.showWipToast();
-          },
-          title:
-              'A dog is a beloved, intelligent, and very loyal animal. So I like dogs very much.',
-          onFollowTap: () {
-            context.showWipToast();
-          },
-          avatarImgPath: Assets.imageMock.homeSelectAvatar3.path,
-          onCommentTap: () {
-            context.showWipToast();
-          },
-        ),
-      ),
-    ];
   }
 }

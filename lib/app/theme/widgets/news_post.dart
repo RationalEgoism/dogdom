@@ -1,11 +1,24 @@
 import 'package:dogdom/app/theme/widgets/social_icon.dart';
 import 'package:dogdom/generated/assets.gen.dart';
 import 'package:dogdom/generated/colors.gen.dart';
-import 'package:dogdom/utils/extension/context_extension.dart';
+import 'package:dogdom/generated/locale_export.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class NewsPost extends StatelessWidget {
+  final String avatarImgPath;
+  final String userName;
+  final VoidCallback onFollowTap;
+  final String title;
+  final String postImgPath;
+  final int likeCount;
+  final GestureTapCallback onLikeTap;
+  final int commentCount;
+  final GestureTapCallback onCommentTap;
+  final int shareCount;
+  final GestureTapCallback onShareTap;
+  final GestureTapCallback onMoreTap;
+
   const NewsPost({
     Key? key,
   }) : super(key: key);
@@ -24,7 +37,7 @@ class NewsPost extends StatelessWidget {
                 CircleAvatar(
                   radius: 15.0,
                   backgroundImage: AssetImage(
-                    Assets.imageMock.homeSelectAvatar1.path,
+                    avatarImgPath,
                   ),
                 ),
                 Expanded(
@@ -34,7 +47,7 @@ class NewsPost extends StatelessWidget {
                       vertical: 4.5,
                     ),
                     child: Text(
-                      'Mirabelle Swift',
+                      userName,
                       style: TextStyle(
                         color: Colors.black,
                       ),
@@ -47,11 +60,9 @@ class NewsPost extends StatelessWidget {
                     28.0,
                   ),
                   child: TextButton(
-                    onPressed: () {
-                      //
-                    },
+                    onPressed: onFollowTap,
                     child: Text(
-                      'Follow',
+                      LocaleKeys.common_follow.tr(),
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 12.0,
@@ -76,7 +87,7 @@ class NewsPost extends StatelessWidget {
                 vertical: 10.0,
               ),
               child: Text(
-                'Adwords Keyword Research For Beginners.',
+                title,
                 textAlign: TextAlign.start,
                 style: TextStyle(
                   color: ColorName.black70,
@@ -92,7 +103,7 @@ class NewsPost extends StatelessWidget {
                 8.0,
               ),
               child: Image.asset(
-                Assets.imageMock.homeSelectPost1.path,
+                postImgPath,
               ),
             ),
           ),
@@ -109,10 +120,8 @@ class NewsPost extends StatelessWidget {
                     ),
                     child: SocialIcon(
                       imgPath: Assets.image.like.path,
-                      text: '5,233',
-                      onTap: () {
-                        context.showWipToast();
-                      },
+                      text: likeCount.toString(),
+                      onTap: onLikeTap,
                     ),
                   ),
                   Padding(
@@ -121,10 +130,8 @@ class NewsPost extends StatelessWidget {
                     ),
                     child: SocialIcon(
                       imgPath: Assets.image.comments.path,
-                      text: '189',
-                      onTap: () {
-                        context.showWipToast();
-                      },
+                      text: commentCount.toString(),
+                      onTap: onCommentTap,
                     ),
                   ),
                   Padding(
@@ -133,10 +140,8 @@ class NewsPost extends StatelessWidget {
                     ),
                     child: SocialIcon(
                       imgPath: Assets.image.share.path,
-                      text: '239',
-                      onTap: () {
-                        context.showWipToast();
-                      },
+                      text: shareCount.toString(),
+                      onTap: onShareTap,
                     ),
                   ),
                   Spacer(),
@@ -146,9 +151,7 @@ class NewsPost extends StatelessWidget {
                       color: Colors.transparent,
                       child: InkWell(
                         splashColor: ColorName.red,
-                        onTap: () {
-                          context.showWipToast();
-                        },
+                        onTap: onMoreTap,
                         child: SvgPicture.asset(
                           Assets.image.more.path,
                           color: ColorName.black40,

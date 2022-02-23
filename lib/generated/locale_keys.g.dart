@@ -6,6 +6,7 @@ abstract class  LocaleKeys {
   static const common_error = 'common_error';
   static const common_test = 'common_test';
   static const common_search = 'common_search';
+  static const common_follow = 'common_follow';
   static const loginGetCaptcha = 'loginGetCaptcha';
   static const loginPassToLog = 'loginPassToLog';
   static const loginPrivacy = 'loginPrivacy';

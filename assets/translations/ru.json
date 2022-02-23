@@ -3,6 +3,7 @@
   "common_error": "Что-то пошло не так. Попробуйте еще раз.",
   "common_test": "Нажми на кнопку - получишь в результат",
   "common_search": "Поиск",
+  "common_follow": "Подписаться",
 
   "loginGetCaptcha": "Получить код",
   "loginPassToLog": "Пароль для входа",

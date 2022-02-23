@@ -76,10 +76,15 @@ class HomeSelectPage extends StatelessWidget {
                   ..add(
                     HomeSelectPagePromoEvent.init(),
                   ),
-                child: BlocBuilder<HomeSelectPagePromoBloc,
+                child: BlocConsumer<HomeSelectPagePromoBloc,
                     HomeSelectPagePromoState>(
+                  listener: (context, state) {
+                    if (state is HomeSelectPagePromoStateOnTap) {
+                      context.showWipToast();
+                    }
+                  },
                   builder: (context, state) {
-                    return state.when(
+                    return state.maybeWhen(
                       loading: () => CircularProgressIndicator(),
                       data: (promoList) => SizedBox(
                         height: 190.0,
@@ -94,6 +99,10 @@ class HomeSelectPage extends StatelessWidget {
                           },
                         ),
                       ),
+                      orElse: () {
+                        // Invalid state here
+                        return Container();
+                      },
                     );
                   },
                 ),

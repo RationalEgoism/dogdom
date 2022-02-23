@@ -15,6 +15,7 @@ class HomeSelectPagePromoBloc
           HomeSelectPagePromoState.loading(),
         ) {
     on<HomeSelectPagePromoEventInit>(_init);
+    on<HomeSelectPagePromoEventTap>(_onTap);
   }
 
   Future<FutureOr<void>> _init(
@@ -29,6 +30,12 @@ class HomeSelectPagePromoBloc
       ),
     );
   }
+
+  FutureOr<void> _onTap(event, Emitter<HomeSelectPagePromoState> emit) {
+    final tempDataState = state.data;
+    emit(HomeSelectPagePromoState.onTap());
+    emit(tempDataState);
+  }
 }
 
 // TODO get data from BLoC
@@ -39,12 +46,6 @@ List<PromoCard> _buildList() {
         title: 'Take me Home',
         description: 'Buy me a bowl of food.',
         imgPath: Assets.imageMock.homeSelectCarousel2.path,
-        onTap: () {
-          //
-        },
-        // onTap: () => context.router.push(
-        //   HomeNestedRouter(name: 'Take me home'),
-        // ),
         buttonText: 'Let me',
       ),
     ),
@@ -53,12 +54,6 @@ List<PromoCard> _buildList() {
         title: 'Feed me',
         description: 'Buy me a bowl of food.',
         imgPath: Assets.imageMock.homeSelectCarousel1.path,
-        onTap: () {
-          //
-        },
-        // onTap: () => context.router.push(
-        //   HomeNestedRouter(name: 'Feed me'),
-        // ),
       ),
     ),
     PromoCard(
@@ -66,12 +61,6 @@ List<PromoCard> _buildList() {
         title: 'Take me Home',
         description: 'Buy me a bowl of food.',
         imgPath: Assets.imageMock.homeSelectCarousel2.path,
-        onTap: () {
-          //
-        },
-        // onTap: () => context.router.push(
-        //   HomeNestedRouter(name: 'Take me home'),
-        // ),
         buttonText: 'Let me',
       ),
     ),

@@ -1,6 +1,9 @@
 import 'package:dogdom/features/home_select/domain/promo_card_model.dart';
+import 'package:dogdom/features/home_select/presentation/bloc/promo/home_select_promo_bloc.dart';
+import 'package:dogdom/features/home_select/presentation/bloc/promo/home_select_promo_bloc_models.dart';
 import 'package:dogdom/features/home_select/presentation/ui/widgets/promo_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class PromoCardTakeHome extends StatelessWidget {
   final PromoCardModelTakeHome model;
@@ -53,7 +56,11 @@ class PromoCardTakeHome extends StatelessWidget {
                         top: 16.0,
                       ),
                       child: TextButton(
-                        onPressed: model.onTap,
+                        onPressed: () {
+                          context.read<HomeSelectPagePromoBloc>().add(
+                                HomeSelectPagePromoEvent.onTap(),
+                              );
+                        },
                         child: Text(
                           model.buttonText,
                           style: TextStyle(

@@ -10,13 +10,11 @@ class PromoCardModel with _$PromoCardModel {
     required String description,
     required String buttonText,
     required String imgPath,
-    required VoidCallback onTap,
   }) = PromoCardModelTakeHome;
 
   factory PromoCardModel.donate({
     required String title,
     required String description,
     required String imgPath,
-    required VoidCallback onTap,
   }) = PromoCardModelDonate;
 }

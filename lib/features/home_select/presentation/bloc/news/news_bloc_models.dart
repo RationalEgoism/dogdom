@@ -15,3 +15,10 @@ class NewsState with _$NewsState {
     List<NewsPostModel> newsPostModelList,
   ) = NewsStateData;
 }
+
+@freezed
+class NewsEvent with _$NewsEvent {
+  factory NewsEvent.init() = NewsEventInit;
+
+  factory NewsEvent.onTap() = NewsEventTap;
+}

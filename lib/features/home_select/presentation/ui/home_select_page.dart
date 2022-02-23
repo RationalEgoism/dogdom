@@ -149,9 +149,9 @@ class HomeSelectPage extends StatelessWidget {
             context.showWipToast();
           },
           postImgPath: Assets.imageMock.homeSelectPost1.path,
-          commentCount: 100,
-          likeCount: 200,
-          shareCount: 300,
+          commentCount: 189,
+          likeCount: 5233,
+          shareCount: 238,
           userName: 'Mirabelle Swift',
           onLikeTap: () {
             context.showWipToast();
@@ -178,22 +178,23 @@ class HomeSelectPage extends StatelessWidget {
           onMoreTap: () {
             context.showWipToast();
           },
-          postImgPath: Assets.imageMock.homeSelectPost1.path,
-          commentCount: 100,
-          likeCount: 200,
-          shareCount: 300,
-          userName: 'Mirabelle Swift',
+          postImgPath: Assets.imageMock.homeSelectPost2.path,
+          commentCount: 589,
+          likeCount: 9784,
+          shareCount: 168,
+          userName: 'Jorge Long',
           onLikeTap: () {
             context.showWipToast();
           },
           onShareTap: () {
             context.showWipToast();
           },
-          title: 'Adwords Keyword Research For Beginners.',
+          title:
+              'A dog is a beloved, intelligent, and very loyal animal. So I like dogs very much.',
           onFollowTap: () {
             context.showWipToast();
           },
-          avatarImgPath: Assets.imageMock.homeSelectAvatar1.path,
+          avatarImgPath: Assets.imageMock.homeSelectAvatar2.path,
           onCommentTap: () {
             context.showWipToast();
           },

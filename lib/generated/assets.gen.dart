@@ -84,6 +84,10 @@ class $AssetsImageMockGen {
   AssetGenImage get homeSelectAvatar1 =>
       const AssetGenImage('assets/image_mock/home_select_avatar_1.png');
 
+  /// File path: assets/image_mock/home_select_avatar_2.png
+  AssetGenImage get homeSelectAvatar2 =>
+      const AssetGenImage('assets/image_mock/home_select_avatar_2.png');
+
   /// File path: assets/image_mock/home_select_carousel_1.png
   AssetGenImage get homeSelectCarousel1 =>
       const AssetGenImage('assets/image_mock/home_select_carousel_1.png');
@@ -95,6 +99,10 @@ class $AssetsImageMockGen {
   /// File path: assets/image_mock/home_select_post_1.png
   AssetGenImage get homeSelectPost1 =>
       const AssetGenImage('assets/image_mock/home_select_post_1.png');
+
+  /// File path: assets/image_mock/home_select_post_2.png
+  AssetGenImage get homeSelectPost2 =>
+      const AssetGenImage('assets/image_mock/home_select_post_2.png');
 }
 
 class $AssetsTranslationsGen {

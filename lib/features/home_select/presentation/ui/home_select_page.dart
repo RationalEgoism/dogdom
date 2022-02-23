@@ -148,7 +148,9 @@ class HomeSelectPage extends StatelessWidget {
           onMoreTap: () {
             context.showWipToast();
           },
-          postImgPath: Assets.imageMock.homeSelectPost1.path,
+          postImgPathList: [
+            Assets.imageMock.homeSelectPost1.path,
+          ],
           commentCount: 189,
           likeCount: 5233,
           shareCount: 238,
@@ -178,7 +180,45 @@ class HomeSelectPage extends StatelessWidget {
           onMoreTap: () {
             context.showWipToast();
           },
-          postImgPath: Assets.imageMock.homeSelectPost2.path,
+          commentCount: 639,
+          likeCount: 9236,
+          shareCount: 173,
+          userName: 'Jorge Long',
+          onLikeTap: () {
+            context.showWipToast();
+          },
+          onShareTap: () {
+            context.showWipToast();
+          },
+          title:
+              'A dog is a beloved, intelligent, and very loyal animal. So I like dogs very much.',
+          onFollowTap: () {
+            context.showWipToast();
+          },
+          avatarImgPath: Assets.imageMock.homeSelectAvatar2.path,
+          onCommentTap: () {
+            context.showWipToast();
+          },
+          postImgPathList: [
+            Assets.imageMock.homeSelectGrid1.path,
+            Assets.imageMock.homeSelectGrid2.path,
+            Assets.imageMock.homeSelectGrid3.path,
+            Assets.imageMock.homeSelectGrid4.path,
+          ],
+        ),
+      ),
+      Padding(
+        padding: const EdgeInsets.symmetric(
+          vertical: 5.0,
+          horizontal: 24.0,
+        ),
+        child: NewsPost(
+          onMoreTap: () {
+            context.showWipToast();
+          },
+          postImgPathList: [
+            Assets.imageMock.homeSelectPost2.path,
+          ],
           commentCount: 589,
           likeCount: 9784,
           shareCount: 168,
@@ -194,7 +234,7 @@ class HomeSelectPage extends StatelessWidget {
           onFollowTap: () {
             context.showWipToast();
           },
-          avatarImgPath: Assets.imageMock.homeSelectAvatar2.path,
+          avatarImgPath: Assets.imageMock.homeSelectAvatar3.path,
           onCommentTap: () {
             context.showWipToast();
           },

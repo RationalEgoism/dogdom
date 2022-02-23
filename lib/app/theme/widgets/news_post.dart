@@ -21,6 +21,18 @@ class NewsPost extends StatelessWidget {
 
   const NewsPost({
     Key? key,
+    required this.avatarImgPath,
+    required this.userName,
+    required this.onFollowTap,
+    required this.title,
+    required this.postImgPath,
+    required this.likeCount,
+    required this.onLikeTap,
+    required this.commentCount,
+    required this.onCommentTap,
+    required this.shareCount,
+    required this.onShareTap,
+    required this.onMoreTap,
   }) : super(key: key);
 
   @override

@@ -88,22 +88,7 @@ class HomeSelectPage extends StatelessWidget {
                 physics: NeverScrollableScrollPhysics(),
                 scrollDirection: Axis.vertical,
                 shrinkWrap: true,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 5.0,
-                      horizontal: 24.0,
-                    ),
-                    child: NewsPost(),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 5.0,
-                      horizontal: 24.0,
-                    ),
-                    child: NewsPost(),
-                  ),
-                ],
+                children: _buildNewsList(context),
               ),
             ],
           ),
@@ -112,6 +97,7 @@ class HomeSelectPage extends StatelessWidget {
     );
   }
 
+  // TODO get data from BLoC
   List<PromoCard> _buildList(BuildContext context) {
     return [
       PromoCard(
@@ -145,6 +131,72 @@ class HomeSelectPage extends StatelessWidget {
             HomeNestedRouter(name: 'Take me home'),
           ),
           buttonText: 'Let me',
+        ),
+      ),
+    ];
+  }
+
+  // TODO get data from BLoC
+  List<Widget> _buildNewsList(BuildContext context) {
+    return [
+      Padding(
+        padding: const EdgeInsets.symmetric(
+          vertical: 5.0,
+          horizontal: 24.0,
+        ),
+        child: NewsPost(
+          onMoreTap: () {
+            context.showWipToast();
+          },
+          postImgPath: Assets.imageMock.homeSelectPost1.path,
+          commentCount: 100,
+          likeCount: 200,
+          shareCount: 300,
+          userName: 'Mirabelle Swift',
+          onLikeTap: () {
+            context.showWipToast();
+          },
+          onShareTap: () {
+            context.showWipToast();
+          },
+          title: 'Adwords Keyword Research For Beginners.',
+          onFollowTap: () {
+            context.showWipToast();
+          },
+          avatarImgPath: Assets.imageMock.homeSelectAvatar1.path,
+          onCommentTap: () {
+            context.showWipToast();
+          },
+        ),
+      ),
+      Padding(
+        padding: const EdgeInsets.symmetric(
+          vertical: 5.0,
+          horizontal: 24.0,
+        ),
+        child: NewsPost(
+          onMoreTap: () {
+            context.showWipToast();
+          },
+          postImgPath: Assets.imageMock.homeSelectPost1.path,
+          commentCount: 100,
+          likeCount: 200,
+          shareCount: 300,
+          userName: 'Mirabelle Swift',
+          onLikeTap: () {
+            context.showWipToast();
+          },
+          onShareTap: () {
+            context.showWipToast();
+          },
+          title: 'Adwords Keyword Research For Beginners.',
+          onFollowTap: () {
+            context.showWipToast();
+          },
+          avatarImgPath: Assets.imageMock.homeSelectAvatar1.path,
+          onCommentTap: () {
+            context.showWipToast();
+          },
         ),
       ),
     ];

@@ -10,7 +10,6 @@ class NewsPost extends StatelessWidget {
   final String userName;
   final VoidCallback onFollowTap;
   final String title;
-  final String postImgPath;
   final int likeCount;
   final GestureTapCallback onLikeTap;
   final int commentCount;
@@ -19,13 +18,14 @@ class NewsPost extends StatelessWidget {
   final GestureTapCallback onShareTap;
   final GestureTapCallback onMoreTap;
 
+  final List<String> postImgPathList;
+
   const NewsPost({
     Key? key,
     required this.avatarImgPath,
     required this.userName,
     required this.onFollowTap,
     required this.title,
-    required this.postImgPath,
     required this.likeCount,
     required this.onLikeTap,
     required this.commentCount,
@@ -33,6 +33,7 @@ class NewsPost extends StatelessWidget {
     required this.shareCount,
     required this.onShareTap,
     required this.onMoreTap,
+    required this.postImgPathList,
   }) : super(key: key);
 
   @override
@@ -100,14 +101,39 @@ class NewsPost extends StatelessWidget {
             ),
           ),
         ),
-        ClipRRect(
-          borderRadius: BorderRadius.circular(
-            8.0,
+        if (postImgPathList.length == 1) ...[
+          ClipRRect(
+            borderRadius: BorderRadius.circular(
+              8.0,
+            ),
+            child: Image.asset(
+              postImgPathList.first,
+            ),
+          )
+        ] else ...[
+          SizedBox(
+            height: 224,
+            child: GridView.builder(
+              physics: NeverScrollableScrollPhysics(),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+                crossAxisSpacing: 6.0,
+                mainAxisSpacing: 6.0,
+              ),
+              itemBuilder: (context, index) {
+                return ClipRRect(
+                  borderRadius: BorderRadius.circular(
+                    8.0,
+                  ),
+                  child: Image.asset(
+                    postImgPathList[index],
+                  ),
+                );
+              },
+              itemCount: postImgPathList.length,
+            ),
           ),
-          child: Image.asset(
-            postImgPath,
-          ),
-        ),
+        ],
         Padding(
           padding: const EdgeInsets.symmetric(
             vertical: 10.0,

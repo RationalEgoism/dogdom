@@ -17,7 +17,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-class HomeSelectPage extends StatelessWidget {
+class HomeSelectPage extends StatefulWidget {
+  const HomeSelectPage({Key? key}) : super(key: key);
+
+  @override
+  _HomeSelectPageState createState() => _HomeSelectPageState();
+}
+
+class _HomeSelectPageState extends State<HomeSelectPage>
+    with AutomaticKeepAliveClientMixin {
   final RefreshController _refreshController = RefreshController(
     initialRefresh: false,
   );
@@ -27,7 +35,8 @@ class HomeSelectPage extends StatelessWidget {
     _refreshController.refreshCompleted();
   }
 
-  HomeSelectPage({Key? key}) : super(key: key);
+  @override
+  bool get wantKeepAlive => true;
 
   @override
   Widget build(BuildContext context) {

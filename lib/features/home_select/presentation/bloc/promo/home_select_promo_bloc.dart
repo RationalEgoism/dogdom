@@ -31,9 +31,16 @@ class HomeSelectPagePromoBloc
     );
   }
 
-  FutureOr<void> _onTap(event, Emitter<HomeSelectPagePromoState> emit) {
+  FutureOr<void> _onTap(
+    HomeSelectPagePromoEventTap event,
+    Emitter<HomeSelectPagePromoState> emit,
+  ) {
     final tempDataState = state.data;
-    emit(HomeSelectPagePromoState.onTap());
+    emit(
+      HomeSelectPagePromoState.onTap(
+        event.promoName,
+      ),
+    );
     emit(tempDataState);
   }
 }

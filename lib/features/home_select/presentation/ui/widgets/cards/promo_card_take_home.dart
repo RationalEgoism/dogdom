@@ -58,7 +58,7 @@ class PromoCardTakeHome extends StatelessWidget {
                       child: TextButton(
                         onPressed: () {
                           context.read<HomeSelectPagePromoBloc>().add(
-                                HomeSelectPagePromoEvent.onTap(),
+                                HomeSelectPagePromoEvent.onTap('Take home'),
                               );
                         },
                         child: Text(

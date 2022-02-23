@@ -80,7 +80,11 @@ class HomeSelectPage extends StatelessWidget {
                     HomeSelectPagePromoState>(
                   listener: (context, state) {
                     if (state is HomeSelectPagePromoStateOnTap) {
-                      context.showWipToast();
+                      context.router.push(
+                        HomeNestedRouter(
+                          name: state.onTap.promoName,
+                        ),
+                      );
                     }
                   },
                   builder: (context, state) {

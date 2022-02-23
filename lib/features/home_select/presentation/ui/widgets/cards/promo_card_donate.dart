@@ -19,7 +19,7 @@ class PromoCardDonate extends StatelessWidget {
     return InkWell(
       onTap: () {
         context.read<HomeSelectPagePromoBloc>().add(
-              HomeSelectPagePromoEvent.onTap(),
+              HomeSelectPagePromoEvent.onTap('Donate'),
             );
       },
       child: Stack(

@@ -6,6 +6,8 @@ part 'home_select_promo_bloc_models.freezed.dart';
 @freezed
 class HomeSelectPagePromoState with _$HomeSelectPagePromoState {
   HomeSelectPagePromoStateData get data => this as HomeSelectPagePromoStateData;
+  HomeSelectPagePromoStateOnTap get onTap =>
+      this as HomeSelectPagePromoStateOnTap;
 
   HomeSelectPagePromoState._();
 
@@ -15,11 +17,16 @@ class HomeSelectPagePromoState with _$HomeSelectPagePromoState {
     required List<PromoCard> promoCardList,
   }) = HomeSelectPagePromoStateData;
 
-  factory HomeSelectPagePromoState.onTap() = HomeSelectPagePromoStateOnTap;
+  factory HomeSelectPagePromoState.onTap(
+    String promoName,
+  ) = HomeSelectPagePromoStateOnTap;
 }
 
 @freezed
 class HomeSelectPagePromoEvent with _$HomeSelectPagePromoEvent {
   factory HomeSelectPagePromoEvent.init() = HomeSelectPagePromoEventInit;
-  factory HomeSelectPagePromoEvent.onTap() = HomeSelectPagePromoEventTap;
+
+  factory HomeSelectPagePromoEvent.onTap(
+    String promoName,
+  ) = HomeSelectPagePromoEventTap;
 }

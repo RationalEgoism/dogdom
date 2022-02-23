@@ -14,6 +14,8 @@ class NewsState with _$NewsState {
   factory NewsState.data(
     List<NewsPostModel> newsPostModelList,
   ) = NewsStateData;
+
+  factory NewsState.onTap() = NewsStateOnTap;
 }
 
 @freezed

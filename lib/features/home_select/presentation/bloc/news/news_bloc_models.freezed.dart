@@ -27,6 +27,10 @@ class _$NewsStateTearOff {
       newsPostModelList,
     );
   }
+
+  NewsStateOnTap onTap() {
+    return NewsStateOnTap();
+  }
 }
 
 /// @nodoc
@@ -38,18 +42,21 @@ mixin _$NewsState {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(List<NewsPostModel> newsPostModelList) data,
+    required TResult Function() onTap,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(List<NewsPostModel> newsPostModelList)? data,
+    TResult Function()? onTap,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(List<NewsPostModel> newsPostModelList)? data,
+    TResult Function()? onTap,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -57,18 +64,21 @@ mixin _$NewsState {
   TResult map<TResult extends Object?>({
     required TResult Function(NewsStateLoading value) loading,
     required TResult Function(NewsStateData value) data,
+    required TResult Function(NewsStateOnTap value) onTap,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(NewsStateLoading value)? loading,
     TResult Function(NewsStateData value)? data,
+    TResult Function(NewsStateOnTap value)? onTap,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(NewsStateLoading value)? loading,
     TResult Function(NewsStateData value)? data,
+    TResult Function(NewsStateOnTap value)? onTap,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -131,6 +141,7 @@ class _$NewsStateLoading extends NewsStateLoading {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(List<NewsPostModel> newsPostModelList) data,
+    required TResult Function() onTap,
   }) {
     return loading();
   }
@@ -140,6 +151,7 @@ class _$NewsStateLoading extends NewsStateLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(List<NewsPostModel> newsPostModelList)? data,
+    TResult Function()? onTap,
   }) {
     return loading?.call();
   }
@@ -149,6 +161,7 @@ class _$NewsStateLoading extends NewsStateLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(List<NewsPostModel> newsPostModelList)? data,
+    TResult Function()? onTap,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -162,6 +175,7 @@ class _$NewsStateLoading extends NewsStateLoading {
   TResult map<TResult extends Object?>({
     required TResult Function(NewsStateLoading value) loading,
     required TResult Function(NewsStateData value) data,
+    required TResult Function(NewsStateOnTap value) onTap,
   }) {
     return loading(this);
   }
@@ -171,6 +185,7 @@ class _$NewsStateLoading extends NewsStateLoading {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(NewsStateLoading value)? loading,
     TResult Function(NewsStateData value)? data,
+    TResult Function(NewsStateOnTap value)? onTap,
   }) {
     return loading?.call(this);
   }
@@ -180,6 +195,7 @@ class _$NewsStateLoading extends NewsStateLoading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(NewsStateLoading value)? loading,
     TResult Function(NewsStateData value)? data,
+    TResult Function(NewsStateOnTap value)? onTap,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -261,6 +277,7 @@ class _$NewsStateData extends NewsStateData {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(List<NewsPostModel> newsPostModelList) data,
+    required TResult Function() onTap,
   }) {
     return data(newsPostModelList);
   }
@@ -270,6 +287,7 @@ class _$NewsStateData extends NewsStateData {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(List<NewsPostModel> newsPostModelList)? data,
+    TResult Function()? onTap,
   }) {
     return data?.call(newsPostModelList);
   }
@@ -279,6 +297,7 @@ class _$NewsStateData extends NewsStateData {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(List<NewsPostModel> newsPostModelList)? data,
+    TResult Function()? onTap,
     required TResult orElse(),
   }) {
     if (data != null) {
@@ -292,6 +311,7 @@ class _$NewsStateData extends NewsStateData {
   TResult map<TResult extends Object?>({
     required TResult Function(NewsStateLoading value) loading,
     required TResult Function(NewsStateData value) data,
+    required TResult Function(NewsStateOnTap value) onTap,
   }) {
     return data(this);
   }
@@ -301,6 +321,7 @@ class _$NewsStateData extends NewsStateData {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(NewsStateLoading value)? loading,
     TResult Function(NewsStateData value)? data,
+    TResult Function(NewsStateOnTap value)? onTap,
   }) {
     return data?.call(this);
   }
@@ -310,6 +331,7 @@ class _$NewsStateData extends NewsStateData {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(NewsStateLoading value)? loading,
     TResult Function(NewsStateData value)? data,
+    TResult Function(NewsStateOnTap value)? onTap,
     required TResult orElse(),
   }) {
     if (data != null) {
@@ -328,6 +350,117 @@ abstract class NewsStateData extends NewsState {
   @JsonKey(ignore: true)
   $NewsStateDataCopyWith<NewsStateData> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $NewsStateOnTapCopyWith<$Res> {
+  factory $NewsStateOnTapCopyWith(
+          NewsStateOnTap value, $Res Function(NewsStateOnTap) then) =
+      _$NewsStateOnTapCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$NewsStateOnTapCopyWithImpl<$Res> extends _$NewsStateCopyWithImpl<$Res>
+    implements $NewsStateOnTapCopyWith<$Res> {
+  _$NewsStateOnTapCopyWithImpl(
+      NewsStateOnTap _value, $Res Function(NewsStateOnTap) _then)
+      : super(_value, (v) => _then(v as NewsStateOnTap));
+
+  @override
+  NewsStateOnTap get _value => super._value as NewsStateOnTap;
+}
+
+/// @nodoc
+
+class _$NewsStateOnTap extends NewsStateOnTap {
+  _$NewsStateOnTap() : super._();
+
+  @override
+  String toString() {
+    return 'NewsState.onTap()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is NewsStateOnTap);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loading,
+    required TResult Function(List<NewsPostModel> newsPostModelList) data,
+    required TResult Function() onTap,
+  }) {
+    return onTap();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? loading,
+    TResult Function(List<NewsPostModel> newsPostModelList)? data,
+    TResult Function()? onTap,
+  }) {
+    return onTap?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loading,
+    TResult Function(List<NewsPostModel> newsPostModelList)? data,
+    TResult Function()? onTap,
+    required TResult orElse(),
+  }) {
+    if (onTap != null) {
+      return onTap();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(NewsStateLoading value) loading,
+    required TResult Function(NewsStateData value) data,
+    required TResult Function(NewsStateOnTap value) onTap,
+  }) {
+    return onTap(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(NewsStateLoading value)? loading,
+    TResult Function(NewsStateData value)? data,
+    TResult Function(NewsStateOnTap value)? onTap,
+  }) {
+    return onTap?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NewsStateLoading value)? loading,
+    TResult Function(NewsStateData value)? data,
+    TResult Function(NewsStateOnTap value)? onTap,
+    required TResult orElse(),
+  }) {
+    if (onTap != null) {
+      return onTap(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class NewsStateOnTap extends NewsState {
+  factory NewsStateOnTap() = _$NewsStateOnTap;
+  NewsStateOnTap._() : super._();
 }
 
 /// @nodoc

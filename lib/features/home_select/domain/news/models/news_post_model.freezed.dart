@@ -24,7 +24,8 @@ class _$NewsPostModelTearOff {
       required String title,
       required int likeCount,
       required int commentCount,
-      required int shareCount}) {
+      required int shareCount,
+      required List<String> postImgPathList}) {
     return _NewsPostModel(
       avatarImgPath: avatarImgPath,
       userName: userName,
@@ -32,6 +33,7 @@ class _$NewsPostModelTearOff {
       likeCount: likeCount,
       commentCount: commentCount,
       shareCount: shareCount,
+      postImgPathList: postImgPathList,
     );
   }
 }
@@ -47,6 +49,7 @@ mixin _$NewsPostModel {
   int get likeCount => throw _privateConstructorUsedError;
   int get commentCount => throw _privateConstructorUsedError;
   int get shareCount => throw _privateConstructorUsedError;
+  List<String> get postImgPathList => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $NewsPostModelCopyWith<NewsPostModel> get copyWith =>
@@ -64,7 +67,8 @@ abstract class $NewsPostModelCopyWith<$Res> {
       String title,
       int likeCount,
       int commentCount,
-      int shareCount});
+      int shareCount,
+      List<String> postImgPathList});
 }
 
 /// @nodoc
@@ -84,6 +88,7 @@ class _$NewsPostModelCopyWithImpl<$Res>
     Object? likeCount = freezed,
     Object? commentCount = freezed,
     Object? shareCount = freezed,
+    Object? postImgPathList = freezed,
   }) {
     return _then(_value.copyWith(
       avatarImgPath: avatarImgPath == freezed
@@ -110,6 +115,10 @@ class _$NewsPostModelCopyWithImpl<$Res>
           ? _value.shareCount
           : shareCount // ignore: cast_nullable_to_non_nullable
               as int,
+      postImgPathList: postImgPathList == freezed
+          ? _value.postImgPathList
+          : postImgPathList // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 }
@@ -127,7 +136,8 @@ abstract class _$NewsPostModelCopyWith<$Res>
       String title,
       int likeCount,
       int commentCount,
-      int shareCount});
+      int shareCount,
+      List<String> postImgPathList});
 }
 
 /// @nodoc
@@ -149,6 +159,7 @@ class __$NewsPostModelCopyWithImpl<$Res>
     Object? likeCount = freezed,
     Object? commentCount = freezed,
     Object? shareCount = freezed,
+    Object? postImgPathList = freezed,
   }) {
     return _then(_NewsPostModel(
       avatarImgPath: avatarImgPath == freezed
@@ -175,6 +186,10 @@ class __$NewsPostModelCopyWithImpl<$Res>
           ? _value.shareCount
           : shareCount // ignore: cast_nullable_to_non_nullable
               as int,
+      postImgPathList: postImgPathList == freezed
+          ? _value.postImgPathList
+          : postImgPathList // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 }
@@ -188,7 +203,8 @@ class _$_NewsPostModel implements _NewsPostModel {
       required this.title,
       required this.likeCount,
       required this.commentCount,
-      required this.shareCount});
+      required this.shareCount,
+      required this.postImgPathList});
 
   @override
   final String avatarImgPath;
@@ -202,10 +218,12 @@ class _$_NewsPostModel implements _NewsPostModel {
   final int commentCount;
   @override
   final int shareCount;
+  @override
+  final List<String> postImgPathList;
 
   @override
   String toString() {
-    return 'NewsPostModel(avatarImgPath: $avatarImgPath, userName: $userName, title: $title, likeCount: $likeCount, commentCount: $commentCount, shareCount: $shareCount)';
+    return 'NewsPostModel(avatarImgPath: $avatarImgPath, userName: $userName, title: $title, likeCount: $likeCount, commentCount: $commentCount, shareCount: $shareCount, postImgPathList: $postImgPathList)';
   }
 
   @override
@@ -221,7 +239,9 @@ class _$_NewsPostModel implements _NewsPostModel {
             const DeepCollectionEquality()
                 .equals(other.commentCount, commentCount) &&
             const DeepCollectionEquality()
-                .equals(other.shareCount, shareCount));
+                .equals(other.shareCount, shareCount) &&
+            const DeepCollectionEquality()
+                .equals(other.postImgPathList, postImgPathList));
   }
 
   @override
@@ -232,7 +252,8 @@ class _$_NewsPostModel implements _NewsPostModel {
       const DeepCollectionEquality().hash(title),
       const DeepCollectionEquality().hash(likeCount),
       const DeepCollectionEquality().hash(commentCount),
-      const DeepCollectionEquality().hash(shareCount));
+      const DeepCollectionEquality().hash(shareCount),
+      const DeepCollectionEquality().hash(postImgPathList));
 
   @JsonKey(ignore: true)
   @override
@@ -247,7 +268,8 @@ abstract class _NewsPostModel implements NewsPostModel {
       required String title,
       required int likeCount,
       required int commentCount,
-      required int shareCount}) = _$_NewsPostModel;
+      required int shareCount,
+      required List<String> postImgPathList}) = _$_NewsPostModel;
 
   @override
   String get avatarImgPath;
@@ -261,6 +283,8 @@ abstract class _NewsPostModel implements NewsPostModel {
   int get commentCount;
   @override
   int get shareCount;
+  @override
+  List<String> get postImgPathList;
   @override
   @JsonKey(ignore: true)
   _$NewsPostModelCopyWith<_NewsPostModel> get copyWith =>

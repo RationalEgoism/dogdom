@@ -11,5 +11,6 @@ class NewsPostModel with _$NewsPostModel {
     required int likeCount,
     required int commentCount,
     required int shareCount,
+    required List<String> postImgPathList,
   }) = _NewsPostModel;
 }

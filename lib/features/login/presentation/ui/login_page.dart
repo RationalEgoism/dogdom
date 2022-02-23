@@ -15,8 +15,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 
 class LoginPage extends StatelessWidget {
-  static String id = "LoginPage";
-
   const LoginPage({Key? key}) : super(key: key);
 
   @override

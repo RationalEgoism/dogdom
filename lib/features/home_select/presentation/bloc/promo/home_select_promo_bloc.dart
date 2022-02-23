@@ -7,7 +7,7 @@ import 'package:injectable/injectable.dart';
 @injectable
 class HomeSelectPagePromoBloc
     extends Bloc<HomeSelectPagePromoEvent, HomeSelectPagePromoState> {
-  HomeSelectPagePromoBloc(initialState)
+  HomeSelectPagePromoBloc()
       : super(
           HomeSelectPagePromoState.loading(),
         ) {

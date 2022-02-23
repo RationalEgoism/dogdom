@@ -5,11 +5,15 @@ import 'package:dogdom/app/theme/widgets/home_icon_button.dart';
 import 'package:dogdom/app/theme/widgets/news_post.dart';
 import 'package:dogdom/app/theme/widgets/search.dart';
 import 'package:dogdom/features/home_select/domain/promo_card_model.dart';
+import 'package:dogdom/features/home_select/presentation/bloc/promo/home_select_promo_bloc.dart';
+import 'package:dogdom/features/home_select/presentation/bloc/promo/home_select_promo_bloc_models.dart';
 import 'package:dogdom/features/home_select/presentation/ui/widgets/promo_card.dart';
 import 'package:dogdom/generated/assets.gen.dart';
 import 'package:dogdom/generated/locale_export.dart';
 import 'package:dogdom/utils/extension/context_extension.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
 
 class HomeSelectPage extends StatelessWidget {
   const HomeSelectPage({Key? key}) : super(key: key);
@@ -69,16 +73,27 @@ class HomeSelectPage extends StatelessWidget {
               padding: EdgeInsets.symmetric(
                 vertical: 16.0,
               ),
-              child: SizedBox(
-                height: 190.0,
-                child: Swiper(
-                  itemCount: 3,
-                  loop: false,
-                  scrollDirection: Axis.horizontal,
-                  scale: 0.9,
-                  viewportFraction: 0.85,
-                  itemBuilder: (context, index) {
-                    return _buildList(context)[index];
+              child: BlocProvider<HomeSelectPagePromoBloc>(
+                create: (context) => GetIt.I.get()
+                  ..add(
+                    HomeSelectPagePromoEvent.init(),
+                  ),
+                child: BlocBuilder<HomeSelectPagePromoBloc,
+                    HomeSelectPagePromoState>(
+                  builder: (context, state) {
+                    return SizedBox(
+                      height: 190.0,
+                      child: Swiper(
+                        itemCount: 3,
+                        loop: false,
+                        scrollDirection: Axis.horizontal,
+                        scale: 0.9,
+                        viewportFraction: 0.85,
+                        itemBuilder: (context, index) {
+                          return _buildList(context)[index];
+                        },
+                      ),
+                    );
                   },
                 ),
               ),

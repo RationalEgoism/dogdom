@@ -98,7 +98,7 @@ class AppRouter extends _i6.RootStackRouter {
   @override
   List<_i6.RouteConfig> get routes => [
         _i6.RouteConfig('/#redirect',
-            path: '/', redirectTo: '/main', fullMatch: true),
+            path: '/', redirectTo: '/login', fullMatch: true),
         _i6.RouteConfig(LoginRoute.name, path: '/login'),
         _i6.RouteConfig(MainRoute.name, path: '/main', children: [
           _i6.RouteConfig(HomeRouter.name,

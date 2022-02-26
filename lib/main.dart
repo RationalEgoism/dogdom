@@ -28,9 +28,9 @@ Future<void> main() async {
     EasyLocalization(
       supportedLocales: const [
         Locale('en'),
-        Locale('ru'),
+        // Locale('ru'),
       ],
-      path: 'asserts/translations',
+      path: 'assets/translations',
       fallbackLocale: Locale('en'),
       assetLoader: CodegenLoader(),
       child: DogdomApp(),

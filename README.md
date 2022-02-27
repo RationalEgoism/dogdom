@@ -14,7 +14,7 @@ This is a pet project to test new technologies for me.
 
 ## Demo
 
-<img src="/art/demo.gif" width=260/>
+![](/art/demo.gif)
 
 ## Code generation
 

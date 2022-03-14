@@ -49,6 +49,7 @@ class LoginPageBloc extends Bloc<LoginPageEvent, LoginPageState> {
     Emitter<LoginPageState> emit,
   ) async {
     await YoutubeDlPlugin.test();
+    var result = await YoutubeDlPlugin.getInfo("https://vimeo.com/121757216");
 
     if (!state.data.validated) return;
 

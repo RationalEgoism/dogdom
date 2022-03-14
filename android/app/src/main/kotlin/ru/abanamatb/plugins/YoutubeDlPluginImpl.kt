@@ -39,6 +39,7 @@ class YoutubeDlPluginImpl : FlutterPlugin, MethodChannel.MethodCallHandler {
         when(call.method) {
             "test" -> {
                 Log.e(TAG_LOG, "test")
+                result.success("success")
             }
         }
     }

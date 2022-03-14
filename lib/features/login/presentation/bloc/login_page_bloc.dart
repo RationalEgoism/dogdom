@@ -1,5 +1,6 @@
 import 'package:dogdom/features/login/domain/interactors/login_interactor.dart';
 import 'package:dogdom/features/login/presentation/bloc/login_page_bloc_models.dart';
+import 'package:dogdom/plugins/YoutubeDlPlugin.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
@@ -47,6 +48,8 @@ class LoginPageBloc extends Bloc<LoginPageEvent, LoginPageState> {
     LoginPageEventGetCaptcha event,
     Emitter<LoginPageState> emit,
   ) async {
+    await YoutubeDlPlugin.test();
+
     if (!state.data.validated) return;
 
     final tempDataState = state.data;

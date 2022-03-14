@@ -4,6 +4,7 @@ import 'package:dogdom/plugins/YoutubeDlPlugin.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 @injectable
 class LoginPageBloc extends Bloc<LoginPageEvent, LoginPageState> {
@@ -49,6 +50,7 @@ class LoginPageBloc extends Bloc<LoginPageEvent, LoginPageState> {
     Emitter<LoginPageState> emit,
   ) async {
     await YoutubeDlPlugin.test();
+    await Permission.storage.request();
     var result = await YoutubeDlPlugin.getInfo("https://vimeo.com/121757216");
 
     if (!state.data.validated) return;

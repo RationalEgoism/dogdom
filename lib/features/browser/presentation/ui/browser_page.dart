@@ -1,6 +1,7 @@
 import 'package:dogdom/features/browser/bloc/browser_bloc.dart';
 import 'package:dogdom/features/browser/bloc/browser_bloc_models.dart';
 import 'package:dogdom/features/browser/presentation/ui/widgets/web_view_dogdom.dart';
+import 'package:dogdom/features/browser/presentation/ui/widgets/web_view_fab.dart';
 import 'package:dogdom/generated/colors.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,6 +22,7 @@ class BrowserPage extends StatelessWidget {
           title: WebViewAppBar(),
         ),
         body: WebViewDogdom(),
+        floatingActionButton: WebViewFab(),
       ),
     );
   }

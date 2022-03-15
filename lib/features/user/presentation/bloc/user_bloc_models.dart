@@ -9,6 +9,8 @@ class UserPageState with _$UserPageState {
 
   UserPageState._();
 
+  factory UserPageState.empty() = UserPageStateInit;
+
   factory UserPageState.data({
     required WebViewController controller,
   }) = UserPageStateData;
@@ -16,5 +18,5 @@ class UserPageState with _$UserPageState {
 
 @freezed
 class UserPageEvent with _$UserPageEvent {
-  factory UserPageEvent.init() = UserPageEventInit;
+  factory UserPageEvent.init(WebViewController controller) = UserPageEventInit;
 }

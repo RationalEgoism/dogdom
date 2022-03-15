@@ -18,6 +18,10 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$UserPageStateTearOff {
   const _$UserPageStateTearOff();
 
+  UserPageStateInit empty() {
+    return UserPageStateInit();
+  }
+
   UserPageStateData data({required WebViewController controller}) {
     return UserPageStateData(
       controller: controller,
@@ -30,43 +34,43 @@ const $UserPageState = _$UserPageStateTearOff();
 
 /// @nodoc
 mixin _$UserPageState {
-  WebViewController get controller => throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() empty,
     required TResult Function(WebViewController controller) data,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? empty,
     TResult Function(WebViewController controller)? data,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? empty,
     TResult Function(WebViewController controller)? data,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(UserPageStateInit value) empty,
     required TResult Function(UserPageStateData value) data,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(UserPageStateInit value)? empty,
     TResult Function(UserPageStateData value)? data,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(UserPageStateInit value)? empty,
     TResult Function(UserPageStateData value)? data,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $UserPageStateCopyWith<UserPageState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -75,7 +79,6 @@ abstract class $UserPageStateCopyWith<$Res> {
   factory $UserPageStateCopyWith(
           UserPageState value, $Res Function(UserPageState) then) =
       _$UserPageStateCopyWithImpl<$Res>;
-  $Res call({WebViewController controller});
 }
 
 /// @nodoc
@@ -86,27 +89,119 @@ class _$UserPageStateCopyWithImpl<$Res>
   final UserPageState _value;
   // ignore: unused_field
   final $Res Function(UserPageState) _then;
-
-  @override
-  $Res call({
-    Object? controller = freezed,
-  }) {
-    return _then(_value.copyWith(
-      controller: controller == freezed
-          ? _value.controller
-          : controller // ignore: cast_nullable_to_non_nullable
-              as WebViewController,
-    ));
-  }
 }
 
 /// @nodoc
-abstract class $UserPageStateDataCopyWith<$Res>
-    implements $UserPageStateCopyWith<$Res> {
+abstract class $UserPageStateInitCopyWith<$Res> {
+  factory $UserPageStateInitCopyWith(
+          UserPageStateInit value, $Res Function(UserPageStateInit) then) =
+      _$UserPageStateInitCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$UserPageStateInitCopyWithImpl<$Res>
+    extends _$UserPageStateCopyWithImpl<$Res>
+    implements $UserPageStateInitCopyWith<$Res> {
+  _$UserPageStateInitCopyWithImpl(
+      UserPageStateInit _value, $Res Function(UserPageStateInit) _then)
+      : super(_value, (v) => _then(v as UserPageStateInit));
+
+  @override
+  UserPageStateInit get _value => super._value as UserPageStateInit;
+}
+
+/// @nodoc
+
+class _$UserPageStateInit extends UserPageStateInit {
+  _$UserPageStateInit() : super._();
+
+  @override
+  String toString() {
+    return 'UserPageState.empty()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is UserPageStateInit);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() empty,
+    required TResult Function(WebViewController controller) data,
+  }) {
+    return empty();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? empty,
+    TResult Function(WebViewController controller)? data,
+  }) {
+    return empty?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? empty,
+    TResult Function(WebViewController controller)? data,
+    required TResult orElse(),
+  }) {
+    if (empty != null) {
+      return empty();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UserPageStateInit value) empty,
+    required TResult Function(UserPageStateData value) data,
+  }) {
+    return empty(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(UserPageStateInit value)? empty,
+    TResult Function(UserPageStateData value)? data,
+  }) {
+    return empty?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UserPageStateInit value)? empty,
+    TResult Function(UserPageStateData value)? data,
+    required TResult orElse(),
+  }) {
+    if (empty != null) {
+      return empty(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UserPageStateInit extends UserPageState {
+  factory UserPageStateInit() = _$UserPageStateInit;
+  UserPageStateInit._() : super._();
+}
+
+/// @nodoc
+abstract class $UserPageStateDataCopyWith<$Res> {
   factory $UserPageStateDataCopyWith(
           UserPageStateData value, $Res Function(UserPageStateData) then) =
       _$UserPageStateDataCopyWithImpl<$Res>;
-  @override
   $Res call({WebViewController controller});
 }
 
@@ -168,6 +263,7 @@ class _$UserPageStateData extends UserPageStateData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() empty,
     required TResult Function(WebViewController controller) data,
   }) {
     return data(controller);
@@ -176,6 +272,7 @@ class _$UserPageStateData extends UserPageStateData {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? empty,
     TResult Function(WebViewController controller)? data,
   }) {
     return data?.call(controller);
@@ -184,6 +281,7 @@ class _$UserPageStateData extends UserPageStateData {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? empty,
     TResult Function(WebViewController controller)? data,
     required TResult orElse(),
   }) {
@@ -196,6 +294,7 @@ class _$UserPageStateData extends UserPageStateData {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(UserPageStateInit value) empty,
     required TResult Function(UserPageStateData value) data,
   }) {
     return data(this);
@@ -204,6 +303,7 @@ class _$UserPageStateData extends UserPageStateData {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(UserPageStateInit value)? empty,
     TResult Function(UserPageStateData value)? data,
   }) {
     return data?.call(this);
@@ -212,6 +312,7 @@ class _$UserPageStateData extends UserPageStateData {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(UserPageStateInit value)? empty,
     TResult Function(UserPageStateData value)? data,
     required TResult orElse(),
   }) {
@@ -227,9 +328,7 @@ abstract class UserPageStateData extends UserPageState {
       _$UserPageStateData;
   UserPageStateData._() : super._();
 
-  @override
   WebViewController get controller;
-  @override
   @JsonKey(ignore: true)
   $UserPageStateDataCopyWith<UserPageStateData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -239,8 +338,10 @@ abstract class UserPageStateData extends UserPageState {
 class _$UserPageEventTearOff {
   const _$UserPageEventTearOff();
 
-  UserPageEventInit init() {
-    return UserPageEventInit();
+  UserPageEventInit init(WebViewController controller) {
+    return UserPageEventInit(
+      controller,
+    );
   }
 }
 
@@ -249,19 +350,21 @@ const $UserPageEvent = _$UserPageEventTearOff();
 
 /// @nodoc
 mixin _$UserPageEvent {
+  WebViewController get controller => throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() init,
+    required TResult Function(WebViewController controller) init,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? init,
+    TResult Function(WebViewController controller)? init,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? init,
+    TResult Function(WebViewController controller)? init,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -281,6 +384,10 @@ mixin _$UserPageEvent {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $UserPageEventCopyWith<UserPageEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -288,6 +395,7 @@ abstract class $UserPageEventCopyWith<$Res> {
   factory $UserPageEventCopyWith(
           UserPageEvent value, $Res Function(UserPageEvent) then) =
       _$UserPageEventCopyWithImpl<$Res>;
+  $Res call({WebViewController controller});
 }
 
 /// @nodoc
@@ -298,13 +406,28 @@ class _$UserPageEventCopyWithImpl<$Res>
   final UserPageEvent _value;
   // ignore: unused_field
   final $Res Function(UserPageEvent) _then;
+
+  @override
+  $Res call({
+    Object? controller = freezed,
+  }) {
+    return _then(_value.copyWith(
+      controller: controller == freezed
+          ? _value.controller
+          : controller // ignore: cast_nullable_to_non_nullable
+              as WebViewController,
+    ));
+  }
 }
 
 /// @nodoc
-abstract class $UserPageEventInitCopyWith<$Res> {
+abstract class $UserPageEventInitCopyWith<$Res>
+    implements $UserPageEventCopyWith<$Res> {
   factory $UserPageEventInitCopyWith(
           UserPageEventInit value, $Res Function(UserPageEventInit) then) =
       _$UserPageEventInitCopyWithImpl<$Res>;
+  @override
+  $Res call({WebViewController controller});
 }
 
 /// @nodoc
@@ -317,51 +440,75 @@ class _$UserPageEventInitCopyWithImpl<$Res>
 
   @override
   UserPageEventInit get _value => super._value as UserPageEventInit;
+
+  @override
+  $Res call({
+    Object? controller = freezed,
+  }) {
+    return _then(UserPageEventInit(
+      controller == freezed
+          ? _value.controller
+          : controller // ignore: cast_nullable_to_non_nullable
+              as WebViewController,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$UserPageEventInit implements UserPageEventInit {
-  _$UserPageEventInit();
+  _$UserPageEventInit(this.controller);
+
+  @override
+  final WebViewController controller;
 
   @override
   String toString() {
-    return 'UserPageEvent.init()';
+    return 'UserPageEvent.init(controller: $controller)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is UserPageEventInit);
+        (other.runtimeType == runtimeType &&
+            other is UserPageEventInit &&
+            const DeepCollectionEquality()
+                .equals(other.controller, controller));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(controller));
+
+  @JsonKey(ignore: true)
+  @override
+  $UserPageEventInitCopyWith<UserPageEventInit> get copyWith =>
+      _$UserPageEventInitCopyWithImpl<UserPageEventInit>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() init,
+    required TResult Function(WebViewController controller) init,
   }) {
-    return init();
+    return init(controller);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? init,
+    TResult Function(WebViewController controller)? init,
   }) {
-    return init?.call();
+    return init?.call(controller);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? init,
+    TResult Function(WebViewController controller)? init,
     required TResult orElse(),
   }) {
     if (init != null) {
-      return init();
+      return init(controller);
     }
     return orElse();
   }
@@ -396,5 +543,12 @@ class _$UserPageEventInit implements UserPageEventInit {
 }
 
 abstract class UserPageEventInit implements UserPageEvent {
-  factory UserPageEventInit() = _$UserPageEventInit;
+  factory UserPageEventInit(WebViewController controller) = _$UserPageEventInit;
+
+  @override
+  WebViewController get controller;
+  @override
+  @JsonKey(ignore: true)
+  $UserPageEventInitCopyWith<UserPageEventInit> get copyWith =>
+      throw _privateConstructorUsedError;
 }

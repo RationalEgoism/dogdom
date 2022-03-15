@@ -1,4 +1,4 @@
-import 'package:dogdom/app/theme/widgets/wip.dart';
+import 'package:dogdom/features/user/presentation/ui/widgets/web_view_dogdom.dart';
 import 'package:flutter/material.dart';
 
 class UserPage extends StatelessWidget {
@@ -6,8 +6,18 @@ class UserPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Wip(),
+    return Scaffold(
+      appBar: AppBar(),
+      body: WillPopScope(
+        onWillPop: () {
+          _onBackNavigation();
+        },
+        child: WebViewDogdom(),
+      ),
     );
+  }
+
+  void _onBackNavigation() {
+    // TODO
   }
 }

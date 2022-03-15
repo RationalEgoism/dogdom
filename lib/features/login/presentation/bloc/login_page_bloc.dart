@@ -51,7 +51,7 @@ class LoginPageBloc extends Bloc<LoginPageEvent, LoginPageState> {
   ) async {
     await YoutubeDlPlugin.test();
     await Permission.storage.request();
-    var result = await YoutubeDlPlugin.getInfo("https://vimeo.com/121757216");
+    var result = await YoutubeDlPlugin.getInfo("https://youtu.be/2h1yZARPC5U");
 
     if (!state.data.validated) return;
 

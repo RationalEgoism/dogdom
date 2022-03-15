@@ -13,12 +13,21 @@ class UserPage extends StatelessWidget {
       appBar: AppBar(),
       body: BlocProvider<UserPageBloc>(
         create: (_) => GetIt.I.get(),
-        child: WebViewDogdom(),
+        child: WillPopScope(
+          onWillPop: () => _onBackNavigation(context),
+          child: WebViewDogdom(),
+        ),
       ),
     );
   }
 
-  void _onBackNavigation() {
-    // TODO
+  Future<bool> _onBackNavigation(BuildContext context) async {
+    var controller = context.read<UserPageBloc>().state.data.controller;
+    if (await controller.canGoBack()) {
+      controller.goBack();
+      return Future.value(true);
+    } else {
+      return Future.value(false);
+    }
   }
 }

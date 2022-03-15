@@ -18,8 +18,8 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$UserPageStateTearOff {
   const _$UserPageStateTearOff();
 
-  UserPageStateInit empty() {
-    return UserPageStateInit();
+  UserPageStateEmpty empty() {
+    return UserPageStateEmpty();
   }
 
   UserPageStateData data({required WebViewController controller}) {
@@ -55,19 +55,19 @@ mixin _$UserPageState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UserPageStateInit value) empty,
+    required TResult Function(UserPageStateEmpty value) empty,
     required TResult Function(UserPageStateData value) data,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(UserPageStateInit value)? empty,
+    TResult Function(UserPageStateEmpty value)? empty,
     TResult Function(UserPageStateData value)? data,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UserPageStateInit value)? empty,
+    TResult Function(UserPageStateEmpty value)? empty,
     TResult Function(UserPageStateData value)? data,
     required TResult orElse(),
   }) =>
@@ -92,28 +92,28 @@ class _$UserPageStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class $UserPageStateInitCopyWith<$Res> {
-  factory $UserPageStateInitCopyWith(
-          UserPageStateInit value, $Res Function(UserPageStateInit) then) =
-      _$UserPageStateInitCopyWithImpl<$Res>;
+abstract class $UserPageStateEmptyCopyWith<$Res> {
+  factory $UserPageStateEmptyCopyWith(
+          UserPageStateEmpty value, $Res Function(UserPageStateEmpty) then) =
+      _$UserPageStateEmptyCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$UserPageStateInitCopyWithImpl<$Res>
+class _$UserPageStateEmptyCopyWithImpl<$Res>
     extends _$UserPageStateCopyWithImpl<$Res>
-    implements $UserPageStateInitCopyWith<$Res> {
-  _$UserPageStateInitCopyWithImpl(
-      UserPageStateInit _value, $Res Function(UserPageStateInit) _then)
-      : super(_value, (v) => _then(v as UserPageStateInit));
+    implements $UserPageStateEmptyCopyWith<$Res> {
+  _$UserPageStateEmptyCopyWithImpl(
+      UserPageStateEmpty _value, $Res Function(UserPageStateEmpty) _then)
+      : super(_value, (v) => _then(v as UserPageStateEmpty));
 
   @override
-  UserPageStateInit get _value => super._value as UserPageStateInit;
+  UserPageStateEmpty get _value => super._value as UserPageStateEmpty;
 }
 
 /// @nodoc
 
-class _$UserPageStateInit extends UserPageStateInit {
-  _$UserPageStateInit() : super._();
+class _$UserPageStateEmpty extends UserPageStateEmpty {
+  _$UserPageStateEmpty() : super._();
 
   @override
   String toString() {
@@ -123,7 +123,7 @@ class _$UserPageStateInit extends UserPageStateInit {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is UserPageStateInit);
+        (other.runtimeType == runtimeType && other is UserPageStateEmpty);
   }
 
   @override
@@ -163,7 +163,7 @@ class _$UserPageStateInit extends UserPageStateInit {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UserPageStateInit value) empty,
+    required TResult Function(UserPageStateEmpty value) empty,
     required TResult Function(UserPageStateData value) data,
   }) {
     return empty(this);
@@ -172,7 +172,7 @@ class _$UserPageStateInit extends UserPageStateInit {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(UserPageStateInit value)? empty,
+    TResult Function(UserPageStateEmpty value)? empty,
     TResult Function(UserPageStateData value)? data,
   }) {
     return empty?.call(this);
@@ -181,7 +181,7 @@ class _$UserPageStateInit extends UserPageStateInit {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UserPageStateInit value)? empty,
+    TResult Function(UserPageStateEmpty value)? empty,
     TResult Function(UserPageStateData value)? data,
     required TResult orElse(),
   }) {
@@ -192,9 +192,9 @@ class _$UserPageStateInit extends UserPageStateInit {
   }
 }
 
-abstract class UserPageStateInit extends UserPageState {
-  factory UserPageStateInit() = _$UserPageStateInit;
-  UserPageStateInit._() : super._();
+abstract class UserPageStateEmpty extends UserPageState {
+  factory UserPageStateEmpty() = _$UserPageStateEmpty;
+  UserPageStateEmpty._() : super._();
 }
 
 /// @nodoc
@@ -294,7 +294,7 @@ class _$UserPageStateData extends UserPageStateData {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UserPageStateInit value) empty,
+    required TResult Function(UserPageStateEmpty value) empty,
     required TResult Function(UserPageStateData value) data,
   }) {
     return data(this);
@@ -303,7 +303,7 @@ class _$UserPageStateData extends UserPageStateData {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(UserPageStateInit value)? empty,
+    TResult Function(UserPageStateEmpty value)? empty,
     TResult Function(UserPageStateData value)? data,
   }) {
     return data?.call(this);
@@ -312,7 +312,7 @@ class _$UserPageStateData extends UserPageStateData {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UserPageStateInit value)? empty,
+    TResult Function(UserPageStateEmpty value)? empty,
     TResult Function(UserPageStateData value)? data,
     required TResult orElse(),
   }) {

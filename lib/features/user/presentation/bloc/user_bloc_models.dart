@@ -9,7 +9,7 @@ class UserPageState with _$UserPageState {
 
   UserPageState._();
 
-  factory UserPageState.empty() = UserPageStateInit;
+  factory UserPageState.empty() = UserPageStateEmpty;
 
   factory UserPageState.data({
     required WebViewController controller,

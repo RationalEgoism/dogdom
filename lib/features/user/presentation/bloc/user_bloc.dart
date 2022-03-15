@@ -5,8 +5,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
 @injectable
-class UserPageBloc extends Bloc<UserPageEvent, UserPageStateInit> {
-  UserPageBloc() : super(UserPageStateInit()) {
+class UserPageBloc extends Bloc<UserPageEvent, UserPageState> {
+  UserPageBloc() : super(UserPageStateEmpty()) {
     on<UserPageEventInit>(_init);
   }
 
@@ -14,6 +14,8 @@ class UserPageBloc extends Bloc<UserPageEvent, UserPageStateInit> {
     UserPageEventInit event,
     Emitter<UserPageState> emit,
   ) {
-    emit(UserPageStateData(controller: event.controller));
+    emit(UserPageState.data(
+      controller: event.controller,
+    ));
   }
 }

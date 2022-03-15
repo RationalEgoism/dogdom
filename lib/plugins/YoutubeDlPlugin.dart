@@ -6,16 +6,11 @@ import 'package:flutter/services.dart';
 class YoutubeDlPlugin {
   static const MethodChannel _channel = MethodChannel('plugin_youtube_dl');
 
-  static Future<String> test() async {
-    final String result = await _channel.invokeMethod('test');
-    return result;
-  }
-
   static Future<VideoInfo> getInfo(String url) async {
     dynamic pluginResult;
     try {
       pluginResult = await _channel.invokeMethod(
-        'getInfo',
+        'getVideoInfo',
         {'url': url},
       );
     } catch (e) {

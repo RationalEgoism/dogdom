@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:dogdom/core/data/model/web_view_tab_model.dart';
-import 'package:dogdom/features/browser/bloc/browser_bloc_models.dart';
+import 'package:dogdom/features/browser/presentation/bloc/browser_bloc_models.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 

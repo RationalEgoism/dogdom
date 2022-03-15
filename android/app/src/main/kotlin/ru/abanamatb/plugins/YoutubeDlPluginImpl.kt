@@ -44,21 +44,29 @@ class YoutubeDlPluginImpl : FlutterPlugin, MethodChannel.MethodCallHandler {
     override fun onMethodCall(call: MethodCall, result: MethodChannel.Result) {
         when (call.method) {
             "test" -> {
-                Log.e(TAG_LOG, "test")
+                Log.d(TAG_LOG, "test")
                 result.success("success")
             }
             "getInfo" -> {
-                Log.e(TAG_LOG, "getInfo")
+                Log.d(TAG_LOG, "getInfo")
                 val url = call.argument<String>("url")
-                Log.e(TAG_LOG, "getInfo url: $url")
-                val request = YoutubeDLRequest(url)
-                val videoInfo: VideoInfo = YoutubeDL.getInstance().getInfo(request)
-                val videoFormatList = videoInfo.formats
-                val videoFormat: VideoFormat = videoInfo.formats.last()
-                download(videoInfo, videoFormat)
-                result.success("getInfo")
+                Log.d(TAG_LOG, "getInfo url: $url")
+                url?.let {
+                    val videoInfo = getFormats(it)
+                    Log.d(TAG_LOG, "VideoInfo formats: ${videoInfo.formats}")
+                    result.success(videoInfo)
+                } ?: result.error(
+                    "error",
+                    "Error getting information about video formats: $url",
+                    null,
+                )
             }
         }
+    }
+
+    fun getFormats(url: String): VideoInfo {
+        val info: VideoInfo = YoutubeDL.getInstance().getInfo(url);
+        return info;
     }
 
     fun download(videoInfo: VideoInfo, videoFormat: VideoFormat) {
@@ -72,10 +80,10 @@ class YoutubeDlPluginImpl : FlutterPlugin, MethodChannel.MethodCallHandler {
         YoutubeDL.getInstance().execute(
             request
         ) { progress: Float, etaInSeconds: Long, line: String ->
-            Log.e(TAG_LOG, "$progress% (ETA $etaInSeconds seconds)")
+            Log.d(TAG_LOG, "$progress% (ETA $etaInSeconds seconds)")
         }
 //        val downloadManager = context?.getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
-//        Log.e(TAG_LOG, "directory: ${Environment.DIRECTORY_DOWNLOADS}")
+//        Log.d(TAG_LOG, "directory: ${Environment.DIRECTORY_DOWNLOADS}")
 //        val request = DownloadManager.Request(Uri.parse(videoFormat.url)).apply {
 //            setDestinationInExternalPublicDir(
 //                Environment.DIRECTORY_DOWNLOADS,
@@ -85,7 +93,7 @@ class YoutubeDlPluginImpl : FlutterPlugin, MethodChannel.MethodCallHandler {
 //            addRequestHeader("Referer", videoInfo.webpageUrl)
 //        }
 //        val id = downloadManager.enqueue(request)
-//        Log.e(TAG_LOG, "id: $id")
+//        Log.d(TAG_LOG, "id: $id")
     }
 
 }

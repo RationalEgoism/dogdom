@@ -22,9 +22,9 @@ class _$BrowserPageStateTearOff {
     return BrowserPageStateEmpty();
   }
 
-  BrowserPageStateData data({required WebViewController controller}) {
+  BrowserPageStateData data({required WebViewTabModel webViewTabModel}) {
     return BrowserPageStateData(
-      controller: controller,
+      webViewTabModel: webViewTabModel,
     );
   }
 }
@@ -37,19 +37,19 @@ mixin _$BrowserPageState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() empty,
-    required TResult Function(WebViewController controller) data,
+    required TResult Function(WebViewTabModel webViewTabModel) data,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? empty,
-    TResult Function(WebViewController controller)? data,
+    TResult Function(WebViewTabModel webViewTabModel)? data,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? empty,
-    TResult Function(WebViewController controller)? data,
+    TResult Function(WebViewTabModel webViewTabModel)? data,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -133,7 +133,7 @@ class _$BrowserPageStateEmpty extends BrowserPageStateEmpty {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() empty,
-    required TResult Function(WebViewController controller) data,
+    required TResult Function(WebViewTabModel webViewTabModel) data,
   }) {
     return empty();
   }
@@ -142,7 +142,7 @@ class _$BrowserPageStateEmpty extends BrowserPageStateEmpty {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? empty,
-    TResult Function(WebViewController controller)? data,
+    TResult Function(WebViewTabModel webViewTabModel)? data,
   }) {
     return empty?.call();
   }
@@ -151,7 +151,7 @@ class _$BrowserPageStateEmpty extends BrowserPageStateEmpty {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? empty,
-    TResult Function(WebViewController controller)? data,
+    TResult Function(WebViewTabModel webViewTabModel)? data,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -202,7 +202,9 @@ abstract class $BrowserPageStateDataCopyWith<$Res> {
   factory $BrowserPageStateDataCopyWith(BrowserPageStateData value,
           $Res Function(BrowserPageStateData) then) =
       _$BrowserPageStateDataCopyWithImpl<$Res>;
-  $Res call({WebViewController controller});
+  $Res call({WebViewTabModel webViewTabModel});
+
+  $WebViewTabModelCopyWith<$Res> get webViewTabModel;
 }
 
 /// @nodoc
@@ -218,28 +220,35 @@ class _$BrowserPageStateDataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? controller = freezed,
+    Object? webViewTabModel = freezed,
   }) {
     return _then(BrowserPageStateData(
-      controller: controller == freezed
-          ? _value.controller
-          : controller // ignore: cast_nullable_to_non_nullable
-              as WebViewController,
+      webViewTabModel: webViewTabModel == freezed
+          ? _value.webViewTabModel
+          : webViewTabModel // ignore: cast_nullable_to_non_nullable
+              as WebViewTabModel,
     ));
+  }
+
+  @override
+  $WebViewTabModelCopyWith<$Res> get webViewTabModel {
+    return $WebViewTabModelCopyWith<$Res>(_value.webViewTabModel, (value) {
+      return _then(_value.copyWith(webViewTabModel: value));
+    });
   }
 }
 
 /// @nodoc
 
 class _$BrowserPageStateData extends BrowserPageStateData {
-  _$BrowserPageStateData({required this.controller}) : super._();
+  _$BrowserPageStateData({required this.webViewTabModel}) : super._();
 
   @override
-  final WebViewController controller;
+  final WebViewTabModel webViewTabModel;
 
   @override
   String toString() {
-    return 'BrowserPageState.data(controller: $controller)';
+    return 'BrowserPageState.data(webViewTabModel: $webViewTabModel)';
   }
 
   @override
@@ -248,12 +257,12 @@ class _$BrowserPageStateData extends BrowserPageStateData {
         (other.runtimeType == runtimeType &&
             other is BrowserPageStateData &&
             const DeepCollectionEquality()
-                .equals(other.controller, controller));
+                .equals(other.webViewTabModel, webViewTabModel));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(controller));
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(webViewTabModel));
 
   @JsonKey(ignore: true)
   @override
@@ -265,29 +274,29 @@ class _$BrowserPageStateData extends BrowserPageStateData {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() empty,
-    required TResult Function(WebViewController controller) data,
+    required TResult Function(WebViewTabModel webViewTabModel) data,
   }) {
-    return data(controller);
+    return data(webViewTabModel);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? empty,
-    TResult Function(WebViewController controller)? data,
+    TResult Function(WebViewTabModel webViewTabModel)? data,
   }) {
-    return data?.call(controller);
+    return data?.call(webViewTabModel);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? empty,
-    TResult Function(WebViewController controller)? data,
+    TResult Function(WebViewTabModel webViewTabModel)? data,
     required TResult orElse(),
   }) {
     if (data != null) {
-      return data(controller);
+      return data(webViewTabModel);
     }
     return orElse();
   }
@@ -325,11 +334,11 @@ class _$BrowserPageStateData extends BrowserPageStateData {
 }
 
 abstract class BrowserPageStateData extends BrowserPageState {
-  factory BrowserPageStateData({required WebViewController controller}) =
+  factory BrowserPageStateData({required WebViewTabModel webViewTabModel}) =
       _$BrowserPageStateData;
   BrowserPageStateData._() : super._();
 
-  WebViewController get controller;
+  WebViewTabModel get webViewTabModel;
   @JsonKey(ignore: true)
   $BrowserPageStateDataCopyWith<BrowserPageStateData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -348,6 +357,12 @@ class _$BrowserPageEventTearOff {
       controller,
     );
   }
+
+  BrowserPageEventSetUrl setUrl(String url) {
+    return BrowserPageEventSetUrl(
+      url,
+    );
+  }
 }
 
 /// @nodoc
@@ -359,18 +374,21 @@ mixin _$BrowserPageEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() empty,
     required TResult Function(WebViewController controller) initController,
+    required TResult Function(String url) setUrl,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? empty,
     TResult Function(WebViewController controller)? initController,
+    TResult Function(String url)? setUrl,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? empty,
     TResult Function(WebViewController controller)? initController,
+    TResult Function(String url)? setUrl,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -379,18 +397,21 @@ mixin _$BrowserPageEvent {
     required TResult Function(BrowserPageEventEmpty value) empty,
     required TResult Function(BrowserPageEventInitController value)
         initController,
+    required TResult Function(BrowserPageEventSetUrl value) setUrl,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(BrowserPageEventEmpty value)? empty,
     TResult Function(BrowserPageEventInitController value)? initController,
+    TResult Function(BrowserPageEventSetUrl value)? setUrl,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(BrowserPageEventEmpty value)? empty,
     TResult Function(BrowserPageEventInitController value)? initController,
+    TResult Function(BrowserPageEventSetUrl value)? setUrl,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -456,6 +477,7 @@ class _$BrowserPageEventEmpty implements BrowserPageEventEmpty {
   TResult when<TResult extends Object?>({
     required TResult Function() empty,
     required TResult Function(WebViewController controller) initController,
+    required TResult Function(String url) setUrl,
   }) {
     return empty();
   }
@@ -465,6 +487,7 @@ class _$BrowserPageEventEmpty implements BrowserPageEventEmpty {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? empty,
     TResult Function(WebViewController controller)? initController,
+    TResult Function(String url)? setUrl,
   }) {
     return empty?.call();
   }
@@ -474,6 +497,7 @@ class _$BrowserPageEventEmpty implements BrowserPageEventEmpty {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? empty,
     TResult Function(WebViewController controller)? initController,
+    TResult Function(String url)? setUrl,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -488,6 +512,7 @@ class _$BrowserPageEventEmpty implements BrowserPageEventEmpty {
     required TResult Function(BrowserPageEventEmpty value) empty,
     required TResult Function(BrowserPageEventInitController value)
         initController,
+    required TResult Function(BrowserPageEventSetUrl value) setUrl,
   }) {
     return empty(this);
   }
@@ -497,6 +522,7 @@ class _$BrowserPageEventEmpty implements BrowserPageEventEmpty {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(BrowserPageEventEmpty value)? empty,
     TResult Function(BrowserPageEventInitController value)? initController,
+    TResult Function(BrowserPageEventSetUrl value)? setUrl,
   }) {
     return empty?.call(this);
   }
@@ -506,6 +532,7 @@ class _$BrowserPageEventEmpty implements BrowserPageEventEmpty {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(BrowserPageEventEmpty value)? empty,
     TResult Function(BrowserPageEventInitController value)? initController,
+    TResult Function(BrowserPageEventSetUrl value)? setUrl,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -592,6 +619,7 @@ class _$BrowserPageEventInitController
   TResult when<TResult extends Object?>({
     required TResult Function() empty,
     required TResult Function(WebViewController controller) initController,
+    required TResult Function(String url) setUrl,
   }) {
     return initController(controller);
   }
@@ -601,6 +629,7 @@ class _$BrowserPageEventInitController
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? empty,
     TResult Function(WebViewController controller)? initController,
+    TResult Function(String url)? setUrl,
   }) {
     return initController?.call(controller);
   }
@@ -610,6 +639,7 @@ class _$BrowserPageEventInitController
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? empty,
     TResult Function(WebViewController controller)? initController,
+    TResult Function(String url)? setUrl,
     required TResult orElse(),
   }) {
     if (initController != null) {
@@ -624,6 +654,7 @@ class _$BrowserPageEventInitController
     required TResult Function(BrowserPageEventEmpty value) empty,
     required TResult Function(BrowserPageEventInitController value)
         initController,
+    required TResult Function(BrowserPageEventSetUrl value) setUrl,
   }) {
     return initController(this);
   }
@@ -633,6 +664,7 @@ class _$BrowserPageEventInitController
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(BrowserPageEventEmpty value)? empty,
     TResult Function(BrowserPageEventInitController value)? initController,
+    TResult Function(BrowserPageEventSetUrl value)? setUrl,
   }) {
     return initController?.call(this);
   }
@@ -642,6 +674,7 @@ class _$BrowserPageEventInitController
   TResult maybeMap<TResult extends Object?>({
     TResult Function(BrowserPageEventEmpty value)? empty,
     TResult Function(BrowserPageEventInitController value)? initController,
+    TResult Function(BrowserPageEventSetUrl value)? setUrl,
     required TResult orElse(),
   }) {
     if (initController != null) {
@@ -659,4 +692,146 @@ abstract class BrowserPageEventInitController implements BrowserPageEvent {
   @JsonKey(ignore: true)
   $BrowserPageEventInitControllerCopyWith<BrowserPageEventInitController>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $BrowserPageEventSetUrlCopyWith<$Res> {
+  factory $BrowserPageEventSetUrlCopyWith(BrowserPageEventSetUrl value,
+          $Res Function(BrowserPageEventSetUrl) then) =
+      _$BrowserPageEventSetUrlCopyWithImpl<$Res>;
+  $Res call({String url});
+}
+
+/// @nodoc
+class _$BrowserPageEventSetUrlCopyWithImpl<$Res>
+    extends _$BrowserPageEventCopyWithImpl<$Res>
+    implements $BrowserPageEventSetUrlCopyWith<$Res> {
+  _$BrowserPageEventSetUrlCopyWithImpl(BrowserPageEventSetUrl _value,
+      $Res Function(BrowserPageEventSetUrl) _then)
+      : super(_value, (v) => _then(v as BrowserPageEventSetUrl));
+
+  @override
+  BrowserPageEventSetUrl get _value => super._value as BrowserPageEventSetUrl;
+
+  @override
+  $Res call({
+    Object? url = freezed,
+  }) {
+    return _then(BrowserPageEventSetUrl(
+      url == freezed
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$BrowserPageEventSetUrl implements BrowserPageEventSetUrl {
+  _$BrowserPageEventSetUrl(this.url);
+
+  @override
+  final String url;
+
+  @override
+  String toString() {
+    return 'BrowserPageEvent.setUrl(url: $url)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is BrowserPageEventSetUrl &&
+            const DeepCollectionEquality().equals(other.url, url));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(url));
+
+  @JsonKey(ignore: true)
+  @override
+  $BrowserPageEventSetUrlCopyWith<BrowserPageEventSetUrl> get copyWith =>
+      _$BrowserPageEventSetUrlCopyWithImpl<BrowserPageEventSetUrl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() empty,
+    required TResult Function(WebViewController controller) initController,
+    required TResult Function(String url) setUrl,
+  }) {
+    return setUrl(url);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? empty,
+    TResult Function(WebViewController controller)? initController,
+    TResult Function(String url)? setUrl,
+  }) {
+    return setUrl?.call(url);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? empty,
+    TResult Function(WebViewController controller)? initController,
+    TResult Function(String url)? setUrl,
+    required TResult orElse(),
+  }) {
+    if (setUrl != null) {
+      return setUrl(url);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(BrowserPageEventEmpty value) empty,
+    required TResult Function(BrowserPageEventInitController value)
+        initController,
+    required TResult Function(BrowserPageEventSetUrl value) setUrl,
+  }) {
+    return setUrl(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(BrowserPageEventEmpty value)? empty,
+    TResult Function(BrowserPageEventInitController value)? initController,
+    TResult Function(BrowserPageEventSetUrl value)? setUrl,
+  }) {
+    return setUrl?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(BrowserPageEventEmpty value)? empty,
+    TResult Function(BrowserPageEventInitController value)? initController,
+    TResult Function(BrowserPageEventSetUrl value)? setUrl,
+    required TResult orElse(),
+  }) {
+    if (setUrl != null) {
+      return setUrl(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class BrowserPageEventSetUrl implements BrowserPageEvent {
+  factory BrowserPageEventSetUrl(String url) = _$BrowserPageEventSetUrl;
+
+  String get url;
+  @JsonKey(ignore: true)
+  $BrowserPageEventSetUrlCopyWith<BrowserPageEventSetUrl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

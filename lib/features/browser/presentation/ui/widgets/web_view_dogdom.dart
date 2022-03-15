@@ -30,12 +30,17 @@ class _WebViewDogdomState extends State<WebViewDogdom> {
                 BrowserPageEvent.initController(controller),
               );
         },
+        onPageFinished: (url) {
+          var bloc = context.read<BrowserPageBloc>();
+          bloc.add(BrowserPageEvent.urlLoaded(url));
+        },
       ),
     );
   }
 
   Future<bool> _onBackNavigation(BuildContext context) async {
-    var controller = context.read<BrowserPageBloc>().state.data.controller;
+    var controller =
+        context.read<BrowserPageBloc>().state.data.webViewTabModel.controller;
     if (await controller.canGoBack()) {
       controller.goBack();
       return Future.value(false);

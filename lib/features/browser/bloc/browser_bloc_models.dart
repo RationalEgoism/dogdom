@@ -1,3 +1,4 @@
+import 'package:dogdom/core/data/model/web_view_tab_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -12,7 +13,7 @@ class BrowserPageState with _$BrowserPageState {
   factory BrowserPageState.empty() = BrowserPageStateEmpty;
 
   factory BrowserPageState.data({
-    required WebViewController controller,
+    required WebViewTabModel webViewTabModel,
   }) = BrowserPageStateData;
 }
 
@@ -23,4 +24,10 @@ class BrowserPageEvent with _$BrowserPageEvent {
   factory BrowserPageEvent.initController(
     WebViewController controller,
   ) = BrowserPageEventInitController;
+
+  factory BrowserPageEvent.setUrl(String url) = BrowserPageEventSetUrl;
+
+  factory BrowserPageEvent.fabClicked() = BrowserPageEventFabClicked;
+
+  factory BrowserPageEvent.urlLoaded(String url) = BrowserPageEventUrlLoaded;
 }

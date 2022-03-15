@@ -14,47 +14,53 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+VideoFormat _$VideoFormatFromJson(Map<String, dynamic> json) {
+  return _VideoFormat.fromJson(json);
+}
+
 /// @nodoc
 class _$VideoFormatTearOff {
   const _$VideoFormatTearOff();
 
   _VideoFormat call(
-      int asr,
-      int tbr,
-      int abr,
-      String format,
-      String formatId,
-      String formatNote,
-      String ext,
-      int preference,
-      String vcodec,
-      String acodec,
-      int width,
-      int height,
-      int fileSize,
-      int fps,
-      String url,
-      String manifestUrl,
-      Map<String, String> httpHeaders) {
+      {int? asr,
+      int? tbr,
+      int? abr,
+      String? format,
+      String? formatId,
+      String? formatNote,
+      String? ext,
+      int? preference,
+      String? vcodec,
+      String? acodec,
+      int? width,
+      int? height,
+      int? fileSize,
+      int? fps,
+      String? url,
+      String? manifestUrl}) {
     return _VideoFormat(
-      asr,
-      tbr,
-      abr,
-      format,
-      formatId,
-      formatNote,
-      ext,
-      preference,
-      vcodec,
-      acodec,
-      width,
-      height,
-      fileSize,
-      fps,
-      url,
-      manifestUrl,
-      httpHeaders,
+      asr: asr,
+      tbr: tbr,
+      abr: abr,
+      format: format,
+      formatId: formatId,
+      formatNote: formatNote,
+      ext: ext,
+      preference: preference,
+      vcodec: vcodec,
+      acodec: acodec,
+      width: width,
+      height: height,
+      fileSize: fileSize,
+      fps: fps,
+      url: url,
+      manifestUrl: manifestUrl,
     );
+  }
+
+  VideoFormat fromJson(Map<String, Object?> json) {
+    return VideoFormat.fromJson(json);
   }
 }
 
@@ -63,24 +69,24 @@ const $VideoFormat = _$VideoFormatTearOff();
 
 /// @nodoc
 mixin _$VideoFormat {
-  int get asr => throw _privateConstructorUsedError;
-  int get tbr => throw _privateConstructorUsedError;
-  int get abr => throw _privateConstructorUsedError;
-  String get format => throw _privateConstructorUsedError;
-  String get formatId => throw _privateConstructorUsedError;
-  String get formatNote => throw _privateConstructorUsedError;
-  String get ext => throw _privateConstructorUsedError;
-  int get preference => throw _privateConstructorUsedError;
-  String get vcodec => throw _privateConstructorUsedError;
-  String get acodec => throw _privateConstructorUsedError;
-  int get width => throw _privateConstructorUsedError;
-  int get height => throw _privateConstructorUsedError;
-  int get fileSize => throw _privateConstructorUsedError;
-  int get fps => throw _privateConstructorUsedError;
-  String get url => throw _privateConstructorUsedError;
-  String get manifestUrl => throw _privateConstructorUsedError;
-  Map<String, String> get httpHeaders => throw _privateConstructorUsedError;
+  int? get asr => throw _privateConstructorUsedError;
+  int? get tbr => throw _privateConstructorUsedError;
+  int? get abr => throw _privateConstructorUsedError;
+  String? get format => throw _privateConstructorUsedError;
+  String? get formatId => throw _privateConstructorUsedError;
+  String? get formatNote => throw _privateConstructorUsedError;
+  String? get ext => throw _privateConstructorUsedError;
+  int? get preference => throw _privateConstructorUsedError;
+  String? get vcodec => throw _privateConstructorUsedError;
+  String? get acodec => throw _privateConstructorUsedError;
+  int? get width => throw _privateConstructorUsedError;
+  int? get height => throw _privateConstructorUsedError;
+  int? get fileSize => throw _privateConstructorUsedError;
+  int? get fps => throw _privateConstructorUsedError;
+  String? get url => throw _privateConstructorUsedError;
+  String? get manifestUrl => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $VideoFormatCopyWith<VideoFormat> get copyWith =>
       throw _privateConstructorUsedError;
@@ -92,23 +98,22 @@ abstract class $VideoFormatCopyWith<$Res> {
           VideoFormat value, $Res Function(VideoFormat) then) =
       _$VideoFormatCopyWithImpl<$Res>;
   $Res call(
-      {int asr,
-      int tbr,
-      int abr,
-      String format,
-      String formatId,
-      String formatNote,
-      String ext,
-      int preference,
-      String vcodec,
-      String acodec,
-      int width,
-      int height,
-      int fileSize,
-      int fps,
-      String url,
-      String manifestUrl,
-      Map<String, String> httpHeaders});
+      {int? asr,
+      int? tbr,
+      int? abr,
+      String? format,
+      String? formatId,
+      String? formatNote,
+      String? ext,
+      int? preference,
+      String? vcodec,
+      String? acodec,
+      int? width,
+      int? height,
+      int? fileSize,
+      int? fps,
+      String? url,
+      String? manifestUrl});
 }
 
 /// @nodoc
@@ -137,77 +142,72 @@ class _$VideoFormatCopyWithImpl<$Res> implements $VideoFormatCopyWith<$Res> {
     Object? fps = freezed,
     Object? url = freezed,
     Object? manifestUrl = freezed,
-    Object? httpHeaders = freezed,
   }) {
     return _then(_value.copyWith(
       asr: asr == freezed
           ? _value.asr
           : asr // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       tbr: tbr == freezed
           ? _value.tbr
           : tbr // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       abr: abr == freezed
           ? _value.abr
           : abr // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       format: format == freezed
           ? _value.format
           : format // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       formatId: formatId == freezed
           ? _value.formatId
           : formatId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       formatNote: formatNote == freezed
           ? _value.formatNote
           : formatNote // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       ext: ext == freezed
           ? _value.ext
           : ext // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       preference: preference == freezed
           ? _value.preference
           : preference // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       vcodec: vcodec == freezed
           ? _value.vcodec
           : vcodec // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       acodec: acodec == freezed
           ? _value.acodec
           : acodec // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       width: width == freezed
           ? _value.width
           : width // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       height: height == freezed
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       fileSize: fileSize == freezed
           ? _value.fileSize
           : fileSize // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       fps: fps == freezed
           ? _value.fps
           : fps // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       url: url == freezed
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       manifestUrl: manifestUrl == freezed
           ? _value.manifestUrl
           : manifestUrl // ignore: cast_nullable_to_non_nullable
-              as String,
-      httpHeaders: httpHeaders == freezed
-          ? _value.httpHeaders
-          : httpHeaders // ignore: cast_nullable_to_non_nullable
-              as Map<String, String>,
+              as String?,
     ));
   }
 }
@@ -220,23 +220,22 @@ abstract class _$VideoFormatCopyWith<$Res>
       __$VideoFormatCopyWithImpl<$Res>;
   @override
   $Res call(
-      {int asr,
-      int tbr,
-      int abr,
-      String format,
-      String formatId,
-      String formatNote,
-      String ext,
-      int preference,
-      String vcodec,
-      String acodec,
-      int width,
-      int height,
-      int fileSize,
-      int fps,
-      String url,
-      String manifestUrl,
-      Map<String, String> httpHeaders});
+      {int? asr,
+      int? tbr,
+      int? abr,
+      String? format,
+      String? formatId,
+      String? formatNote,
+      String? ext,
+      int? preference,
+      String? vcodec,
+      String? acodec,
+      int? width,
+      int? height,
+      int? fileSize,
+      int? fps,
+      String? url,
+      String? manifestUrl});
 }
 
 /// @nodoc
@@ -267,86 +266,81 @@ class __$VideoFormatCopyWithImpl<$Res> extends _$VideoFormatCopyWithImpl<$Res>
     Object? fps = freezed,
     Object? url = freezed,
     Object? manifestUrl = freezed,
-    Object? httpHeaders = freezed,
   }) {
     return _then(_VideoFormat(
-      asr == freezed
+      asr: asr == freezed
           ? _value.asr
           : asr // ignore: cast_nullable_to_non_nullable
-              as int,
-      tbr == freezed
+              as int?,
+      tbr: tbr == freezed
           ? _value.tbr
           : tbr // ignore: cast_nullable_to_non_nullable
-              as int,
-      abr == freezed
+              as int?,
+      abr: abr == freezed
           ? _value.abr
           : abr // ignore: cast_nullable_to_non_nullable
-              as int,
-      format == freezed
+              as int?,
+      format: format == freezed
           ? _value.format
           : format // ignore: cast_nullable_to_non_nullable
-              as String,
-      formatId == freezed
+              as String?,
+      formatId: formatId == freezed
           ? _value.formatId
           : formatId // ignore: cast_nullable_to_non_nullable
-              as String,
-      formatNote == freezed
+              as String?,
+      formatNote: formatNote == freezed
           ? _value.formatNote
           : formatNote // ignore: cast_nullable_to_non_nullable
-              as String,
-      ext == freezed
+              as String?,
+      ext: ext == freezed
           ? _value.ext
           : ext // ignore: cast_nullable_to_non_nullable
-              as String,
-      preference == freezed
+              as String?,
+      preference: preference == freezed
           ? _value.preference
           : preference // ignore: cast_nullable_to_non_nullable
-              as int,
-      vcodec == freezed
+              as int?,
+      vcodec: vcodec == freezed
           ? _value.vcodec
           : vcodec // ignore: cast_nullable_to_non_nullable
-              as String,
-      acodec == freezed
+              as String?,
+      acodec: acodec == freezed
           ? _value.acodec
           : acodec // ignore: cast_nullable_to_non_nullable
-              as String,
-      width == freezed
+              as String?,
+      width: width == freezed
           ? _value.width
           : width // ignore: cast_nullable_to_non_nullable
-              as int,
-      height == freezed
+              as int?,
+      height: height == freezed
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
-              as int,
-      fileSize == freezed
+              as int?,
+      fileSize: fileSize == freezed
           ? _value.fileSize
           : fileSize // ignore: cast_nullable_to_non_nullable
-              as int,
-      fps == freezed
+              as int?,
+      fps: fps == freezed
           ? _value.fps
           : fps // ignore: cast_nullable_to_non_nullable
-              as int,
-      url == freezed
+              as int?,
+      url: url == freezed
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
-              as String,
-      manifestUrl == freezed
+              as String?,
+      manifestUrl: manifestUrl == freezed
           ? _value.manifestUrl
           : manifestUrl // ignore: cast_nullable_to_non_nullable
-              as String,
-      httpHeaders == freezed
-          ? _value.httpHeaders
-          : httpHeaders // ignore: cast_nullable_to_non_nullable
-              as Map<String, String>,
+              as String?,
     ));
   }
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_VideoFormat implements _VideoFormat {
   _$_VideoFormat(
-      this.asr,
+      {this.asr,
       this.tbr,
       this.abr,
       this.format,
@@ -361,47 +355,47 @@ class _$_VideoFormat implements _VideoFormat {
       this.fileSize,
       this.fps,
       this.url,
-      this.manifestUrl,
-      this.httpHeaders);
+      this.manifestUrl});
+
+  factory _$_VideoFormat.fromJson(Map<String, dynamic> json) =>
+      _$$_VideoFormatFromJson(json);
 
   @override
-  final int asr;
+  final int? asr;
   @override
-  final int tbr;
+  final int? tbr;
   @override
-  final int abr;
+  final int? abr;
   @override
-  final String format;
+  final String? format;
   @override
-  final String formatId;
+  final String? formatId;
   @override
-  final String formatNote;
+  final String? formatNote;
   @override
-  final String ext;
+  final String? ext;
   @override
-  final int preference;
+  final int? preference;
   @override
-  final String vcodec;
+  final String? vcodec;
   @override
-  final String acodec;
+  final String? acodec;
   @override
-  final int width;
+  final int? width;
   @override
-  final int height;
+  final int? height;
   @override
-  final int fileSize;
+  final int? fileSize;
   @override
-  final int fps;
+  final int? fps;
   @override
-  final String url;
+  final String? url;
   @override
-  final String manifestUrl;
-  @override
-  final Map<String, String> httpHeaders;
+  final String? manifestUrl;
 
   @override
   String toString() {
-    return 'VideoFormat(asr: $asr, tbr: $tbr, abr: $abr, format: $format, formatId: $formatId, formatNote: $formatNote, ext: $ext, preference: $preference, vcodec: $vcodec, acodec: $acodec, width: $width, height: $height, fileSize: $fileSize, fps: $fps, url: $url, manifestUrl: $manifestUrl, httpHeaders: $httpHeaders)';
+    return 'VideoFormat(asr: $asr, tbr: $tbr, abr: $abr, format: $format, formatId: $formatId, formatNote: $formatNote, ext: $ext, preference: $preference, vcodec: $vcodec, acodec: $acodec, width: $width, height: $height, fileSize: $fileSize, fps: $fps, url: $url, manifestUrl: $manifestUrl)';
   }
 
   @override
@@ -427,9 +421,7 @@ class _$_VideoFormat implements _VideoFormat {
             const DeepCollectionEquality().equals(other.fps, fps) &&
             const DeepCollectionEquality().equals(other.url, url) &&
             const DeepCollectionEquality()
-                .equals(other.manifestUrl, manifestUrl) &&
-            const DeepCollectionEquality()
-                .equals(other.httpHeaders, httpHeaders));
+                .equals(other.manifestUrl, manifestUrl));
   }
 
   @override
@@ -450,69 +442,73 @@ class _$_VideoFormat implements _VideoFormat {
       const DeepCollectionEquality().hash(fileSize),
       const DeepCollectionEquality().hash(fps),
       const DeepCollectionEquality().hash(url),
-      const DeepCollectionEquality().hash(manifestUrl),
-      const DeepCollectionEquality().hash(httpHeaders));
+      const DeepCollectionEquality().hash(manifestUrl));
 
   @JsonKey(ignore: true)
   @override
   _$VideoFormatCopyWith<_VideoFormat> get copyWith =>
       __$VideoFormatCopyWithImpl<_VideoFormat>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_VideoFormatToJson(this);
+  }
 }
 
 abstract class _VideoFormat implements VideoFormat {
   factory _VideoFormat(
-      int asr,
-      int tbr,
-      int abr,
-      String format,
-      String formatId,
-      String formatNote,
-      String ext,
-      int preference,
-      String vcodec,
-      String acodec,
-      int width,
-      int height,
-      int fileSize,
-      int fps,
-      String url,
-      String manifestUrl,
-      Map<String, String> httpHeaders) = _$_VideoFormat;
+      {int? asr,
+      int? tbr,
+      int? abr,
+      String? format,
+      String? formatId,
+      String? formatNote,
+      String? ext,
+      int? preference,
+      String? vcodec,
+      String? acodec,
+      int? width,
+      int? height,
+      int? fileSize,
+      int? fps,
+      String? url,
+      String? manifestUrl}) = _$_VideoFormat;
+
+  factory _VideoFormat.fromJson(Map<String, dynamic> json) =
+      _$_VideoFormat.fromJson;
 
   @override
-  int get asr;
+  int? get asr;
   @override
-  int get tbr;
+  int? get tbr;
   @override
-  int get abr;
+  int? get abr;
   @override
-  String get format;
+  String? get format;
   @override
-  String get formatId;
+  String? get formatId;
   @override
-  String get formatNote;
+  String? get formatNote;
   @override
-  String get ext;
+  String? get ext;
   @override
-  int get preference;
+  int? get preference;
   @override
-  String get vcodec;
+  String? get vcodec;
   @override
-  String get acodec;
+  String? get acodec;
   @override
-  int get width;
+  int? get width;
   @override
-  int get height;
+  int? get height;
   @override
-  int get fileSize;
+  int? get fileSize;
   @override
-  int get fps;
+  int? get fps;
   @override
-  String get url;
+  String? get url;
   @override
-  String get manifestUrl;
-  @override
-  Map<String, String> get httpHeaders;
+  String? get manifestUrl;
   @override
   @JsonKey(ignore: true)
   _$VideoFormatCopyWith<_VideoFormat> get copyWith =>

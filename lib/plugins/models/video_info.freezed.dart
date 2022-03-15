@@ -18,9 +18,9 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$VideoInfoTearOff {
   const _$VideoInfoTearOff();
 
-  _VideoInfo call(VideoInfo videoInfo) {
+  _VideoInfo call({required List<VideoFormat> formatsList}) {
     return _VideoInfo(
-      videoInfo,
+      formatsList: formatsList,
     );
   }
 }
@@ -30,7 +30,7 @@ const $VideoInfo = _$VideoInfoTearOff();
 
 /// @nodoc
 mixin _$VideoInfo {
-  VideoInfo get videoInfo => throw _privateConstructorUsedError;
+  List<VideoFormat> get formatsList => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $VideoInfoCopyWith<VideoInfo> get copyWith =>
@@ -41,9 +41,7 @@ mixin _$VideoInfo {
 abstract class $VideoInfoCopyWith<$Res> {
   factory $VideoInfoCopyWith(VideoInfo value, $Res Function(VideoInfo) then) =
       _$VideoInfoCopyWithImpl<$Res>;
-  $Res call({VideoInfo videoInfo});
-
-  $VideoInfoCopyWith<$Res> get videoInfo;
+  $Res call({List<VideoFormat> formatsList});
 }
 
 /// @nodoc
@@ -56,21 +54,14 @@ class _$VideoInfoCopyWithImpl<$Res> implements $VideoInfoCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? videoInfo = freezed,
+    Object? formatsList = freezed,
   }) {
     return _then(_value.copyWith(
-      videoInfo: videoInfo == freezed
-          ? _value.videoInfo
-          : videoInfo // ignore: cast_nullable_to_non_nullable
-              as VideoInfo,
+      formatsList: formatsList == freezed
+          ? _value.formatsList
+          : formatsList // ignore: cast_nullable_to_non_nullable
+              as List<VideoFormat>,
     ));
-  }
-
-  @override
-  $VideoInfoCopyWith<$Res> get videoInfo {
-    return $VideoInfoCopyWith<$Res>(_value.videoInfo, (value) {
-      return _then(_value.copyWith(videoInfo: value));
-    });
   }
 }
 
@@ -80,10 +71,7 @@ abstract class _$VideoInfoCopyWith<$Res> implements $VideoInfoCopyWith<$Res> {
           _VideoInfo value, $Res Function(_VideoInfo) then) =
       __$VideoInfoCopyWithImpl<$Res>;
   @override
-  $Res call({VideoInfo videoInfo});
-
-  @override
-  $VideoInfoCopyWith<$Res> get videoInfo;
+  $Res call({List<VideoFormat> formatsList});
 }
 
 /// @nodoc
@@ -97,13 +85,13 @@ class __$VideoInfoCopyWithImpl<$Res> extends _$VideoInfoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? videoInfo = freezed,
+    Object? formatsList = freezed,
   }) {
     return _then(_VideoInfo(
-      videoInfo == freezed
-          ? _value.videoInfo
-          : videoInfo // ignore: cast_nullable_to_non_nullable
-              as VideoInfo,
+      formatsList: formatsList == freezed
+          ? _value.formatsList
+          : formatsList // ignore: cast_nullable_to_non_nullable
+              as List<VideoFormat>,
     ));
   }
 }
@@ -111,14 +99,14 @@ class __$VideoInfoCopyWithImpl<$Res> extends _$VideoInfoCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_VideoInfo implements _VideoInfo {
-  _$_VideoInfo(this.videoInfo);
+  _$_VideoInfo({required this.formatsList});
 
   @override
-  final VideoInfo videoInfo;
+  final List<VideoFormat> formatsList;
 
   @override
   String toString() {
-    return 'VideoInfo(videoInfo: $videoInfo)';
+    return 'VideoInfo(formatsList: $formatsList)';
   }
 
   @override
@@ -126,12 +114,13 @@ class _$_VideoInfo implements _VideoInfo {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _VideoInfo &&
-            const DeepCollectionEquality().equals(other.videoInfo, videoInfo));
+            const DeepCollectionEquality()
+                .equals(other.formatsList, formatsList));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(videoInfo));
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(formatsList));
 
   @JsonKey(ignore: true)
   @override
@@ -140,10 +129,10 @@ class _$_VideoInfo implements _VideoInfo {
 }
 
 abstract class _VideoInfo implements VideoInfo {
-  factory _VideoInfo(VideoInfo videoInfo) = _$_VideoInfo;
+  factory _VideoInfo({required List<VideoFormat> formatsList}) = _$_VideoInfo;
 
   @override
-  VideoInfo get videoInfo;
+  List<VideoFormat> get formatsList;
   @override
   @JsonKey(ignore: true)
   _$VideoInfoCopyWith<_VideoInfo> get copyWith =>

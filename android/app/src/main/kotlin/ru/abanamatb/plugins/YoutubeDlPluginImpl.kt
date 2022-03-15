@@ -4,8 +4,8 @@ import android.content.Context
 import android.os.Environment
 import android.os.Handler
 import android.util.Log
+import com.google.gson.Gson
 import com.yausername.ffmpeg.FFmpeg
-import com.yausername.youtubedl_android.DownloadProgressCallback
 import com.yausername.youtubedl_android.YoutubeDL
 import com.yausername.youtubedl_android.YoutubeDLRequest
 import com.yausername.youtubedl_android.mapper.VideoFormat
@@ -52,9 +52,57 @@ class YoutubeDlPluginImpl : FlutterPlugin, MethodChannel.MethodCallHandler {
                 val url = call.argument<String>("url")
                 Log.d(TAG_LOG, "getInfo url: $url")
                 url?.let {
-                    val videoInfo: VideoInfo = getFormats(it)
-                    Log.d(TAG_LOG, "VideoInfo formats: ${videoInfo.formats}")
-                    result.success(videoInfo)
+                    try {
+                        val videoInfo: VideoInfo = getFormats(it)
+                        val jsonResult = Gson().toJson(videoInfo);
+                        Log.d(TAG_LOG, "VideoInfo formats: ${videoInfo.formats}")
+                        val resultMap: MutableMap<String, Any> = HashMap()
+                        val formatList = mutableListOf<HashMap<String, Any>>()
+//                        resultMap["asr"] = videoInfo.formats.first().asr
+//                        resultMap["tbr"] = videoInfo.formats.first().tbr
+//                        resultMap["abr"] = videoInfo.formats.first().abr
+//                        resultMap["format"] = videoInfo.formats.first().format
+//                        resultMap["formatId"] = videoInfo.formats.first().formatId ?: ""
+//                        resultMap["formatNote"] = videoInfo.formats.first().formatNote ?: ""
+//                        resultMap["ext"] = videoInfo.formats.first().ext
+//                        resultMap["preference"] = videoInfo.formats.first().preference
+//                        resultMap["vcodec"] = videoInfo.formats.first().vcodec
+//                        resultMap["acodec"] = videoInfo.formats.first().acodec
+//                        resultMap["width"] = videoInfo.formats.first().width
+//                        resultMap["height"] = videoInfo.formats.first().height
+//                        resultMap["fileSize"] = videoInfo.formats.first().filesize
+//                        resultMap["fps"] = videoInfo.formats.first().fps
+//                        resultMap["url"] = videoInfo.formats.first().url
+//                        resultMap["manifestUrl"] = videoInfo.formats.first().manifestUrl ?: ""
+//                        resultMap["httpHeaders"] = videoInfo.formats.first().httpHeaders ?: emptyMap<String, String>()
+//                        result.success(resultMap)
+                        for(videoFormat in videoInfo.formats) {
+                            formatList.add(
+                                hashMapOf(
+                                    "asr" to videoFormat.asr,
+                                    "tbr" to videoFormat.tbr,
+                                    "abr" to videoFormat.abr,
+                                    "format" to videoFormat.format,
+                                    "formatId" to (videoFormat.formatId ?: ""),
+                                    "formatNote" to (videoFormat.formatNote ?: ""),
+                                    "ext" to videoFormat.ext,
+                                    "preference" to videoFormat.preference,
+                                    "vcodec" to videoFormat.vcodec,
+                                    "acodec" to videoFormat.acodec,
+                                    "width" to videoFormat.width,
+                                    "height" to videoFormat.height,
+                                    "fileSize" to videoFormat.filesize,
+                                    "fps" to videoFormat.fps,
+                                    "url" to videoFormat.url,
+                                    "manifestUrl" to (videoFormat.manifestUrl ?: ""),
+                                )
+                            )
+                        }
+                        result.success(jsonResult)
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                        result.error("errorCode", e.message, e.cause)
+                    }
                 } ?: result.error(
                     "error",
                     "Error getting information about video formats: $url",
@@ -65,8 +113,8 @@ class YoutubeDlPluginImpl : FlutterPlugin, MethodChannel.MethodCallHandler {
     }
 
     fun getFormats(url: String): VideoInfo {
-        val info: VideoInfo = YoutubeDL.getInstance().getInfo(url);
-        return info;
+        val info: VideoInfo = YoutubeDL.getInstance().getInfo(url)
+        return info
     }
 
     fun download(videoInfo: VideoInfo, videoFormat: VideoFormat) {

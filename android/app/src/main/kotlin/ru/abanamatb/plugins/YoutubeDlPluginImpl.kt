@@ -52,7 +52,7 @@ class YoutubeDlPluginImpl : FlutterPlugin, MethodChannel.MethodCallHandler {
                 val url = call.argument<String>("url")
                 Log.d(TAG_LOG, "getInfo url: $url")
                 url?.let {
-                    val videoInfo = getFormats(it)
+                    val videoInfo: VideoInfo = getFormats(it)
                     Log.d(TAG_LOG, "VideoInfo formats: ${videoInfo.formats}")
                     result.success(videoInfo)
                 } ?: result.error(

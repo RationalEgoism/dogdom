@@ -30,6 +30,10 @@ class _WebViewDogdomState extends State<WebViewDogdom> {
                 BrowserPageEvent.initController(controller),
               );
         },
+        onPageFinished: (url) {
+          var bloc = context.read<BrowserPageBloc>();
+          bloc.add(BrowserPageEvent.urlLoaded(url));
+        },
       ),
     );
   }

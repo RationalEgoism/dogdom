@@ -26,4 +26,8 @@ class BrowserPageEvent with _$BrowserPageEvent {
   ) = BrowserPageEventInitController;
 
   factory BrowserPageEvent.setUrl(String url) = BrowserPageEventSetUrl;
+
+  factory BrowserPageEvent.fabClicked() = BrowserPageEventFabClicked;
+
+  factory BrowserPageEvent.urlLoaded(String url) = BrowserPageEventUrlLoaded;
 }

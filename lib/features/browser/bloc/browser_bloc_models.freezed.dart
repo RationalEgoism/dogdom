@@ -363,6 +363,16 @@ class _$BrowserPageEventTearOff {
       url,
     );
   }
+
+  BrowserPageEventFabClicked fabClicked() {
+    return BrowserPageEventFabClicked();
+  }
+
+  BrowserPageEventUrlLoaded urlLoaded(String url) {
+    return BrowserPageEventUrlLoaded(
+      url,
+    );
+  }
 }
 
 /// @nodoc
@@ -375,6 +385,8 @@ mixin _$BrowserPageEvent {
     required TResult Function() empty,
     required TResult Function(WebViewController controller) initController,
     required TResult Function(String url) setUrl,
+    required TResult Function() fabClicked,
+    required TResult Function(String url) urlLoaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -382,6 +394,8 @@ mixin _$BrowserPageEvent {
     TResult Function()? empty,
     TResult Function(WebViewController controller)? initController,
     TResult Function(String url)? setUrl,
+    TResult Function()? fabClicked,
+    TResult Function(String url)? urlLoaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -389,6 +403,8 @@ mixin _$BrowserPageEvent {
     TResult Function()? empty,
     TResult Function(WebViewController controller)? initController,
     TResult Function(String url)? setUrl,
+    TResult Function()? fabClicked,
+    TResult Function(String url)? urlLoaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -398,6 +414,8 @@ mixin _$BrowserPageEvent {
     required TResult Function(BrowserPageEventInitController value)
         initController,
     required TResult Function(BrowserPageEventSetUrl value) setUrl,
+    required TResult Function(BrowserPageEventFabClicked value) fabClicked,
+    required TResult Function(BrowserPageEventUrlLoaded value) urlLoaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -405,6 +423,8 @@ mixin _$BrowserPageEvent {
     TResult Function(BrowserPageEventEmpty value)? empty,
     TResult Function(BrowserPageEventInitController value)? initController,
     TResult Function(BrowserPageEventSetUrl value)? setUrl,
+    TResult Function(BrowserPageEventFabClicked value)? fabClicked,
+    TResult Function(BrowserPageEventUrlLoaded value)? urlLoaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -412,6 +432,8 @@ mixin _$BrowserPageEvent {
     TResult Function(BrowserPageEventEmpty value)? empty,
     TResult Function(BrowserPageEventInitController value)? initController,
     TResult Function(BrowserPageEventSetUrl value)? setUrl,
+    TResult Function(BrowserPageEventFabClicked value)? fabClicked,
+    TResult Function(BrowserPageEventUrlLoaded value)? urlLoaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -478,6 +500,8 @@ class _$BrowserPageEventEmpty implements BrowserPageEventEmpty {
     required TResult Function() empty,
     required TResult Function(WebViewController controller) initController,
     required TResult Function(String url) setUrl,
+    required TResult Function() fabClicked,
+    required TResult Function(String url) urlLoaded,
   }) {
     return empty();
   }
@@ -488,6 +512,8 @@ class _$BrowserPageEventEmpty implements BrowserPageEventEmpty {
     TResult Function()? empty,
     TResult Function(WebViewController controller)? initController,
     TResult Function(String url)? setUrl,
+    TResult Function()? fabClicked,
+    TResult Function(String url)? urlLoaded,
   }) {
     return empty?.call();
   }
@@ -498,6 +524,8 @@ class _$BrowserPageEventEmpty implements BrowserPageEventEmpty {
     TResult Function()? empty,
     TResult Function(WebViewController controller)? initController,
     TResult Function(String url)? setUrl,
+    TResult Function()? fabClicked,
+    TResult Function(String url)? urlLoaded,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -513,6 +541,8 @@ class _$BrowserPageEventEmpty implements BrowserPageEventEmpty {
     required TResult Function(BrowserPageEventInitController value)
         initController,
     required TResult Function(BrowserPageEventSetUrl value) setUrl,
+    required TResult Function(BrowserPageEventFabClicked value) fabClicked,
+    required TResult Function(BrowserPageEventUrlLoaded value) urlLoaded,
   }) {
     return empty(this);
   }
@@ -523,6 +553,8 @@ class _$BrowserPageEventEmpty implements BrowserPageEventEmpty {
     TResult Function(BrowserPageEventEmpty value)? empty,
     TResult Function(BrowserPageEventInitController value)? initController,
     TResult Function(BrowserPageEventSetUrl value)? setUrl,
+    TResult Function(BrowserPageEventFabClicked value)? fabClicked,
+    TResult Function(BrowserPageEventUrlLoaded value)? urlLoaded,
   }) {
     return empty?.call(this);
   }
@@ -533,6 +565,8 @@ class _$BrowserPageEventEmpty implements BrowserPageEventEmpty {
     TResult Function(BrowserPageEventEmpty value)? empty,
     TResult Function(BrowserPageEventInitController value)? initController,
     TResult Function(BrowserPageEventSetUrl value)? setUrl,
+    TResult Function(BrowserPageEventFabClicked value)? fabClicked,
+    TResult Function(BrowserPageEventUrlLoaded value)? urlLoaded,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -620,6 +654,8 @@ class _$BrowserPageEventInitController
     required TResult Function() empty,
     required TResult Function(WebViewController controller) initController,
     required TResult Function(String url) setUrl,
+    required TResult Function() fabClicked,
+    required TResult Function(String url) urlLoaded,
   }) {
     return initController(controller);
   }
@@ -630,6 +666,8 @@ class _$BrowserPageEventInitController
     TResult Function()? empty,
     TResult Function(WebViewController controller)? initController,
     TResult Function(String url)? setUrl,
+    TResult Function()? fabClicked,
+    TResult Function(String url)? urlLoaded,
   }) {
     return initController?.call(controller);
   }
@@ -640,6 +678,8 @@ class _$BrowserPageEventInitController
     TResult Function()? empty,
     TResult Function(WebViewController controller)? initController,
     TResult Function(String url)? setUrl,
+    TResult Function()? fabClicked,
+    TResult Function(String url)? urlLoaded,
     required TResult orElse(),
   }) {
     if (initController != null) {
@@ -655,6 +695,8 @@ class _$BrowserPageEventInitController
     required TResult Function(BrowserPageEventInitController value)
         initController,
     required TResult Function(BrowserPageEventSetUrl value) setUrl,
+    required TResult Function(BrowserPageEventFabClicked value) fabClicked,
+    required TResult Function(BrowserPageEventUrlLoaded value) urlLoaded,
   }) {
     return initController(this);
   }
@@ -665,6 +707,8 @@ class _$BrowserPageEventInitController
     TResult Function(BrowserPageEventEmpty value)? empty,
     TResult Function(BrowserPageEventInitController value)? initController,
     TResult Function(BrowserPageEventSetUrl value)? setUrl,
+    TResult Function(BrowserPageEventFabClicked value)? fabClicked,
+    TResult Function(BrowserPageEventUrlLoaded value)? urlLoaded,
   }) {
     return initController?.call(this);
   }
@@ -675,6 +719,8 @@ class _$BrowserPageEventInitController
     TResult Function(BrowserPageEventEmpty value)? empty,
     TResult Function(BrowserPageEventInitController value)? initController,
     TResult Function(BrowserPageEventSetUrl value)? setUrl,
+    TResult Function(BrowserPageEventFabClicked value)? fabClicked,
+    TResult Function(BrowserPageEventUrlLoaded value)? urlLoaded,
     required TResult orElse(),
   }) {
     if (initController != null) {
@@ -763,6 +809,8 @@ class _$BrowserPageEventSetUrl implements BrowserPageEventSetUrl {
     required TResult Function() empty,
     required TResult Function(WebViewController controller) initController,
     required TResult Function(String url) setUrl,
+    required TResult Function() fabClicked,
+    required TResult Function(String url) urlLoaded,
   }) {
     return setUrl(url);
   }
@@ -773,6 +821,8 @@ class _$BrowserPageEventSetUrl implements BrowserPageEventSetUrl {
     TResult Function()? empty,
     TResult Function(WebViewController controller)? initController,
     TResult Function(String url)? setUrl,
+    TResult Function()? fabClicked,
+    TResult Function(String url)? urlLoaded,
   }) {
     return setUrl?.call(url);
   }
@@ -783,6 +833,8 @@ class _$BrowserPageEventSetUrl implements BrowserPageEventSetUrl {
     TResult Function()? empty,
     TResult Function(WebViewController controller)? initController,
     TResult Function(String url)? setUrl,
+    TResult Function()? fabClicked,
+    TResult Function(String url)? urlLoaded,
     required TResult orElse(),
   }) {
     if (setUrl != null) {
@@ -798,6 +850,8 @@ class _$BrowserPageEventSetUrl implements BrowserPageEventSetUrl {
     required TResult Function(BrowserPageEventInitController value)
         initController,
     required TResult Function(BrowserPageEventSetUrl value) setUrl,
+    required TResult Function(BrowserPageEventFabClicked value) fabClicked,
+    required TResult Function(BrowserPageEventUrlLoaded value) urlLoaded,
   }) {
     return setUrl(this);
   }
@@ -808,6 +862,8 @@ class _$BrowserPageEventSetUrl implements BrowserPageEventSetUrl {
     TResult Function(BrowserPageEventEmpty value)? empty,
     TResult Function(BrowserPageEventInitController value)? initController,
     TResult Function(BrowserPageEventSetUrl value)? setUrl,
+    TResult Function(BrowserPageEventFabClicked value)? fabClicked,
+    TResult Function(BrowserPageEventUrlLoaded value)? urlLoaded,
   }) {
     return setUrl?.call(this);
   }
@@ -818,6 +874,8 @@ class _$BrowserPageEventSetUrl implements BrowserPageEventSetUrl {
     TResult Function(BrowserPageEventEmpty value)? empty,
     TResult Function(BrowserPageEventInitController value)? initController,
     TResult Function(BrowserPageEventSetUrl value)? setUrl,
+    TResult Function(BrowserPageEventFabClicked value)? fabClicked,
+    TResult Function(BrowserPageEventUrlLoaded value)? urlLoaded,
     required TResult orElse(),
   }) {
     if (setUrl != null) {
@@ -833,5 +891,286 @@ abstract class BrowserPageEventSetUrl implements BrowserPageEvent {
   String get url;
   @JsonKey(ignore: true)
   $BrowserPageEventSetUrlCopyWith<BrowserPageEventSetUrl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $BrowserPageEventFabClickedCopyWith<$Res> {
+  factory $BrowserPageEventFabClickedCopyWith(BrowserPageEventFabClicked value,
+          $Res Function(BrowserPageEventFabClicked) then) =
+      _$BrowserPageEventFabClickedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$BrowserPageEventFabClickedCopyWithImpl<$Res>
+    extends _$BrowserPageEventCopyWithImpl<$Res>
+    implements $BrowserPageEventFabClickedCopyWith<$Res> {
+  _$BrowserPageEventFabClickedCopyWithImpl(BrowserPageEventFabClicked _value,
+      $Res Function(BrowserPageEventFabClicked) _then)
+      : super(_value, (v) => _then(v as BrowserPageEventFabClicked));
+
+  @override
+  BrowserPageEventFabClicked get _value =>
+      super._value as BrowserPageEventFabClicked;
+}
+
+/// @nodoc
+
+class _$BrowserPageEventFabClicked implements BrowserPageEventFabClicked {
+  _$BrowserPageEventFabClicked();
+
+  @override
+  String toString() {
+    return 'BrowserPageEvent.fabClicked()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is BrowserPageEventFabClicked);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() empty,
+    required TResult Function(WebViewController controller) initController,
+    required TResult Function(String url) setUrl,
+    required TResult Function() fabClicked,
+    required TResult Function(String url) urlLoaded,
+  }) {
+    return fabClicked();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? empty,
+    TResult Function(WebViewController controller)? initController,
+    TResult Function(String url)? setUrl,
+    TResult Function()? fabClicked,
+    TResult Function(String url)? urlLoaded,
+  }) {
+    return fabClicked?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? empty,
+    TResult Function(WebViewController controller)? initController,
+    TResult Function(String url)? setUrl,
+    TResult Function()? fabClicked,
+    TResult Function(String url)? urlLoaded,
+    required TResult orElse(),
+  }) {
+    if (fabClicked != null) {
+      return fabClicked();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(BrowserPageEventEmpty value) empty,
+    required TResult Function(BrowserPageEventInitController value)
+        initController,
+    required TResult Function(BrowserPageEventSetUrl value) setUrl,
+    required TResult Function(BrowserPageEventFabClicked value) fabClicked,
+    required TResult Function(BrowserPageEventUrlLoaded value) urlLoaded,
+  }) {
+    return fabClicked(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(BrowserPageEventEmpty value)? empty,
+    TResult Function(BrowserPageEventInitController value)? initController,
+    TResult Function(BrowserPageEventSetUrl value)? setUrl,
+    TResult Function(BrowserPageEventFabClicked value)? fabClicked,
+    TResult Function(BrowserPageEventUrlLoaded value)? urlLoaded,
+  }) {
+    return fabClicked?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(BrowserPageEventEmpty value)? empty,
+    TResult Function(BrowserPageEventInitController value)? initController,
+    TResult Function(BrowserPageEventSetUrl value)? setUrl,
+    TResult Function(BrowserPageEventFabClicked value)? fabClicked,
+    TResult Function(BrowserPageEventUrlLoaded value)? urlLoaded,
+    required TResult orElse(),
+  }) {
+    if (fabClicked != null) {
+      return fabClicked(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class BrowserPageEventFabClicked implements BrowserPageEvent {
+  factory BrowserPageEventFabClicked() = _$BrowserPageEventFabClicked;
+}
+
+/// @nodoc
+abstract class $BrowserPageEventUrlLoadedCopyWith<$Res> {
+  factory $BrowserPageEventUrlLoadedCopyWith(BrowserPageEventUrlLoaded value,
+          $Res Function(BrowserPageEventUrlLoaded) then) =
+      _$BrowserPageEventUrlLoadedCopyWithImpl<$Res>;
+  $Res call({String url});
+}
+
+/// @nodoc
+class _$BrowserPageEventUrlLoadedCopyWithImpl<$Res>
+    extends _$BrowserPageEventCopyWithImpl<$Res>
+    implements $BrowserPageEventUrlLoadedCopyWith<$Res> {
+  _$BrowserPageEventUrlLoadedCopyWithImpl(BrowserPageEventUrlLoaded _value,
+      $Res Function(BrowserPageEventUrlLoaded) _then)
+      : super(_value, (v) => _then(v as BrowserPageEventUrlLoaded));
+
+  @override
+  BrowserPageEventUrlLoaded get _value =>
+      super._value as BrowserPageEventUrlLoaded;
+
+  @override
+  $Res call({
+    Object? url = freezed,
+  }) {
+    return _then(BrowserPageEventUrlLoaded(
+      url == freezed
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$BrowserPageEventUrlLoaded implements BrowserPageEventUrlLoaded {
+  _$BrowserPageEventUrlLoaded(this.url);
+
+  @override
+  final String url;
+
+  @override
+  String toString() {
+    return 'BrowserPageEvent.urlLoaded(url: $url)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is BrowserPageEventUrlLoaded &&
+            const DeepCollectionEquality().equals(other.url, url));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(url));
+
+  @JsonKey(ignore: true)
+  @override
+  $BrowserPageEventUrlLoadedCopyWith<BrowserPageEventUrlLoaded> get copyWith =>
+      _$BrowserPageEventUrlLoadedCopyWithImpl<BrowserPageEventUrlLoaded>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() empty,
+    required TResult Function(WebViewController controller) initController,
+    required TResult Function(String url) setUrl,
+    required TResult Function() fabClicked,
+    required TResult Function(String url) urlLoaded,
+  }) {
+    return urlLoaded(url);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? empty,
+    TResult Function(WebViewController controller)? initController,
+    TResult Function(String url)? setUrl,
+    TResult Function()? fabClicked,
+    TResult Function(String url)? urlLoaded,
+  }) {
+    return urlLoaded?.call(url);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? empty,
+    TResult Function(WebViewController controller)? initController,
+    TResult Function(String url)? setUrl,
+    TResult Function()? fabClicked,
+    TResult Function(String url)? urlLoaded,
+    required TResult orElse(),
+  }) {
+    if (urlLoaded != null) {
+      return urlLoaded(url);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(BrowserPageEventEmpty value) empty,
+    required TResult Function(BrowserPageEventInitController value)
+        initController,
+    required TResult Function(BrowserPageEventSetUrl value) setUrl,
+    required TResult Function(BrowserPageEventFabClicked value) fabClicked,
+    required TResult Function(BrowserPageEventUrlLoaded value) urlLoaded,
+  }) {
+    return urlLoaded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(BrowserPageEventEmpty value)? empty,
+    TResult Function(BrowserPageEventInitController value)? initController,
+    TResult Function(BrowserPageEventSetUrl value)? setUrl,
+    TResult Function(BrowserPageEventFabClicked value)? fabClicked,
+    TResult Function(BrowserPageEventUrlLoaded value)? urlLoaded,
+  }) {
+    return urlLoaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(BrowserPageEventEmpty value)? empty,
+    TResult Function(BrowserPageEventInitController value)? initController,
+    TResult Function(BrowserPageEventSetUrl value)? setUrl,
+    TResult Function(BrowserPageEventFabClicked value)? fabClicked,
+    TResult Function(BrowserPageEventUrlLoaded value)? urlLoaded,
+    required TResult orElse(),
+  }) {
+    if (urlLoaded != null) {
+      return urlLoaded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class BrowserPageEventUrlLoaded implements BrowserPageEvent {
+  factory BrowserPageEventUrlLoaded(String url) = _$BrowserPageEventUrlLoaded;
+
+  String get url;
+  @JsonKey(ignore: true)
+  $BrowserPageEventUrlLoadedCopyWith<BrowserPageEventUrlLoaded> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -11,6 +11,8 @@ class BrowserPageBloc extends Bloc<BrowserPageEvent, BrowserPageState> {
     on<BrowserPageEventEmpty>(_initEmpty);
     on<BrowserPageEventInitController>(_initController);
     on<BrowserPageEventSetUrl>(_setUrl);
+    on<BrowserPageEventFabClicked>(_onFabClicked);
+    on<BrowserPageEventUrlLoaded>(_onUrlLoaded);
   }
 
   FutureOr<void> _initController(
@@ -44,5 +46,21 @@ class BrowserPageBloc extends Bloc<BrowserPageEvent, BrowserPageState> {
       ),
     );
     state.data.webViewTabModel.controller.loadUrl(event.url);
+  }
+
+  FutureOr<void> _onFabClicked(
+    BrowserPageEventFabClicked event,
+    Emitter<BrowserPageState> emit,
+  ) {
+    // TODO
+    print('clicked');
+  }
+
+  FutureOr<void> _onUrlLoaded(
+    BrowserPageEventUrlLoaded event,
+    Emitter<BrowserPageState> emit,
+  ) {
+    // TODO
+    print('loaded');
   }
 }

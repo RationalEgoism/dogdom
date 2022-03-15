@@ -15,6 +15,8 @@ import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.io.File
 
 class YoutubeDlPluginImpl : FlutterPlugin, MethodChannel.MethodCallHandler {
@@ -56,25 +58,29 @@ class YoutubeDlPluginImpl : FlutterPlugin, MethodChannel.MethodCallHandler {
         call: MethodCall,
         result: MethodChannel.Result,
     ) {
-        Log.d(TAG_LOG, "getVideoInfo start")
-        val url = call.argument<String>("url")
-        Log.d(TAG_LOG, "getVideoInfo url: $url")
-        url?.let {
-            try {
-                val videoInfo: VideoInfo = YoutubeDL.getInstance().getInfo(url)
-                val jsonResult = Gson().toJson(videoInfo)
-                Log.d(TAG_LOG, "getVideoInfo jsonResult: $jsonResult")
-                result.success(jsonResult)
-            } catch (e: Exception) {
-                Log.d(TAG_LOG, "getVideoInfo error getting info")
-                e.printStackTrace()
-                result.error("errorCode", e.message, e.cause)
-            }
-        } ?: result.error(
-            "error",
-            "Error getting information about video formats: $url",
-            null,
-        )
+        _mainScope.launch {
+            Log.d(TAG_LOG, "getVideoInfo start")
+            val url = call.argument<String>("url")
+            Log.d(TAG_LOG, "getVideoInfo url: $url")
+            url?.let {
+                try {
+                    val videoInfo: VideoInfo = withContext(Dispatchers.IO) {
+                        YoutubeDL.getInstance().getInfo(url)
+                    }
+                    val jsonResult = Gson().toJson(videoInfo)
+                    Log.d(TAG_LOG, "getVideoInfo jsonResult: $jsonResult")
+                    result.success(jsonResult)
+                } catch (e: Exception) {
+                    Log.d(TAG_LOG, "getVideoInfo error getting info")
+                    e.printStackTrace()
+                    result.error("errorCode", e.message, e.cause)
+                }
+            } ?: result.error(
+                "error",
+                "Error getting information about video formats: $url",
+                null,
+            )
+        }
     }
 
     fun download(videoInfo: VideoInfo, videoFormat: VideoFormat) {

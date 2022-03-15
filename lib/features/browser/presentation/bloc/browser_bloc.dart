@@ -8,6 +8,8 @@ import 'package:injectable/injectable.dart';
 
 @injectable
 class BrowserPageBloc extends Bloc<BrowserPageEvent, BrowserPageState> {
+  static const String TAG_LOGGER = "TALANOV.BrowserPageBloc";
+
   BrowserPageBloc() : super(BrowserPageStateEmpty()) {
     on<BrowserPageEventEmpty>(_initEmpty);
     on<BrowserPageEventInitController>(_initController);
@@ -63,15 +65,16 @@ class BrowserPageBloc extends Bloc<BrowserPageEvent, BrowserPageState> {
     BrowserPageEventUrlLoaded event,
     Emitter<BrowserPageState> emit,
   ) async {
-    print('url loaded');
+    print('$TAG_LOGGER: loaded url: ${event.url}');
     if (_lastUrlUploaded != event.url) {
       _lastUrlUploaded = event.url;
       try {
         var result = await YoutubeDlPlugin.getInfo(event.url);
-        print(result.toString());
       } catch (e) {
-        print('_onUrlLoaded error: $e');
+        print('$TAG_LOGGER _onUrlLoaded error: $e');
       }
+    } else {
+      print('$TAG_LOGGER: repeat loaded url: ${event.url}');
     }
   }
 }

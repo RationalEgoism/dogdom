@@ -1,12 +1,15 @@
 import 'dart:async';
 
 import 'package:dogdom/core/data/model/web_view_tab_model.dart';
-import 'package:dogdom/features/browser/bloc/browser_bloc_models.dart';
+import 'package:dogdom/features/browser/presentation/bloc/browser_bloc_models.dart';
+import 'package:dogdom/plugins/YoutubeDlPlugin.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
 @injectable
 class BrowserPageBloc extends Bloc<BrowserPageEvent, BrowserPageState> {
+  static const String TAG_LOGGER = "TALANOV.BrowserPageBloc";
+
   BrowserPageBloc() : super(BrowserPageStateEmpty()) {
     on<BrowserPageEventEmpty>(_initEmpty);
     on<BrowserPageEventInitController>(_initController);
@@ -14,6 +17,8 @@ class BrowserPageBloc extends Bloc<BrowserPageEvent, BrowserPageState> {
     on<BrowserPageEventFabClicked>(_onFabClicked);
     on<BrowserPageEventUrlLoaded>(_onUrlLoaded);
   }
+
+  var _lastUrlUploaded;
 
   FutureOr<void> _initController(
     BrowserPageEventInitController event,
@@ -56,11 +61,20 @@ class BrowserPageBloc extends Bloc<BrowserPageEvent, BrowserPageState> {
     print('clicked');
   }
 
-  FutureOr<void> _onUrlLoaded(
+  Future<FutureOr<void>> _onUrlLoaded(
     BrowserPageEventUrlLoaded event,
     Emitter<BrowserPageState> emit,
-  ) {
-    // TODO
-    print('loaded');
+  ) async {
+    print('$TAG_LOGGER: loaded url: ${event.url}');
+    if (_lastUrlUploaded != event.url) {
+      _lastUrlUploaded = event.url;
+      try {
+        var result = await YoutubeDlPlugin.getInfo(event.url);
+      } catch (e) {
+        print('$TAG_LOGGER _onUrlLoaded error: $e');
+      }
+    } else {
+      print('$TAG_LOGGER: repeat loaded url: ${event.url}');
+    }
   }
 }

@@ -1,5 +1,5 @@
-import 'package:dogdom/features/browser/bloc/browser_bloc.dart';
-import 'package:dogdom/features/browser/bloc/browser_bloc_models.dart';
+import 'package:dogdom/features/browser/presentation/bloc/browser_bloc.dart';
+import 'package:dogdom/features/browser/presentation/bloc/browser_bloc_models.dart';
 import 'package:dogdom/generated/assets.gen.dart';
 import 'package:dogdom/generated/colors.gen.dart';
 import 'package:dogdom/generated/locale_export.dart';

@@ -8,7 +8,7 @@ import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
 import '../../core/data/repository/user_repository.dart' as _i6;
-import '../../features/browser/bloc/browser_bloc.dart' as _i3;
+import '../../features/browser/presentation/bloc/browser_bloc.dart' as _i3;
 import '../../features/home_select/domain/interactors/news_interactor.dart'
     as _i4;
 import '../../features/home_select/domain/interactors/promo_interactor.dart'

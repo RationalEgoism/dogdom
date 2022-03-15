@@ -83,4 +83,5 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.github.yausername.youtubedl-android:library:0.13.1'
     implementation 'com.github.yausername.youtubedl-android:ffmpeg:0.13.1'
+    implementation 'com.google.code.gson:gson:2.9.0'
 }

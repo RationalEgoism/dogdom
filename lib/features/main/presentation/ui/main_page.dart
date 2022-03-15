@@ -13,7 +13,7 @@ class MainPage extends StatelessWidget {
       homeIndex: 0,
       routes: const [
         HomeRouter(),
-        CircleRouter(),
+        BrowserRouter(),
         ReleaseRouter(),
         MessageRouter(),
         UserRouter(),

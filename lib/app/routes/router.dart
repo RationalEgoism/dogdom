@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:dogdom/features/circle/presentation/ui/circle_page.dart';
+import 'package:dogdom/features/browser/presentation/ui/browser_page.dart';
 import 'package:dogdom/features/home/presentation/ui/home_page.dart';
 import 'package:dogdom/features/login/presentation/ui/login_page.dart';
 import 'package:dogdom/features/main/presentation/ui/main_page.dart';
@@ -39,9 +39,16 @@ import 'package:dogdom/features/wip/wip_page.dart';
           ],
         ),
         AutoRoute(
-          path: 'circle',
-          name: 'CircleRouter',
-          page: CirclePage,
+          path: 'browser',
+          name: 'BrowserRouter',
+          page: EmptyRouterPage,
+          children: [
+            AutoRoute(
+              path: '',
+              name: 'BrowserRouterWebview',
+              page: BrowserPage,
+            ),
+          ],
         ),
         AutoRoute(
           path: 'message',

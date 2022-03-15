@@ -13,16 +13,16 @@
 import 'package:auto_route/auto_route.dart' as _i6;
 import 'package:flutter/material.dart' as _i12;
 
-import '../../features/circle/presentation/ui/circle_page.dart' as _i7;
-import '../../features/home/presentation/ui/home_page.dart' as _i11;
+import '../../features/browser/presentation/ui/browser_page.dart' as _i11;
+import '../../features/home/presentation/ui/home_page.dart' as _i10;
 import '../../features/login/presentation/ui/login_page.dart' as _i1;
 import '../../features/main/presentation/ui/main_page.dart' as _i2;
-import '../../features/message/presentation/ui/message_page.dart' as _i8;
+import '../../features/message/presentation/ui/message_page.dart' as _i7;
 import '../../features/notification/presentation/ui/notification_page.dart'
     as _i3;
-import '../../features/release/presentation/ui/release_page.dart' as _i9;
+import '../../features/release/presentation/ui/release_page.dart' as _i8;
 import '../../features/search/presentation/ui/search_page.dart' as _i4;
-import '../../features/user/presentation/ui/user_page.dart' as _i10;
+import '../../features/user/presentation/ui/user_page.dart' as _i9;
 import '../../features/wip/wip_page.dart' as _i5;
 
 class AppRouter extends _i6.RootStackRouter {
@@ -64,25 +64,25 @@ class AppRouter extends _i6.RootStackRouter {
       return _i6.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i6.EmptyRouterPage());
     },
-    CircleRouter.name: (routeData) {
+    BrowserRouter.name: (routeData) {
       return _i6.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i7.CirclePage());
+          routeData: routeData, child: const _i6.EmptyRouterPage());
     },
     MessageRouter.name: (routeData) {
       return _i6.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i8.MessagePage());
+          routeData: routeData, child: const _i7.MessagePage());
     },
     ReleaseRouter.name: (routeData) {
       return _i6.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i9.ReleasePage());
+          routeData: routeData, child: const _i8.ReleasePage());
     },
     UserRouter.name: (routeData) {
       return _i6.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i10.UserPage());
+          routeData: routeData, child: const _i9.UserPage());
     },
     HomeRoute.name: (routeData) {
       return _i6.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i11.HomePage());
+          routeData: routeData, child: const _i10.HomePage());
     },
     HomeNestedRouter.name: (routeData) {
       final pathParams = routeData.inheritedPathParams;
@@ -92,6 +92,10 @@ class AppRouter extends _i6.RootStackRouter {
       return _i6.MaterialPageX<dynamic>(
           routeData: routeData,
           child: _i5.WipPage(key: args.key, name: args.name));
+    },
+    BrowserRouterWebview.name: (routeData) {
+      return _i6.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i11.BrowserPage());
     }
   };
 
@@ -110,8 +114,13 @@ class AppRouter extends _i6.RootStackRouter {
                 _i6.RouteConfig(HomeNestedRouter.name,
                     path: 'ranking/:name', parent: HomeRouter.name)
               ]),
-          _i6.RouteConfig(CircleRouter.name,
-              path: 'circle', parent: MainRoute.name),
+          _i6.RouteConfig(BrowserRouter.name,
+              path: 'browser',
+              parent: MainRoute.name,
+              children: [
+                _i6.RouteConfig(BrowserRouterWebview.name,
+                    path: '', parent: BrowserRouter.name)
+              ]),
           _i6.RouteConfig(MessageRouter.name,
               path: 'message', parent: MainRoute.name),
           _i6.RouteConfig(ReleaseRouter.name,
@@ -209,15 +218,16 @@ class HomeRouter extends _i6.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i7.CirclePage]
-class CircleRouter extends _i6.PageRouteInfo<void> {
-  const CircleRouter() : super(CircleRouter.name, path: 'circle');
+/// [_i6.EmptyRouterPage]
+class BrowserRouter extends _i6.PageRouteInfo<void> {
+  const BrowserRouter({List<_i6.PageRouteInfo>? children})
+      : super(BrowserRouter.name, path: 'browser', initialChildren: children);
 
-  static const String name = 'CircleRouter';
+  static const String name = 'BrowserRouter';
 }
 
 /// generated route for
-/// [_i8.MessagePage]
+/// [_i7.MessagePage]
 class MessageRouter extends _i6.PageRouteInfo<void> {
   const MessageRouter() : super(MessageRouter.name, path: 'message');
 
@@ -225,7 +235,7 @@ class MessageRouter extends _i6.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i9.ReleasePage]
+/// [_i8.ReleasePage]
 class ReleaseRouter extends _i6.PageRouteInfo<void> {
   const ReleaseRouter() : super(ReleaseRouter.name, path: 'release');
 
@@ -233,7 +243,7 @@ class ReleaseRouter extends _i6.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i10.UserPage]
+/// [_i9.UserPage]
 class UserRouter extends _i6.PageRouteInfo<void> {
   const UserRouter() : super(UserRouter.name, path: 'user');
 
@@ -241,7 +251,7 @@ class UserRouter extends _i6.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i11.HomePage]
+/// [_i10.HomePage]
 class HomeRoute extends _i6.PageRouteInfo<void> {
   const HomeRoute() : super(HomeRoute.name, path: '');
 
@@ -271,4 +281,12 @@ class HomeNestedRouterArgs {
   String toString() {
     return 'HomeNestedRouterArgs{key: $key, name: $name}';
   }
+}
+
+/// generated route for
+/// [_i11.BrowserPage]
+class BrowserRouterWebview extends _i6.PageRouteInfo<void> {
+  const BrowserRouterWebview() : super(BrowserRouterWebview.name, path: '');
+
+  static const String name = 'BrowserRouterWebview';
 }

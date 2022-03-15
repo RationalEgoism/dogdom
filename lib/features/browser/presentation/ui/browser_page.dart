@@ -14,38 +14,41 @@ class BrowserPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: ColorName.red,
-        title: Row(
-          children: [
-            Flexible(
-              child: TextField(
-                enableInteractiveSelection: true,
-                decoration: InputDecoration(
-                  contentPadding: EdgeInsets.all(0),
-                  filled: true,
-                  fillColor: ColorName.searchBackground,
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide.none,
-                    borderRadius: BorderRadius.circular(21),
+    return BlocProvider<BrowserPageBloc>(
+      create: (_) => GetIt.I.get()..add(BrowserPageEvent.empty()),
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: ColorName.red,
+          title: Row(
+            children: [
+              Flexible(
+                child: TextField(
+                  onSubmitted: (text) {
+                    print(text);
+                  },
+                  enableInteractiveSelection: true,
+                  decoration: InputDecoration(
+                    contentPadding: EdgeInsets.all(0),
+                    filled: true,
+                    fillColor: ColorName.searchBackground,
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide.none,
+                      borderRadius: BorderRadius.circular(21),
+                    ),
+                    prefixIcon: SvgPicture.asset(
+                      Assets.image.search.path,
+                      color: ColorName.black25,
+                      fit: BoxFit.none,
+                    ),
+                    hintText: LocaleKeys.common_search.tr(),
+                    hintStyle: TextStyle(color: ColorName.black25),
                   ),
-                  prefixIcon: SvgPicture.asset(
-                    Assets.image.search.path,
-                    color: ColorName.black25,
-                    fit: BoxFit.none,
-                  ),
-                  hintText: LocaleKeys.common_search.tr(),
-                  hintStyle: TextStyle(color: ColorName.black25),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
-      ),
-      body: BlocProvider<BrowserPageBloc>(
-        create: (_) => GetIt.I.get()..add(BrowserPageEvent.empty()),
-        child: WebViewDogdom(),
+        body: WebViewDogdom(),
       ),
     );
   }

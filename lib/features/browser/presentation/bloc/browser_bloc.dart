@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:dogdom/core/data/model/web_view_tab_model.dart';
 import 'package:dogdom/features/browser/presentation/bloc/browser_bloc_models.dart';
+import 'package:dogdom/features/browser/presentation/bloc/browser_fab_state.dart';
 import 'package:dogdom/plugins/YoutubeDlPlugin.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
@@ -18,7 +19,8 @@ class BrowserPageBloc extends Bloc<BrowserPageEvent, BrowserPageState> {
     on<BrowserPageEventUrlLoaded>(_onUrlLoaded);
   }
 
-  var _lastUrlUploaded;
+  // TODO search can use it here
+  String _lastUrlUploaded = "";
 
   FutureOr<void> _initController(
     BrowserPageEventInitController event,
@@ -30,6 +32,7 @@ class BrowserPageBloc extends Bloc<BrowserPageEvent, BrowserPageState> {
           controller: event.controller,
           url: 'https://google.com',
         ),
+        fabStatus: FabStatus.loading,
       ),
     );
   }
@@ -45,11 +48,7 @@ class BrowserPageBloc extends Bloc<BrowserPageEvent, BrowserPageState> {
     BrowserPageEventSetUrl event,
     Emitter<BrowserPageState> emit,
   ) {
-    emit(
-      state.data.copyWith(
-        webViewTabModel: state.data.webViewTabModel.copyWith(url: event.url),
-      ),
-    );
+    emit(state.data.copyWith.webViewTabModel(url: event.url));
     state.data.webViewTabModel.controller.loadUrl(event.url);
   }
 
@@ -66,12 +65,17 @@ class BrowserPageBloc extends Bloc<BrowserPageEvent, BrowserPageState> {
     Emitter<BrowserPageState> emit,
   ) async {
     print('$TAG_LOGGER: loaded url: ${event.url}');
+    emit(state.data.copyWith(fabStatus: FabStatus.loading));
     if (_lastUrlUploaded != event.url) {
       _lastUrlUploaded = event.url;
       try {
+        print('$TAG_LOGGER _onUrlLoaded start getInfo');
         var result = await YoutubeDlPlugin.getInfo(event.url);
+        print('$TAG_LOGGER _onUrlLoaded getInfo result: $result');
+        emit(state.data.copyWith(fabStatus: FabStatus.active));
       } catch (e) {
         print('$TAG_LOGGER _onUrlLoaded error: $e');
+        emit(state.data.copyWith(fabStatus: FabStatus.disabled));
       }
     } else {
       print('$TAG_LOGGER: repeat loaded url: ${event.url}');

@@ -22,9 +22,12 @@ class _$BrowserPageStateTearOff {
     return BrowserPageStateEmpty();
   }
 
-  BrowserPageStateData data({required WebViewTabModel webViewTabModel}) {
+  BrowserPageStateData data(
+      {required WebViewTabModel webViewTabModel,
+      required FabStatus fabStatus}) {
     return BrowserPageStateData(
       webViewTabModel: webViewTabModel,
+      fabStatus: fabStatus,
     );
   }
 }
@@ -37,19 +40,23 @@ mixin _$BrowserPageState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() empty,
-    required TResult Function(WebViewTabModel webViewTabModel) data,
+    required TResult Function(
+            WebViewTabModel webViewTabModel, FabStatus fabStatus)
+        data,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? empty,
-    TResult Function(WebViewTabModel webViewTabModel)? data,
+    TResult Function(WebViewTabModel webViewTabModel, FabStatus fabStatus)?
+        data,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? empty,
-    TResult Function(WebViewTabModel webViewTabModel)? data,
+    TResult Function(WebViewTabModel webViewTabModel, FabStatus fabStatus)?
+        data,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -133,7 +140,9 @@ class _$BrowserPageStateEmpty extends BrowserPageStateEmpty {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() empty,
-    required TResult Function(WebViewTabModel webViewTabModel) data,
+    required TResult Function(
+            WebViewTabModel webViewTabModel, FabStatus fabStatus)
+        data,
   }) {
     return empty();
   }
@@ -142,7 +151,8 @@ class _$BrowserPageStateEmpty extends BrowserPageStateEmpty {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? empty,
-    TResult Function(WebViewTabModel webViewTabModel)? data,
+    TResult Function(WebViewTabModel webViewTabModel, FabStatus fabStatus)?
+        data,
   }) {
     return empty?.call();
   }
@@ -151,7 +161,8 @@ class _$BrowserPageStateEmpty extends BrowserPageStateEmpty {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? empty,
-    TResult Function(WebViewTabModel webViewTabModel)? data,
+    TResult Function(WebViewTabModel webViewTabModel, FabStatus fabStatus)?
+        data,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -202,7 +213,7 @@ abstract class $BrowserPageStateDataCopyWith<$Res> {
   factory $BrowserPageStateDataCopyWith(BrowserPageStateData value,
           $Res Function(BrowserPageStateData) then) =
       _$BrowserPageStateDataCopyWithImpl<$Res>;
-  $Res call({WebViewTabModel webViewTabModel});
+  $Res call({WebViewTabModel webViewTabModel, FabStatus fabStatus});
 
   $WebViewTabModelCopyWith<$Res> get webViewTabModel;
 }
@@ -221,12 +232,17 @@ class _$BrowserPageStateDataCopyWithImpl<$Res>
   @override
   $Res call({
     Object? webViewTabModel = freezed,
+    Object? fabStatus = freezed,
   }) {
     return _then(BrowserPageStateData(
       webViewTabModel: webViewTabModel == freezed
           ? _value.webViewTabModel
           : webViewTabModel // ignore: cast_nullable_to_non_nullable
               as WebViewTabModel,
+      fabStatus: fabStatus == freezed
+          ? _value.fabStatus
+          : fabStatus // ignore: cast_nullable_to_non_nullable
+              as FabStatus,
     ));
   }
 
@@ -241,14 +257,18 @@ class _$BrowserPageStateDataCopyWithImpl<$Res>
 /// @nodoc
 
 class _$BrowserPageStateData extends BrowserPageStateData {
-  _$BrowserPageStateData({required this.webViewTabModel}) : super._();
+  _$BrowserPageStateData(
+      {required this.webViewTabModel, required this.fabStatus})
+      : super._();
 
   @override
   final WebViewTabModel webViewTabModel;
+  @override
+  final FabStatus fabStatus;
 
   @override
   String toString() {
-    return 'BrowserPageState.data(webViewTabModel: $webViewTabModel)';
+    return 'BrowserPageState.data(webViewTabModel: $webViewTabModel, fabStatus: $fabStatus)';
   }
 
   @override
@@ -257,12 +277,15 @@ class _$BrowserPageStateData extends BrowserPageStateData {
         (other.runtimeType == runtimeType &&
             other is BrowserPageStateData &&
             const DeepCollectionEquality()
-                .equals(other.webViewTabModel, webViewTabModel));
+                .equals(other.webViewTabModel, webViewTabModel) &&
+            const DeepCollectionEquality().equals(other.fabStatus, fabStatus));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(webViewTabModel));
+      runtimeType,
+      const DeepCollectionEquality().hash(webViewTabModel),
+      const DeepCollectionEquality().hash(fabStatus));
 
   @JsonKey(ignore: true)
   @override
@@ -274,29 +297,33 @@ class _$BrowserPageStateData extends BrowserPageStateData {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() empty,
-    required TResult Function(WebViewTabModel webViewTabModel) data,
+    required TResult Function(
+            WebViewTabModel webViewTabModel, FabStatus fabStatus)
+        data,
   }) {
-    return data(webViewTabModel);
+    return data(webViewTabModel, fabStatus);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? empty,
-    TResult Function(WebViewTabModel webViewTabModel)? data,
+    TResult Function(WebViewTabModel webViewTabModel, FabStatus fabStatus)?
+        data,
   }) {
-    return data?.call(webViewTabModel);
+    return data?.call(webViewTabModel, fabStatus);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? empty,
-    TResult Function(WebViewTabModel webViewTabModel)? data,
+    TResult Function(WebViewTabModel webViewTabModel, FabStatus fabStatus)?
+        data,
     required TResult orElse(),
   }) {
     if (data != null) {
-      return data(webViewTabModel);
+      return data(webViewTabModel, fabStatus);
     }
     return orElse();
   }
@@ -334,11 +361,13 @@ class _$BrowserPageStateData extends BrowserPageStateData {
 }
 
 abstract class BrowserPageStateData extends BrowserPageState {
-  factory BrowserPageStateData({required WebViewTabModel webViewTabModel}) =
-      _$BrowserPageStateData;
+  factory BrowserPageStateData(
+      {required WebViewTabModel webViewTabModel,
+      required FabStatus fabStatus}) = _$BrowserPageStateData;
   BrowserPageStateData._() : super._();
 
   WebViewTabModel get webViewTabModel;
+  FabStatus get fabStatus;
   @JsonKey(ignore: true)
   $BrowserPageStateDataCopyWith<BrowserPageStateData> get copyWith =>
       throw _privateConstructorUsedError;

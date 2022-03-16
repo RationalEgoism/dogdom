@@ -1,4 +1,5 @@
 import 'package:dogdom/core/data/model/web_view_tab_model.dart';
+import 'package:dogdom/features/browser/presentation/bloc/browser_fab_state.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -14,6 +15,7 @@ class BrowserPageState with _$BrowserPageState {
 
   factory BrowserPageState.data({
     required WebViewTabModel webViewTabModel,
+    required FabStatus fabStatus,
   }) = BrowserPageStateData;
 }
 
